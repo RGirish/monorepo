@@ -5,7 +5,7 @@ A minimal chatbot that uses local LLM with tool calling capabilities.
 ## Setup
 
 ```bash
-pip install huggingface_hub
+pip install -r requirements.txt
 ```
 
 Start local LLM server on `localhost:1234` (tested with `mistralai/mistral-7b-instruct-v0.3` on LM Studio)
