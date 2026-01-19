@@ -11,7 +11,7 @@ from . import tools  # noqa: F401, E402
 
 def main():
     """Run the MCP server."""
-    mcp.run()
+    mcp.run("streamable-http")
 
 
 if __name__ == "__main__":
