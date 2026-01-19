@@ -1,1 +1,2 @@
 fastmcp>=0.1.0
+snowflake-id>=1.0.0
