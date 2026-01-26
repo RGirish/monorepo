@@ -1,6 +1,6 @@
 # Jarvis
 
-A Python CLI application.
+Jarvis - my personal assistant. 
 
 ## Installation
 
@@ -20,12 +20,6 @@ pip install -e ".[dev]"
 jarvis
 ```
 
-Show version:
-
-```bash
-jarvis --version
-```
-
 ## Development
 
 Run tests:
@@ -33,3 +27,10 @@ Run tests:
 ```bash
 pytest tests/
 ```
+
+
+## Wishlist
+
+- Custom greeting 
+- Long-term memory 
+- Integration with the TODO MCP 
