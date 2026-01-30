@@ -2,10 +2,12 @@
 
 from __future__ import annotations
 
-from typing import Callable, Optional
+from typing import Callable, List, Optional
 
+from mcp.client.streamable_http import streamable_http_client
 from strands import Agent
 from strands.models.ollama import OllamaModel
+from strands.tools.mcp import MCPClient
 
 from src.config import JarvisConfig, get_config
 
@@ -43,6 +45,23 @@ def create_ollama_model(config: Optional[JarvisConfig] = None) -> OllamaModel:
         ) from e
 
 
+def create_todo_mcp_client(config: Optional[JarvisConfig] = None) -> MCPClient:
+    """Create TODO MCP client based on configuration.
+
+    Args:
+        config: Configuration to use. Defaults to global config.
+
+    Returns:
+        Configured MCPClient instance for the TODO MCP server.
+    """
+    cfg = config or get_config()
+
+    return MCPClient(
+        lambda url=cfg.todo_mcp.url: streamable_http_client(url),
+        startup_timeout=cfg.todo_mcp.startup_timeout,
+    )
+
+
 def create_agent(
     callback_handler: Optional[Callable] = None,
     config: Optional[JarvisConfig] = None,
@@ -59,10 +78,13 @@ def create_agent(
     Raises:
         AgentCreationError: If agent creation fails.
     """
-    model = create_ollama_model(config)
+    cfg = config or get_config()
+    model = create_ollama_model(cfg)
+    todo_mcp_client = create_todo_mcp_client(cfg)
 
     agent = Agent(
         model=model,
         callback_handler=callback_handler,
+        tools=[todo_mcp_client],
     )
     return agent

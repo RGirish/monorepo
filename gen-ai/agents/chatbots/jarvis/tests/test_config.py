@@ -8,6 +8,7 @@ import pytest
 from src.config import (
     JarvisConfig,
     OllamaConfig,
+    TodoMCPConfig,
     UIConfig,
     get_config,
     reset_config,
@@ -58,21 +59,54 @@ class TestUIConfig:
             config.user_prompt = ">> "
 
 
+class TestTodoMCPConfig:
+    def test_defaults(self):
+        config = TodoMCPConfig()
+        assert config.url == "http://127.0.0.1:8000/mcp"
+        assert config.startup_timeout == 30
+
+    def test_from_env(self):
+        with patch.dict(
+            os.environ,
+            {
+                "JARVIS_TODO_MCP_URL": "http://custom:9000/mcp",
+                "JARVIS_TODO_MCP_TIMEOUT": "60",
+            },
+        ):
+            config = TodoMCPConfig.from_env()
+            assert config.url == "http://custom:9000/mcp"
+            assert config.startup_timeout == 60
+
+    def test_from_env_uses_defaults_when_not_set(self):
+        with patch.dict(os.environ, {}, clear=True):
+            config = TodoMCPConfig.from_env()
+            assert config.url == "http://127.0.0.1:8000/mcp"
+            assert config.startup_timeout == 30
+
+    def test_immutable(self):
+        config = TodoMCPConfig()
+        with pytest.raises(Exception):
+            config.url = "http://other:8000/mcp"
+
+
 class TestJarvisConfig:
     def test_defaults(self):
         config = JarvisConfig()
         assert isinstance(config.ollama, OllamaConfig)
         assert isinstance(config.ui, UIConfig)
+        assert isinstance(config.todo_mcp, TodoMCPConfig)
 
     def test_from_env(self):
         with patch.dict(
             os.environ,
             {
                 "JARVIS_OLLAMA_HOST": "http://test:5000",
+                "JARVIS_TODO_MCP_URL": "http://test:9000/mcp",
             },
         ):
             config = JarvisConfig.from_env()
             assert config.ollama.host == "http://test:5000"
+            assert config.todo_mcp.url == "http://test:9000/mcp"
 
     def test_immutable(self):
         config = JarvisConfig()

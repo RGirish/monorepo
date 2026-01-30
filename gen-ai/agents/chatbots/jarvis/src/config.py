@@ -24,6 +24,22 @@ class OllamaConfig:
 
 
 @dataclass(frozen=True)
+class TodoMCPConfig:
+    """TODO MCP server configuration."""
+
+    url: str = "http://127.0.0.1:8000/mcp"
+    startup_timeout: int = 30
+
+    @classmethod
+    def from_env(cls) -> TodoMCPConfig:
+        """Create configuration from environment variables."""
+        return cls(
+            url=os.getenv("JARVIS_TODO_MCP_URL", cls.url),
+            startup_timeout=int(os.getenv("JARVIS_TODO_MCP_TIMEOUT", str(cls.startup_timeout))),
+        )
+
+
+@dataclass(frozen=True)
 class UIConfig:
     """UI-related configuration."""
 
@@ -40,6 +56,7 @@ class JarvisConfig:
 
     ollama: OllamaConfig = field(default_factory=OllamaConfig)
     ui: UIConfig = field(default_factory=UIConfig)
+    todo_mcp: TodoMCPConfig = field(default_factory=TodoMCPConfig)
 
     @classmethod
     def from_env(cls) -> JarvisConfig:
@@ -47,6 +64,7 @@ class JarvisConfig:
         return cls(
             ollama=OllamaConfig.from_env(),
             ui=UIConfig(),
+            todo_mcp=TodoMCPConfig.from_env(),
         )
 
 
