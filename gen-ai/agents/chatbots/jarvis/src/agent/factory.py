@@ -15,7 +15,6 @@ from src.config import JarvisConfig, get_config
 
 class AgentCreationError(Exception):
     """Raised when agent creation fails."""
-
     pass
 
 
@@ -53,19 +52,20 @@ def create_todo_mcp_client(config: Optional[JarvisConfig] = None) -> MCPClient:
         config: Configuration to use. Defaults to global config.
 
     Returns:
-        Configured MCPClient instance for the TODO MCP server.
+        Configured MCPClient instance for the TODO MCP server,
+        or None if the server is not available.
     """
     cfg = config or get_config()
-
-    return MCPClient(
+    client = MCPClient(
         lambda url=cfg.todo_mcp.url: streamable_http_client(url),
         startup_timeout=cfg.todo_mcp.startup_timeout,
     )
+    return client
 
 
 def create_agent(
-    callback_handler: Optional[Callable] = None,
-    config: Optional[JarvisConfig] = None,
+        callback_handler: Optional[Callable] = None,
+        config: Optional[JarvisConfig] = None,
 ) -> Agent:
     """Create a fully configured Jarvis agent.
 
@@ -81,6 +81,7 @@ def create_agent(
     """
     cfg = config or get_config()
     model = create_ollama_model(cfg)
+
     todo_mcp_client = create_todo_mcp_client(cfg)
 
     agent = Agent(

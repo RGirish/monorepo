@@ -38,6 +38,7 @@ class Spinner:
         self._old_settings: Optional[list] = None
         self._interval = get_config().ui.spinner_interval
         self._lock = threading.Lock()
+        self._needs_clear = False
 
     def __enter__(self) -> Spinner:
         """Context manager entry - starts spinner."""
@@ -55,6 +56,7 @@ class Spinner:
             return
 
         self._running = True
+        self._needs_clear = True
         self._save_terminal_settings()
         self._thread = threading.Thread(target=self._spin, daemon=True)
         self._thread.start()
@@ -66,7 +68,9 @@ class Spinner:
             self._thread.join(timeout=0.5)
             self._thread = None
         with self._lock:
-            print("\r  \r", end="", flush=True)
+            if self._needs_clear:
+                print("\r  \r", end="", flush=True)
+                self._needs_clear = False
 
     def restore_terminal(self) -> None:
         """Restore terminal settings and flush buffered input."""
