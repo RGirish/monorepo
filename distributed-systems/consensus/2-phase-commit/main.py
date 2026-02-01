@@ -1,3 +1,11 @@
+"""
+Basic implementation of the 2-phase commit protocol 
+
+https://hongilkwon.medium.com/when-to-use-two-phase-commit-in-distributed-transaction-f1296b8c23fd
+https://martinfowler.com/articles/patterns-of-distributed-systems/two-phase-commit.html
+https://en.wikipedia.org/wiki/Two-phase_commit_protocol
+"""
+
 from abc import ABC, abstractmethod
 from random import random
 from typing import List
