@@ -63,6 +63,7 @@ class JarvisREPL:
         user_input = input(self._config.ui.user_prompt).strip()
 
         if user_input.lower() in self._config.ui.exit_commands:
+            print("Goodbye!")
             return False
 
         if not user_input:

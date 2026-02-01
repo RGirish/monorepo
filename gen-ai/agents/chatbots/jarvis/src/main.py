@@ -29,7 +29,10 @@ def main() -> int:
         print(f"Error: {e}")
         return 1
 
-    run_interactive_loop(agent, spinner, callback_handler)
+    try:
+        run_interactive_loop(agent, spinner, callback_handler)
+    finally:
+        agent.cleanup()
     return 0
 
 
