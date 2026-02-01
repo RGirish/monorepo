@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
-from typing import Callable, List, Optional
+from typing import Callable, Optional
 
 from mcp.client.streamable_http import streamable_http_client
 from strands import Agent
 from strands.models.ollama import OllamaModel
 from strands.tools.mcp import MCPClient
 
+from src.agent.prompts import SYSTEM_PROMPT
 from src.config import JarvisConfig, get_config
 
 
@@ -86,5 +87,6 @@ def create_agent(
         model=model,
         callback_handler=callback_handler,
         tools=[todo_mcp_client],
+        system_prompt=SYSTEM_PROMPT,
     )
     return agent

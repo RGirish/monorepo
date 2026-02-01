@@ -12,7 +12,7 @@ class OllamaConfig:
     """Ollama model configuration."""
 
     host: str = "http://localhost:11434"
-    model_id: str = "mistral:7b"
+    model_id: str = "qwen3:8b"
 
     @classmethod
     def from_env(cls) -> OllamaConfig:
