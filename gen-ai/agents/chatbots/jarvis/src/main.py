@@ -3,7 +3,7 @@
 import sys
 
 from src.agent.callbacks import StreamingCallbackHandler
-from src.agent.factory import AgentCreationError, create_agent
+from src.agent.factory import AgentCreationError, AgentMode, create_agent
 from src.cli.repl import run_interactive_loop
 from src.ui.console import print_assistant_prefix, print_greeting
 from src.ui.spinner import Spinner
@@ -24,7 +24,7 @@ def main() -> int:
     )
 
     try:
-        agent = create_agent(callback_handler=callback_handler)
+        agent = create_agent(callback_handler=callback_handler, mode=AgentMode.CLI)
     except AgentCreationError as e:
         print(f"Error: {e}")
         return 1

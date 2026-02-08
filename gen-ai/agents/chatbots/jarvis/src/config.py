@@ -40,6 +40,28 @@ class TodoMCPConfig:
 
 
 @dataclass(frozen=True)
+class A2AConfig:
+    """A2A server configuration."""
+
+    host: str = "127.0.0.1"
+    port: int = 9000
+    version: str = "0.0.1"
+    agent_name: str = "Jarvis"
+    agent_description: str = "A helpful personal assistant with access to task management tools"
+
+    @classmethod
+    def from_env(cls) -> A2AConfig:
+        """Create configuration from environment variables."""
+        return cls(
+            host=os.getenv("JARVIS_A2A_HOST", cls.host),
+            port=int(os.getenv("JARVIS_A2A_PORT", str(cls.port))),
+            version=os.getenv("JARVIS_A2A_VERSION", cls.version),
+            agent_name=os.getenv("JARVIS_A2A_NAME", cls.agent_name),
+            agent_description=os.getenv("JARVIS_A2A_DESCRIPTION", cls.agent_description),
+        )
+
+
+@dataclass(frozen=True)
 class UIConfig:
     """UI-related configuration."""
 
@@ -57,6 +79,7 @@ class JarvisConfig:
     ollama: OllamaConfig = field(default_factory=OllamaConfig)
     ui: UIConfig = field(default_factory=UIConfig)
     todo_mcp: TodoMCPConfig = field(default_factory=TodoMCPConfig)
+    a2a: A2AConfig = field(default_factory=A2AConfig)
 
     @classmethod
     def from_env(cls) -> JarvisConfig:
@@ -65,6 +88,7 @@ class JarvisConfig:
             ollama=OllamaConfig.from_env(),
             ui=UIConfig(),
             todo_mcp=TodoMCPConfig.from_env(),
+            a2a=A2AConfig.from_env(),
         )
 
 

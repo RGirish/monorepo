@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from enum import Enum
 from typing import Callable, Optional
 
 from mcp.client.streamable_http import streamable_http_client
@@ -11,6 +12,13 @@ from strands.tools.mcp import MCPClient
 
 from src.agent.prompts import SYSTEM_PROMPT
 from src.config import JarvisConfig, get_config
+
+
+class AgentMode(Enum):
+    """Agent operating mode."""
+
+    CLI = "cli"
+    A2A = "a2a"
 
 
 class AgentCreationError(Exception):
@@ -66,12 +74,14 @@ def create_todo_mcp_client(config: Optional[JarvisConfig] = None) -> MCPClient:
 def create_agent(
         callback_handler: Optional[Callable] = None,
         config: Optional[JarvisConfig] = None,
+        mode: AgentMode = AgentMode.CLI,
 ) -> Agent:
     """Create a fully configured Jarvis agent.
 
     Args:
-        callback_handler: Optional callback for streaming responses.
+        callback_handler: Optional callback for streaming responses (CLI mode only).
         config: Configuration to use. Defaults to global config.
+        mode: Operating mode - CLI (with callbacks) or A2A (server mode).
 
     Returns:
         Configured Agent instance.
@@ -84,10 +94,23 @@ def create_agent(
 
     todo_mcp_client = create_todo_mcp_client(cfg)
 
-    agent = Agent(
-        model=model,
-        callback_handler=callback_handler,
-        tools=[todo_mcp_client],
-        system_prompt=SYSTEM_PROMPT,
-    )
+    # Common agent kwargs
+    agent_kwargs = {
+        "model": model,
+        "tools": [todo_mcp_client],
+        "system_prompt": SYSTEM_PROMPT,
+    }
+
+    if mode == AgentMode.A2A:
+        # A2A mode: requires name and description, no callback handler
+        agent_kwargs.update({
+            "name": cfg.a2a.agent_name,
+            "description": cfg.a2a.agent_description,
+            "callback_handler": None,
+        })
+    else:
+        # CLI mode: uses callback handler for streaming
+        agent_kwargs["callback_handler"] = callback_handler
+
+    agent = Agent(**agent_kwargs)
     return agent
