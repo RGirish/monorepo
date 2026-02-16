@@ -1,8 +1,9 @@
 from cool_but_weak import CaesarCipher
-from aes import AESCipher
+from aes import MyAESCipher, AESCipher
 
 ciphers = [
     CaesarCipher(),
+    MyAESCipher(),
     AESCipher(),
 ]
 

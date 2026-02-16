@@ -1,6 +1,7 @@
 import os
 from typing import ByteString
 from cipher import Cipher
+from cryptography.hazmat.primitives.ciphers import Cipher as CryptoCipher, algorithms, modes
 
 # AES S-box: derived from multiplicative inverse in GF(2^8) + affine transform
 S_BOX = [
@@ -62,7 +63,7 @@ def _gf_mul(a: int, b: int) -> int:
     return result
 
 
-class AESCipher(Cipher):
+class MyAESCipher(Cipher):
     BLOCK_SIZE = 16
     KEY_SIZE = 16  # AES-128
     NUM_ROUNDS = 10
@@ -219,3 +220,25 @@ class AESCipher(Cipher):
             block = bytes(c[i:i + self.BLOCK_SIZE])
             plaintext += self._decrypt_block(block, round_keys)
         return self._unpad(plaintext)
+
+
+class AESCipher(Cipher):
+    BLOCK_SIZE = 16
+    KEY_SIZE = 16  # AES-128
+
+    def _generate_key(self) -> bytes:
+        return os.urandom(self.KEY_SIZE)
+
+    def encrypt(self, m: ByteString) -> ByteString:
+        nonce = os.urandom(self.BLOCK_SIZE)
+        cipher = CryptoCipher(algorithms.AES(self._key), modes.CTR(nonce))
+        encryptor = cipher.encryptor()
+        return nonce + encryptor.update(bytes(m)) + encryptor.finalize()
+
+    def decrypt(self, c: ByteString) -> ByteString:
+        c = bytes(c)
+        nonce = c[:self.BLOCK_SIZE]
+        ciphertext = c[self.BLOCK_SIZE:]
+        cipher = CryptoCipher(algorithms.AES(self._key), modes.CTR(nonce))
+        decryptor = cipher.decryptor()
+        return decryptor.update(ciphertext) + decryptor.finalize()
