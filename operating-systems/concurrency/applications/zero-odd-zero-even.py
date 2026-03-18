@@ -42,3 +42,39 @@ class ZeroEvenOdd:
                 self.i += 1
                 self.zero_done = False
                 self.c_zero.notify()
+
+
+class ZeroEvenOddSingleCondition:
+    def __init__(self, n):
+        self.n = n
+        self.i = 0
+        self.zero_done = False
+        self.condition = Condition(Lock())
+
+    def zero(self, printNumber: 'Callable[[int], None]') -> None:
+        for _ in range(self.n):
+            with self.condition:
+                while self.zero_done:
+                    self.condition.wait()
+                printNumber(0)
+                self.i += 1
+                self.zero_done = True
+                self.condition.notify_all()
+
+    def odd(self, printNumber: 'Callable[[int], None]') -> None:
+        for _ in range((self.n + 1) // 2):
+            with self.condition:
+                while not (self.zero_done and self.i % 2 == 1):
+                    self.condition.wait()
+                printNumber(self.i)
+                self.zero_done = False
+                self.condition.notify_all()
+
+    def even(self, printNumber: 'Callable[[int], None]') -> None:
+        for _ in range(self.n // 2):
+            with self.condition:
+                while not (self.zero_done and self.i % 2 == 0):
+                    self.condition.wait()
+                printNumber(self.i)
+                self.zero_done = False
+                self.condition.notify_all()
