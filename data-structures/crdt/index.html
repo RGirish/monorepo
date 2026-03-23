@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CRDT Editor</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: monospace;
+      background: #1e1e1e;
+      color: #d4d4d4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    #header {
+      font-size: 1.4em;
+      margin-bottom: 6px;
+      letter-spacing: 0.05em;
+    }
+
+    #status {
+      font-size: 0.85em;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    #status.offline { color: #f97583; }
+
+    #editor {
+      width: 640px;
+      height: 300px;
+      background: #252526;
+      color: #d4d4d4;
+      border: 1px solid #3c3c3c;
+      border-radius: 4px;
+      padding: 14px;
+      font-family: monospace;
+      font-size: 1em;
+      resize: none;
+      outline: none;
+    }
+
+    #editor:focus { border-color: #569cd6; }
+
+    #editor.offline {
+      border-color: #f97583;
+      opacity: 0.85;
+    }
+
+    #peer-box {
+      margin-top: 24px;
+      width: 640px;
+    }
+
+    #peer-label {
+      font-size: 0.75em;
+      color: #888;
+      margin-bottom: 6px;
+    }
+
+    #peer-text {
+      background: #1a1a1a;
+      border: 1px solid #3c3c3c;
+      border-radius: 4px;
+      padding: 10px 14px;
+      font-size: 0.9em;
+      min-height: 40px;
+      white-space: pre-wrap;
+      color: #888;
+    }
+
+    #toggle {
+      margin-top: 20px;
+      padding: 8px 24px;
+      background: #3c3c3c;
+      color: #d4d4d4;
+      border: 1px solid #555;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: monospace;
+      font-size: 0.9em;
+    }
+
+    #toggle:hover { background: #4a4a4a; }
+    #toggle.offline { border-color: #f97583; color: #f97583; }
+  </style>
+</head>
+<body>
+  <div id="header">CRDT Collaborative Editor</div>
+  <div id="status">connecting...</div>
+  <textarea id="editor" placeholder="waiting for connection..."></textarea>
+
+  <div id="peer-box">
+    <div id="peer-label">peer's document</div>
+    <div id="peer-text"></div>
+  </div>
+
+  <button id="toggle">go offline</button>
+
+  <script>
+    const editor   = document.getElementById("editor");
+    const status   = document.getElementById("status");
+    const peerText = document.getElementById("peer-text");
+    const toggle   = document.getElementById("toggle");
+
+    let ws;
+    let myUser      = null;
+    let isOffline   = false;
+    let ignoreNext  = false;  // suppress input event when we set value programmatically
+    let pendingCursor = null; // cursor position to restore after server ack
+
+    function connect() {
+      ws = new WebSocket("ws://localhost:8765");
+
+      ws.onopen = () => {
+        status.textContent = "connected — waiting for user assignment";
+      };
+
+      ws.onmessage = (e) => {
+        const msg = JSON.parse(e.data);
+
+        if (msg.error) {
+          status.textContent = msg.error;
+          editor.disabled = true;
+          return;
+        }
+
+        myUser    = msg.user;
+        isOffline = msg.offline;
+
+        // update status bar
+        status.textContent  = `you are: ${myUser}${isOffline ? " [offline]" : ""}`;
+        status.className    = isOffline ? "offline" : "";
+        editor.className    = isOffline ? "offline" : "";
+        toggle.textContent  = isOffline ? "go online" : "go offline";
+        toggle.className    = isOffline ? "offline" : "";
+
+        // update editor without triggering our input handler
+        const sel   = pendingCursor !== null ? pendingCursor : editor.selectionStart;
+        pendingCursor = null;
+        ignoreNext  = true;
+        editor.value = msg.text;
+        editor.setSelectionRange(sel, sel);
+
+        // update peer view
+        const peerName = Object.keys(msg.peers)[0];
+        peerText.textContent = msg.peers[peerName] || "(empty)";
+        document.getElementById("peer-label").textContent =
+          `${peerName}'s document`;
+      };
+
+      ws.onclose = () => {
+        status.textContent = "disconnected — reload to reconnect";
+        editor.disabled = true;
+      };
+    }
+
+    // intercept keystrokes before the browser updates the textarea
+    editor.addEventListener("keydown", (e) => {
+      if (!ws || ws.readyState !== WebSocket.OPEN) return;
+
+      const pos = editor.selectionStart;
+
+      if (e.key === "Backspace") {
+        e.preventDefault();
+        if (pos > 0) {
+          pendingCursor = pos - 1;
+          ws.send(JSON.stringify({ type: "delete", pos: pos - 1 }));
+        }
+        return;
+      }
+
+      if (e.key === "Delete") {
+        e.preventDefault();
+        pendingCursor = pos;
+        ws.send(JSON.stringify({ type: "delete", pos: pos }));
+        return;
+      }
+
+      // ignore control keys
+      if (e.key.length !== 1 || e.ctrlKey || e.metaKey) return;
+
+      e.preventDefault();
+      pendingCursor = pos + 1;
+      ws.send(JSON.stringify({ type: "insert", pos: pos, char: e.key }));
+    });
+
+    toggle.addEventListener("click", () => {
+      if (!ws || ws.readyState !== WebSocket.OPEN) return;
+      if (isOffline) {
+        ws.send(JSON.stringify({ type: "online" }));
+      } else {
+        ws.send(JSON.stringify({ type: "offline" }));
+      }
+    });
+
+    connect();
+  </script>
+</body>
+</html>
