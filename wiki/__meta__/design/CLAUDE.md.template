@@ -1,0 +1,202 @@
+# Wiki Schema
+
+<!--
+  INSTRUCTIONS FOR USE
+  =====================
+  This is a template CLAUDE.md for an LLM-operated wiki system.
+
+  To adapt it for a new project:
+  1. Fill in all <!-- CUSTOMIZE --> blocks with project-specific content
+  2. Remove all comment blocks (including this one) before use
+  3. Use design-decisions.md to guide your answers to each customization point
+  4. Hand this file (alongside wiki-system-spec.md) to your LLM agent to bootstrap the wiki
+-->
+
+## Purpose
+
+<!-- CUSTOMIZE: Describe what this wiki is for and what knowledge it accumulates.
+  Example: "This wiki tracks my weekly AI learning and software builds throughout 2026.
+  Each unit covers one AI topic learned and one piece of software built."
+-->
+
+---
+
+## Directory Structure
+
+```
+wiki/
+├── CLAUDE.md              ← this file
+├── index.md               ← you maintain
+├── log.md                 ← you maintain
+├── backlog.md             ← human adds ideas; you remove completed items on ingest
+├── scratch/               ← human writes freely during work; you read on ingest
+<!-- CUSTOMIZE: list your content category directories and what each contains -->
+├── concepts/              ← you maintain; cross-cutting ideas across all units
+└── synthesis/             ← you create on demand when a query answer is worth keeping
+```
+
+---
+
+## Content Categories
+
+<!-- CUSTOMIZE: For each directory, describe:
+  - What a page in this category represents
+  - Whether it is unit-scoped (one page per ingest unit) or subject-scoped (one page per subject, updated across ingests)
+  - How pages in this category are named
+
+  Example:
+  - weeks/     Unit-scoped. One page per week. Named week-NN-yyyy-mm-dd.md. Acts as the
+               overview/container for that unit — what was learned, what was built, links to
+               subject-scoped pages.
+  - tools/     Subject-scoped. One page per AI tool. Named by tool name (kebab-case). Updated
+               if the same tool is revisited in a later unit.
+  - builds/    Subject-scoped. One page per thing built. Named descriptively by subject.
+               If something similar was built before, the name reflects what is new or different.
+-->
+
+---
+
+## Scratch Files
+
+<!-- CUSTOMIZE: Describe the scratch file types for this project and their naming convention.
+  Example:
+  - Two scratch files per unit: week-NN-yyyy-mm-dd-ai-learning.md and week-NN-yyyy-mm-dd-build.md
+  - Human creates these at the start of each unit and writes freely throughout
+  - On ingest, read both files to extract content for wiki pages
+-->
+
+---
+
+## Ingest Workflow
+
+When the human says "ingest [unit identifier]":
+
+1. Read the relevant scratch files from `scratch/`
+2. Create or update pages in the appropriate content category directories
+   <!-- CUSTOMIZE: list which categories get created/updated and under what conditions -->
+3. Create or update `concepts/` pages for any cross-cutting ideas that emerge naturally from the content
+4. Name all pages by subject using kebab-case — never include unit identifiers in subject-scoped page names
+5. If a subject-scoped page with a similar name already exists, create a new page with a name that reflects what is new or different — do not overwrite
+6. Remove completed items from `backlog.md` that match what was just ingested
+7. Update `index.md`:
+   - Add entries for any new pages created
+   - Update summaries for any existing pages modified
+   - Organize entries by category
+8. Append to `log.md`:
+   ```
+   ## [yyyy-mm-dd] ingest | <unit identifier> — <brief description>
+   <one or two sentences summarizing what was ingested and what pages were affected>
+   ```
+9. Update `README.md` — see README section below
+10. Run a lint pass — see Lint section below
+
+---
+
+## Lint (run automatically after every ingest)
+
+After completing every ingest, perform a health check on the wiki:
+
+- **Orphan pages** — find pages with no inbound links from other wiki pages; add appropriate cross-references
+- **Missing links** — find pages that mention a concept or subject that has its own page but does not link to it; add the link
+- **Concept gaps** — find concepts or themes that appear across 2+ pages but have no dedicated `concepts/` page; create one
+- **Stale content** — find claims on existing pages that newer ingests have superseded or contradicted; update or flag them
+- Append a brief lint summary to the current `log.md` entry
+
+---
+
+## Backlog
+
+`backlog.md` has the following sections:
+
+<!-- CUSTOMIZE: list the backlog sections for your domain
+  Example:
+  ## AI Learning Ideas
+  ## Build Ideas
+-->
+
+During every ingest, scan `backlog.md` and remove any items that match what was just ingested.
+Only remove items — never add, reorder, or otherwise modify the human's entries.
+
+---
+
+## Naming Conventions
+
+- All directories and filenames: kebab-case
+- Scratch files: `<unit-id>-<content-type>.md`
+  <!-- CUSTOMIZE: specify the unit-id format, e.g., week-01-2026-01-05 -->
+- Unit-scoped pages: `<unit-id>.md`
+- Subject-scoped pages: named by subject only, no unit identifier
+- Never overwrite a subject-scoped page with unrelated content — create a distinctly named new page instead
+
+---
+
+## Query Behavior
+
+When the human asks a question against the wiki:
+
+1. Read `index.md` to identify the most relevant pages
+2. Read those pages in full
+3. Synthesize a clear answer with citations (link to specific pages)
+4. If the answer represents a useful analysis, comparison, or pattern worth keeping, offer to file it as a `synthesis/` page
+
+---
+
+## README.md
+
+Maintain `README.md` at the project root as the public-facing index.
+
+<!-- CUSTOMIZE: describe what the README should contain for your project.
+  Example:
+  - A brief description of the project and its goals
+  - A progress table (one row per unit, updated on every ingest)
+  - A highlights section (best builds, most interesting tools, running themes) — updated every 4-5 ingests
+  - Links into the wiki for depth
+-->
+
+Rules:
+- Write for an external reader who has never seen this project before
+- Use standard markdown links, not Obsidian wikilink syntax — GitHub must render them correctly
+- Keep it scannable — tables and short bullets over long prose
+
+---
+
+## index.md
+
+Maintain `index.md` as the internal navigation catalog.
+
+- Every wiki page listed with a relative link and a one-line summary
+- Organized by category with a heading per category
+- Updated on every ingest — new pages added, modified page summaries updated
+- This is the first file to read when answering a query
+
+---
+
+## log.md
+
+Append-only. Never modify or delete existing entries.
+
+Format:
+```
+## [yyyy-mm-dd] <operation> | <description>
+<brief summary>
+
+[lint] <brief lint summary if this was an ingest>
+```
+
+Valid operations: `ingest`, `query`, `lint`
+
+---
+
+## Page Frontmatter (optional)
+
+<!-- CUSTOMIZE: if you use Obsidian with the Dataview plugin, define frontmatter fields here.
+  Example:
+  ---
+  week: 7
+  date: 2026-02-16
+  tool: cursor
+  tags: [ide, code-completion]
+  ---
+  This enables dynamic Dataview queries across wiki pages.
+  If you don't use Dataview, omit this section entirely.
+-->

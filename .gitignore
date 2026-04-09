@@ -1,2 +1,6 @@
 .claude
 uv.lock
+.obsidian
+.venv
+**/*.pyc
+**/__pycache__/*

@@ -1,0 +1,69 @@
+# Wiki Index
+
+Internal navigation catalog. Every wiki page listed with a relative link and one-line summary.
+
+---
+
+## Weeks
+
+- [Week 01 — Jan 05](weeks/week-01-2026-01-05.md) — Beads coding agent memory system + bloom filter
+- [Week 02 — Jan 12](weeks/week-02-2026-01-12.md) — Claude Code + TODO MCP server
+- [Week 03 — Jan 19](weeks/week-03-2026-01-19.md) — Strands Agents + Ollama + Jarvis chatbot
+- [Week 04 — Jan 26](weeks/week-04-2026-01-26.md) — AG-UI protocol + Jarvis TODO integration + two-phase commit
+- [Week 05 — Feb 02](weeks/week-05-2026-02-02.md) — A2A protocol + Jarvis A2A server
+- [Week 06 — Feb 09](weeks/week-06-2026-02-09.md) — Agent Client Protocol (ACP) + symmetric encryption
+- [Week 07 — Feb 16](weeks/week-07-2026-02-16.md) — Embedding models + vector database
+- [Week 08 — Feb 23](weeks/week-08-2026-02-23.md) — Ralph autonomous agent system + TCP three-way handshake
+- [Week 09 — Mar 02](weeks/week-09-2026-03-02.md) — OpenClaw sandboxed AI coding + CRDT collaborative editor
+- [Week 10 — Mar 09](weeks/week-10-2026-03-09.md) — Language modeling bigram model (makemore) + bigram language model
+- [Week 11 — Mar 16](weeks/week-11-2026-03-16.md) — Language modeling neural net framework (makemore) + bigram neural net
+- [Week 12 — Mar 23](weeks/week-12-2026-03-23.md) — LLM Wiki by Karpathy (AI only; no build recorded)
+
+---
+
+## Tools
+
+- [Beads](tools/beads.md) — Steve Yegge's coding agent memory system for persistent cross-session context
+- [Claude Code](tools/claude-code.md) — Anthropic's terminal-based agentic coding CLI
+- [Strands Agents](tools/strands-agents.md) — Python framework for building AI agents with tool calling
+- [Ollama](tools/ollama.md) — Run LLMs locally with an OpenAI-compatible API
+- [AG-UI Protocol](tools/ag-ui.md) — Standardized event protocol for streaming agent output to frontends
+- [A2A Protocol](tools/a2a-protocol.md) — Open protocol for agent-to-agent task delegation and discovery
+- [Agent Client Protocol](tools/agent-client-protocol.md) — Standard interface for client apps interacting with agents
+- [Embedding Models](tools/embedding-models.md) — Convert text to dense vectors; cosine, dot product, and Euclidean similarity
+- [Ralph](tools/ralph.md) — Geoffrey Huntley's structured autonomous agent workflow system
+- [OpenClaw](tools/openclaw.md) — AI coding tool running securely inside Docker sandboxes
+- [Language Modeling](tools/language-modeling.md) — Karpathy's makemore series: bigram → neural net, weeks 10–11
+- [LLM Wiki](tools/llm-wiki.md) — Karpathy's comprehensive reference on LLM internals (architecture, training, inference)
+
+---
+
+## Builds
+
+- [Bloom Filter](builds/bloom-filter.md) — Probabilistic set membership data structure with tunable false positive rate
+- [TODO MCP Server](builds/todo-mcp-server.md) — MCP server exposing TODO management as AI-callable tools
+- [Jarvis Chatbot](builds/jarvis-chatbot.md) — Local personal AI assistant built with Strands Agents + Ollama
+- [Jarvis TODO Integration](builds/jarvis-todo-integration.md) — Jarvis extended to consume the TODO MCP server
+- [Two-Phase Commit](builds/two-phase-commit.md) — Distributed consensus protocol for atomic multi-node transactions
+- [Jarvis A2A Server](builds/jarvis-a2a-server.md) — A2A protocol server added to Jarvis for agent-network participation
+- [Symmetric Encryption](builds/symmetric-encryption.md) — Block cipher implementation with ECB, CBC, CTR modes
+- [Vector Database](builds/vector-db.md) — Custom vector store with cosine and dot product similarity search
+- [TCP Three-Way Handshake](builds/tcp-three-way-handshake.md) — Simulation of TCP connection establishment (SYN, SYN-ACK, ACK)
+- [CRDT Collaborative Editor](builds/crdt-collaborative-editor.md) — Collaborative text editor using conflict-free replicated data types
+- [Bigram Language Model](builds/bigram-language-model.md) — Count-based character bigram model trained on names dataset
+- [Bigram Neural Net](builds/bigram-neural-net.md) — Same bigram model reformulated as a single-layer neural network in PyTorch
+
+---
+
+## Concepts
+
+- [Agent Protocols](concepts/agent-protocols.md) — A2A, AG-UI, ACP: the three-layer standard for agent communication
+- [Model Context Protocol](concepts/model-context-protocol.md) — MCP server/client pattern for tool access by AI agents
+- [Language Modeling Fundamentals](concepts/language-modeling-fundamentals.md) — Tokenization, softmax, cross-entropy loss, the training loop
+- [Jarvis System](concepts/jarvis-system.md) — Incremental build of a personal agent across weeks 3–5
+
+---
+
+## Synthesis
+
+(none yet)
