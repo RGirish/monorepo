@@ -1,7 +1,7 @@
 # Bloom Filter
 
 **Built in:** [Week 1](../weeks/week-01-2026-01-05.md)
-**Code:** [data-structures/bloom-filters](https://github.com/RGirish/monorepo/tree/main/data-structures/bloom-filters)
+**Code:** [data-structures/bloom-filters](https://github.com/RGirish/monorepo/tree/main/code/data-structures/bloom-filters)
 
 ---
 

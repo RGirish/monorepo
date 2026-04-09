@@ -1,7 +1,7 @@
 # Jarvis Chatbot
 
 **Built in:** [Week 3](../weeks/week-03-2026-01-19.md)
-**Code:** [gen-ai/agents/chatbots/jarvis](https://github.com/RGirish/monorepo/tree/main/gen-ai/agents/chatbots/jarvis)
+**Code:** [gen-ai/agents/chatbots/jarvis](https://github.com/RGirish/monorepo/tree/main/code/gen-ai/agents/chatbots/jarvis)
 
 ---
 

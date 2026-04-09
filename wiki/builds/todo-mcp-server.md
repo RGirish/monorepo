@@ -1,7 +1,7 @@
 # TODO MCP Server
 
 **Built in:** [Week 2](../weeks/week-02-2026-01-12.md)
-**Code:** [gen-ai/mcp/todo-mcp-server](https://github.com/RGirish/monorepo/tree/main/gen-ai/mcp/todo-mcp-server)
+**Code:** [gen-ai/mcp/todo-mcp-server](https://github.com/RGirish/monorepo/tree/main/code/gen-ai/mcp/todo-mcp-server)
 
 ---
 

@@ -1,7 +1,7 @@
 # CRDT Collaborative Text Editor
 
 **Built in:** [Week 9](../weeks/week-09-2026-03-02.md)
-**Code:** [data-structures/crdt](https://github.com/RGirish/monorepo/tree/main/data-structures/crdt)
+**Code:** [data-structures/crdt](https://github.com/RGirish/monorepo/tree/main/code/data-structures/crdt)
 
 ---
 

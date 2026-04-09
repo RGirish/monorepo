@@ -1,7 +1,7 @@
 # Vector Database
 
 **Built in:** [Week 7](../weeks/week-07-2026-02-16.md)
-**Code:** [databases/vector](https://github.com/RGirish/monorepo/tree/main/databases/vector)
+**Code:** [databases/vector](https://github.com/RGirish/monorepo/tree/main/code/databases/vector)
 
 ---
 

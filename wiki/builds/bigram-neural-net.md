@@ -1,7 +1,7 @@
 # Bigram Model — Neural Network Framework
 
 **Built in:** [Week 11](../weeks/week-11-2026-03-16.md)
-**Code:** [gen-ai/language-models/bigram/makemore.ipynb](https://github.com/RGirish/monorepo/blob/main/gen-ai/language-models/bigram/makemore.ipynb)
+**Code:** [gen-ai/language-models/bigram/makemore.ipynb](https://github.com/RGirish/monorepo/blob/main/code/gen-ai/language-models/bigram/makemore.ipynb)
 
 ---
 

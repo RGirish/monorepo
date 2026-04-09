@@ -1,7 +1,7 @@
 # Bigram Language Model
 
 **Built in:** [Week 10](../weeks/week-10-2026-03-09.md)
-**Code:** [gen-ai/language-models/bigram](https://github.com/RGirish/monorepo/tree/main/gen-ai/language-models/bigram)
+**Code:** [gen-ai/language-models/bigram](https://github.com/RGirish/monorepo/tree/main/code/gen-ai/language-models/bigram)
 
 ---
 

@@ -1,7 +1,7 @@
 # Jarvis A2A Server
 
 **Built in:** [Week 5](../weeks/week-05-2026-02-02.md)
-**Code:** [gen-ai/agents/chatbots/jarvis/src/server/a2a.py](https://github.com/RGirish/monorepo/blob/main/gen-ai/agents/chatbots/jarvis/src/server/a2a.py)
+**Code:** [gen-ai/agents/chatbots/jarvis/src/server/a2a.py](https://github.com/RGirish/monorepo/blob/main/code/gen-ai/agents/chatbots/jarvis/src/server/a2a.py)
 
 ---
 

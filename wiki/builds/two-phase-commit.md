@@ -1,7 +1,7 @@
 # Two-Phase Commit (2PC)
 
 **Built in:** [Week 4](../weeks/week-04-2026-01-26.md)
-**Code:** [distributed-systems/consensus/2-phase-commit/main.py](https://github.com/RGirish/monorepo/blob/main/distributed-systems/consensus/2-phase-commit/main.py)
+**Code:** [distributed-systems/consensus/2-phase-commit/main.py](https://github.com/RGirish/monorepo/blob/main/code/distributed-systems/consensus/2-phase-commit/main.py)
 
 ---
 

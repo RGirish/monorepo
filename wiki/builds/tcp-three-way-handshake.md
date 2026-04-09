@@ -1,7 +1,7 @@
 # TCP Three-Way Handshake
 
 **Built in:** [Week 8](../weeks/week-08-2026-02-23.md)
-**Code:** [network/tcp/3_way_handshake.py](https://github.com/RGirish/monorepo/blob/main/network/tcp/3_way_handshake.py)
+**Code:** [network/tcp/3_way_handshake.py](https://github.com/RGirish/monorepo/blob/main/code/network/tcp/3_way_handshake.py)
 
 ---
 

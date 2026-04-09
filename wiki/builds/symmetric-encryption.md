@@ -1,7 +1,7 @@
 # Symmetric Encryption
 
 **Built in:** [Week 6](../weeks/week-06-2026-02-09.md)
-**Code:** [security/encryption/symmetric](https://github.com/RGirish/monorepo/tree/main/security/encryption/symmetric)
+**Code:** [security/encryption/symmetric](https://github.com/RGirish/monorepo/tree/main/code/security/encryption/symmetric)
 
 ---
 
