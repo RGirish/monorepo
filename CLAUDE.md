@@ -19,9 +19,17 @@ These are the tasks the human drives. Use natural language — the phrases below
 not rigid commands.
 
 ### Start a week's AI learning
-Triggers: "start week N AI learning" / "new AI learning for week N" / "set up week N learning"
+Triggers: "start week N AI learning" / "new AI learning for week N" / "set up week N learning" / "start a new AI learning" / "new AI learning"
 
-1. Look up the nominal start date for week N from the Week Reference table below
+If a specific week number N is given, use it directly.
+
+If no week number is given, determine the target week from repo state first:
+1. Run the Current week status workflow to identify the in-progress week (if any) and the last completed week
+2. If a week is **in progress** (scratch files exist beyond the last ingested week): do not assume — ask the human "You have Week N in progress — should I add this AI learning to Week N, or start it as part of a new week?"
+3. If no week is in progress: target the next week after the last completed one
+
+Then:
+1. Look up the nominal start date for the target week from the Week Reference table below
 2. Create `wiki/scratch/week-NN-yyyy-mm-dd-ai-learning.md` with this header:
    ```
    # Week NN — AI Learning
@@ -35,9 +43,17 @@ Triggers: "start week N AI learning" / "new AI learning for week N" / "set up we
 3. Tell the human the exact file path so they can open it and start writing freely
 
 ### Start a week's build
-Triggers: "start week N build" / "new build for week N" / "set up week N build"
+Triggers: "start week N build" / "new build for week N" / "set up week N build" / "start a new build" / "new build"
 
-1. Look up the nominal start date for week N from the Week Reference table below
+If a specific week number N is given, use it directly.
+
+If no week number is given, determine the target week from repo state first:
+1. Run the Current week status workflow to identify the in-progress week (if any) and the last completed week
+2. If a week is **in progress** (scratch files exist beyond the last ingested week): do not assume — ask the human "You have Week N in progress — should I add this build to Week N, or start it as part of a new week?"
+3. If no week is in progress: target the next week after the last completed one
+
+Then:
+1. Look up the nominal start date for the target week from the Week Reference table below
 2. Create `wiki/scratch/week-NN-yyyy-mm-dd-build.md` with this header:
    ```
    # Week NN — Build
@@ -51,9 +67,11 @@ Triggers: "start week N build" / "new build for week N" / "set up week N build"
 3. Tell the human the exact file path so they can open it and start writing freely
 
 ### Start both for a week
-Triggers: "start week N" / "set up week N" / "begin week N"
+Triggers: "start week N" / "set up week N" / "begin week N" / "start a new week" / "new week"
 
-Run both workflows above in sequence. Create both scratch files and confirm both paths.
+If a specific week number N is given, use it directly. If no week number is given, apply the same repo-state logic as above (check in-progress, confirm with human if ambiguous, otherwise use next week after last completed).
+
+Run both the AI learning and build workflows above in sequence. Create both scratch files and confirm both paths.
 
 ### Current week status
 Triggers: "what week am I on" / "which week am I on" / "what week is this" / "where am I in the project"
