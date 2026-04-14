@@ -55,6 +55,18 @@ Triggers: "start week N" / "set up week N" / "begin week N"
 
 Run both workflows above in sequence. Create both scratch files and confirm both paths.
 
+### Current week status
+Triggers: "what week am I on" / "which week am I on" / "what week is this" / "where am I in the project"
+
+Do NOT answer with the current calendar week number. Instead, determine the project week from the repo state:
+
+1. Check `wiki/weeks/` for the highest-numbered ingested week page — that week is **complete**
+2. Check `wiki/scratch/` for any week files beyond the last ingested week — that week is **in progress**
+3. Report accordingly:
+   - If a scratch file exists beyond the last ingested week: "You're currently on Week N (in progress)"
+   - If no scratch file exists beyond the last ingested week: "Week N is complete — Week N+1 is next"
+   - If no weeks/ pages exist yet: "No weeks completed yet — Week 1 is next"
+
 ### Add to backlog
 Triggers: "add to backlog: [idea]" / "backlog this: [idea]" / "I want to learn X" / "add build idea: [idea]"
 
