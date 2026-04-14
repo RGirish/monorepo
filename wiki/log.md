@@ -64,5 +64,10 @@ Created: weeks/week-12-2026-03-23.md, tools/llm-wiki.md
 Updated: concepts/language-modeling-fundamentals.md (added week 12 reference), index.md, log.md
 [lint] No orphans. Added llm-wiki ↔ language-modeling-fundamentals cross-link (LLM wiki is the broader context for the makemore fundamentals). No new concept gaps.
 
+## [2026-04-13] ingest | week-12 build — llm-music-producer (partial)
+Created: builds/llm-music-producer.md
+Updated: weeks/week-12-2026-03-23.md (added build section), index.md, backlog.md (removed item), README.md, log.md
+[lint] No orphans. llm-music-producer links to llm-wiki (same week) — cross-link added. Build marked in-progress; will update on completion.
+
 ## [2026-04-08] backfill lint | weeks 1–12 complete
 [lint] Full backfill of 12 weeks complete. Verified: all pages reachable from index.md. All tool pages have at least one inbound link from a week or build page. All build pages linked from their corresponding week pages. Concepts (agent-protocols, model-context-protocol, language-modeling-fundamentals, jarvis-system) each have 2+ inbound links. No orphan pages detected. README.md updated with full progress table.

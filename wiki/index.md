@@ -17,7 +17,7 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 - [Week 09 — Mar 02](weeks/week-09-2026-03-02.md) — OpenClaw sandboxed AI coding + CRDT collaborative editor
 - [Week 10 — Mar 09](weeks/week-10-2026-03-09.md) — Language modeling bigram model (makemore) + bigram language model
 - [Week 11 — Mar 16](weeks/week-11-2026-03-16.md) — Language modeling neural net framework (makemore) + bigram neural net
-- [Week 12 — Mar 23](weeks/week-12-2026-03-23.md) — LLM Wiki by Karpathy (AI only; no build recorded)
+- [Week 12 — Mar 23](weeks/week-12-2026-03-23.md) — LLM Wiki by Karpathy + LLM Music Producer (in progress)
 
 ---
 
@@ -52,6 +52,7 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 - [CRDT Collaborative Editor](builds/crdt-collaborative-editor.md) — Collaborative text editor using conflict-free replicated data types
 - [Bigram Language Model](builds/bigram-language-model.md) — Count-based character bigram model trained on names dataset
 - [Bigram Neural Net](builds/bigram-neural-net.md) — Same bigram model reformulated as a single-layer neural network in PyTorch
+- [LLM Music Producer](builds/llm-music-producer.md) — Experimental pipeline encoding MP3 frame payloads as Base95 for LLM audio synthesis (in progress)
 
 ---
 

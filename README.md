@@ -22,7 +22,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 | 09 | Mar 02 | OpenClaw — sandboxed AI coding | CRDT collaborative editor | [Week 09](wiki/weeks/week-09-2026-03-02.md) |
 | 10 | Mar 09 | Language modeling — bigram model (makemore) | Bigram language model | [Week 10](wiki/weeks/week-10-2026-03-09.md) |
 | 11 | Mar 16 | Language modeling — neural net framework (makemore) | Bigram model in PyTorch | [Week 11](wiki/weeks/week-11-2026-03-16.md) |
-| 12 | Mar 23 | LLM Wiki (Karpathy) | — | [Week 12](wiki/weeks/week-12-2026-03-23.md) |
+| 12 | Mar 23 | LLM Wiki (Karpathy) | LLM Music Producer *(in progress)* | [Week 12](wiki/weeks/week-12-2026-03-23.md) |
 
 ---
 
