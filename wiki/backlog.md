@@ -2,7 +2,8 @@
 
 ## AI Learning Ideas
 
-- Feature engineering
+- Prompt/context engineering
+  - https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents 
 
 ## Build Ideas
 

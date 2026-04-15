@@ -18,6 +18,7 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 - [Week 10 — Mar 09](weeks/week-10-2026-03-09.md) — Language modeling bigram model (makemore) + bigram language model
 - [Week 11 — Mar 16](weeks/week-11-2026-03-16.md) — Language modeling neural net framework (makemore) + bigram neural net
 - [Week 12 — Mar 23](weeks/week-12-2026-03-23.md) — LLM Wiki by Karpathy + LLM Music Producer (in progress)
+- [Week 13 — Mar 30](weeks/week-13-2026-03-30.md) — Feature engineering (AI only; no build)
 
 ---
 
@@ -35,6 +36,7 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 - [OpenClaw](tools/openclaw.md) — AI coding tool running securely inside Docker sandboxes
 - [Language Modeling](tools/language-modeling.md) — Karpathy's makemore series: bigram → neural net, weeks 10–11
 - [LLM Wiki](tools/llm-wiki.md) — Karpathy's comprehensive reference on LLM internals (architecture, training, inference)
+- [Feature Engineering](tools/feature-engineering.md) — Transforming raw data into model-ready representations; representation learning and feature engineering in the GenAI era
 
 ---
 

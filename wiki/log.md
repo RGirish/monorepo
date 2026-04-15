@@ -69,5 +69,10 @@ Created: builds/llm-music-producer.md
 Updated: weeks/week-12-2026-03-23.md (added build section), index.md, backlog.md (removed item), README.md, log.md
 [lint] No orphans. llm-music-producer links to llm-wiki (same week) — cross-link added. Build marked in-progress; will update on completion.
 
+## [2026-04-15] ingest | week-13 — feature-engineering (AI only; no build)
+Created: weeks/week-13-2026-03-30.md, tools/feature-engineering.md
+Updated: backlog.md (removed feature engineering), index.md, README.md, log.md
+[lint] No orphans. feature-engineering.md cross-links to language-modeling.md, llm-wiki.md, and concepts/language-modeling-fundamentals.md — all valid inbound/outbound links. No new concept gap yet (first week covering feature engineering). Prompt/context engineering remains in backlog; noted connection to feature-engineering.md's RAG/context engineering section for future cross-linking when ingested.
+
 ## [2026-04-08] backfill lint | weeks 1–12 complete
 [lint] Full backfill of 12 weeks complete. Verified: all pages reachable from index.md. All tool pages have at least one inbound link from a week or build page. All build pages linked from their corresponding week pages. Concepts (agent-protocols, model-context-protocol, language-modeling-fundamentals, jarvis-system) each have 2+ inbound links. No orphan pages detected. README.md updated with full progress table.
