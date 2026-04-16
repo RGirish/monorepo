@@ -69,6 +69,9 @@ Created: builds/llm-music-producer.md
 Updated: weeks/week-12-2026-03-23.md (added build section), index.md, backlog.md (removed item), README.md, log.md
 [lint] No orphans. llm-music-producer links to llm-wiki (same week) — cross-link added. Build marked in-progress; will update on completion.
 
+## [2026-04-16] query | feature store data format — what the data actually looks like
+Filed as synthesis/feature-store-data-format.md. Covers the canonical feature row structure, online vs offline store formats, where embeddings fit, what is NOT stored (code, raw data, weights), and a Feast schema example.
+
 ## [2026-04-16] query | feature store at inference time — online store and entity features
 Filed as synthesis/feature-store-at-inference-time.md. Covers request-time vs entity features, the offline/online store split, why querying source databases directly fails at scale, and how the feature store prevents training/serving skew.
 
