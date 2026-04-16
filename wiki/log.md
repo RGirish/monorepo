@@ -69,6 +69,9 @@ Created: builds/llm-music-producer.md
 Updated: weeks/week-12-2026-03-23.md (added build section), index.md, backlog.md (removed item), README.md, log.md
 [lint] No orphans. llm-music-producer links to llm-wiki (same week) — cross-link added. Build marked in-progress; will update on completion.
 
+## [2026-04-16] query | weights vs embeddings vs features — what gets stored where
+Filed as synthesis/weights-vs-embeddings-vs-features.md. Clarifies the three distinct artifacts (weights, embeddings, features), what system stores each (model registry vs. feature store vs. vector DB), and how they connect in a typical ML pipeline.
+
 ## [2026-04-16] query | feature stores — relevance in feature learning and deep NN era
 Filed as synthesis/feature-stores.md. Covers what feature stores are, training/serving consistency, point-in-time correctness, and why they remain relevant for embeddings and hybrid systems — not just hand-engineered features. Cross-links to vector-db, embedding-models, and feature-engineering.
 
