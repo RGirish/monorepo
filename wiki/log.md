@@ -69,6 +69,9 @@ Created: builds/llm-music-producer.md
 Updated: weeks/week-12-2026-03-23.md (added build section), index.md, backlog.md (removed item), README.md, log.md
 [lint] No orphans. llm-music-producer links to llm-wiki (same week) — cross-link added. Build marked in-progress; will update on completion.
 
+## [2026-04-16] query | feature stores — relevance in feature learning and deep NN era
+Filed as synthesis/feature-stores.md. Covers what feature stores are, training/serving consistency, point-in-time correctness, and why they remain relevant for embeddings and hybrid systems — not just hand-engineered features. Cross-links to vector-db, embedding-models, and feature-engineering.
+
 ## [2026-04-16] re-ingest | week-13 — feature-engineering (updated notes)
 Updated: tools/feature-engineering.md (expanded feature learning section: hierarchical extraction, layer depth, scalability), weeks/week-13-2026-03-30.md (updated summary), log.md
 [lint] No new orphans or concept gaps introduced.

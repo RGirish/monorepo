@@ -69,4 +69,4 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 
 ## Synthesis
 
-(none yet)
+- [Feature Stores in ML](synthesis/feature-stores.md) — What feature stores are, why they matter beyond hand-engineered features, and how they connect to embeddings and vector DBs
