@@ -69,6 +69,10 @@ Created: builds/llm-music-producer.md
 Updated: weeks/week-12-2026-03-23.md (added build section), index.md, backlog.md (removed item), README.md, log.md
 [lint] No orphans. llm-music-producer links to llm-wiki (same week) — cross-link added. Build marked in-progress; will update on completion.
 
+## [2026-04-16] re-ingest | week-13 — feature-engineering (updated notes)
+Updated: tools/feature-engineering.md (expanded feature learning section: hierarchical extraction, layer depth, scalability), weeks/week-13-2026-03-30.md (updated summary), log.md
+[lint] No new orphans or concept gaps introduced.
+
 ## [2026-04-15] ingest | week-13 — feature-engineering (AI only; no build)
 Created: weeks/week-13-2026-03-30.md, tools/feature-engineering.md
 Updated: backlog.md (removed feature engineering), index.md, README.md, log.md

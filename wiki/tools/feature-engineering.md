@@ -21,6 +21,15 @@ Feature types vary by data modality — tabular, text, audio, images, and video 
 
 Modern deep learning automates much of feature engineering through **representation learning** (also called feature learning): instead of human experts manually designing extraction rules, deep neural networks learn to discover the most relevant patterns directly from raw data during training. This is a core reason deep learning displaced hand-engineered pipelines in image and audio tasks.
 
+### How Feature Learning Works in Deep Networks
+
+Deep neural networks (with many hidden layers) extract features hierarchically:
+- Each layer progressively extracts richer, more abstract representations of the input
+- Early layers capture low-level patterns; deeper layers capture high-level concepts
+- Feature richness compounds: layer 1 < layer 10 < layer 50, and so on
+
+This hierarchy is only possible with large enough datasets. Given sufficient data, a deep network can automatically learn *which* features matter — removing the need to know in advance what to extract. This scales far better than hand-engineering, especially as dataset diversity grows and model generalization requirements increase.
+
 ## Feature Engineering in the LLM/GenAI Era
 
 Feature engineering hasn't disappeared — it has shifted form:
