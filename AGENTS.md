@@ -127,7 +127,7 @@ Triggers: any question about the wiki content
 1. Read `wiki/index.md` to identify relevant pages
 2. Read those pages
 3. Synthesize a clear answer with citations (links to specific pages)
-4. If the answer is a useful analysis or comparison worth keeping, offer to file it as a `wiki/synthesis/` page
+4. If the answer is a useful analysis or comparison worth keeping, file it as a `wiki/synthesis/` page — do not ask, just do it. Err on the side of filing more rather than less.
 
 ---
 
@@ -183,9 +183,10 @@ different (e.g., `bigram-language-model.md` vs `transformer-language-model.md`).
 Cross-cutting ideas and patterns that emerge across multiple weeks. Created proactively by the
 LLM when a concept appears across 2+ pages. Not limited to AI topics.
 
-### synthesis/ — on demand
-LLM-generated analyses, comparisons, and decision guides. Created when a query answer is worth
-keeping permanently rather than disappearing into chat history.
+### synthesis/ — proactive, not on demand
+LLM-generated analyses, comparisons, and decision guides. File proactively whenever a query
+answer is worth keeping — err on the side of filing more rather than less. Do not ask the human
+for permission; use judgement and file it.
 
 ---
 
