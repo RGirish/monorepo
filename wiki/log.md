@@ -69,6 +69,9 @@ Created: builds/llm-music-producer.md
 Updated: weeks/week-12-2026-03-23.md (added build section), index.md, backlog.md (removed item), README.md, log.md
 [lint] No orphans. llm-music-producer links to llm-wiki (same week) — cross-link added. Build marked in-progress; will update on completion.
 
+## [2026-04-16] query | feature store training/serving skew — how it's actually prevented
+Filed as synthesis/feature-store-training-serving-skew.md. Covers: precomputed entity features run once so both training and serving read the same result; on-demand features use a registered transformation function called identically in both contexts. Root cause of skew is separate teams in separate codebases, not intent.
+
 ## [2026-04-16] query | feature store data format — what the data actually looks like
 Filed as synthesis/feature-store-data-format.md. Covers the canonical feature row structure, online vs offline store formats, where embeddings fit, what is NOT stored (code, raw data, weights), and a Feast schema example.
 

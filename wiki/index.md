@@ -73,3 +73,4 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 - [Weights vs. Embeddings vs. Features](synthesis/weights-vs-embeddings-vs-features.md) — Three distinct artifacts, what system stores each, and how they connect in a typical ML pipeline
 - [Feature Store at Inference Time](synthesis/feature-store-at-inference-time.md) — Why precomputed entity features are needed at serving time and how the online store enables low-latency lookup
 - [Feature Store Data Format](synthesis/feature-store-data-format.md) — What data in a feature store actually looks like: typed scalar rows, not vectors or code
+- [Feature Store: Preventing Training/Serving Skew](synthesis/feature-store-training-serving-skew.md) — How precomputed results and registered transformation functions eliminate skew without storing code
