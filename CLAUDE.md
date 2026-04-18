@@ -95,6 +95,22 @@ Triggers: "add to backlog: [idea]" / "backlog this: [idea]" / "I want to learn X
 
 ---
 
+## Python Builds
+
+Every Python build gets its own virtual environment. Never install packages into a global or
+system interpreter.
+
+When creating a new Python build:
+1. Create the build directory
+2. Create a venv inside it: `python3 -m venv .venv` (or `python3.11 -m venv .venv` if the build requires a specific version)
+3. Install dependencies with `.venv/bin/pip install ...`
+4. Always invoke Python and scripts via `.venv/bin/python` (or activate with `source .venv/bin/activate` before running)
+5. Add `.venv/` to the build's `.gitignore` if one exists, or remind the human to do so
+
+When working in an existing Python build, check for a `.venv/` directory first and use it.
+
+---
+
 ## Wiki Operations
 
 ### Ingest
