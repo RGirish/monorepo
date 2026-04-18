@@ -230,6 +230,7 @@ Rules:
 - Write for an external reader who has never seen this project
 - Standard markdown links with relative paths only — no Obsidian wikilink syntax
 - Scannable: tables and short bullets over prose
+- The progress table must always include rows up to and including the current calendar week (use today's date to determine which project week that is, via the Week Reference table). Weeks that have not been ingested yet get placeholder values: `| NN | Mon DD | — | — | *(not started)* |`. This makes it immediately visible how many weeks are behind.
 
 ---
 
