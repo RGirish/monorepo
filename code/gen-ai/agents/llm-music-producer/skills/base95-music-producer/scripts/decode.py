@@ -39,6 +39,24 @@ def decode_bytes(s: str, expected_size: int) -> bytes:
     return b"".join(result)[:expected_size]
 
 
+def zero_main_data_begin(payload: bytes) -> bytes:
+    """Zero out the main_data_begin field (first 9 bits of side info).
+
+    MP3 side info starts immediately after the 4-byte frame header.
+    main_data_begin (9 bits, big-endian) tells the decoder how far back
+    to look for the start of the main data (the bit reservoir). If this
+    is non-zero and the referenced data doesn't exist, the decoder stops.
+    Setting it to 0 forces the decoder to read main data starting right
+    after the side info with no lookback — correct for independently
+    generated frames with no bit reservoir.
+    """
+    p = bytearray(payload)
+    if len(p) >= 2:
+        p[0] = 0x00          # bits 8-1 of main_data_begin
+        p[1] = p[1] & 0x7F   # bit 0 of main_data_begin (MSB of byte 1)
+    return bytes(p)
+
+
 def main():
     parser = argparse.ArgumentParser(description="Reconstruct MP3 from Base95 frame payloads JSON.")
     parser.add_argument("input_json", help="JSON file with payloads_b95, template_header_hex, payload_size_bytes")
@@ -63,6 +81,7 @@ def main():
     for i, b95 in enumerate(payloads_b95):
         try:
             payload = decode_bytes(b95, payload_size)
+            payload = zero_main_data_begin(payload)
             frames.append(header + payload)
         except ValueError as e:
             print(f"  Frame {i}: decode error — {e}", file=sys.stderr)

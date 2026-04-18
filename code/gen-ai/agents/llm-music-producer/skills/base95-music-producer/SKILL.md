@@ -1,5 +1,5 @@
 ---
-name: llm-music-producer
+name: base95-music-producer
 description: Full pipeline for LLM-based audio generation from MP3 frame payloads. Encodes MP3 files to per-frame Base95 payloads, uses the LLM to synthesize new payloads inspired by the input patterns, reconstructs a valid MP3, and plays it. Use when the user wants to generate new audio inspired by a set of input MP3 files.
 compatibility: Requires Python 3.10+ and ffmpeg
 ---
@@ -27,7 +27,7 @@ The key idea: MP3 frame headers are deterministic for a fixed bitrate/samplerate
 The user will provide a directory of MP3 files. Run:
 
 ```bash
-python skills/llm-music-producer/scripts/encode.py <input_mp3_dir> <encoded_dir> --max-frames 77
+python skills/base95-music-producer/scripts/encode.py <input_mp3_dir> <encoded_dir> --max-frames 77
 ```
 
 This writes one `.json` file per MP3 into `<encoded_dir>`. Each JSON contains:
@@ -83,7 +83,7 @@ Write a file named `output.json` in the current working directory:
 ## Step 5 — Reconstruct the MP3
 
 ```bash
-python skills/llm-music-producer/scripts/decode.py output.json output.mp3
+python skills/base95-music-producer/scripts/decode.py output.json output.mp3
 ```
 
 ## Step 6 — Play the result

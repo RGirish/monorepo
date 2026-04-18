@@ -98,3 +98,7 @@ Updated: backlog.md (removed feature engineering), index.md, README.md, log.md
 
 ## [2026-04-08] backfill lint | weeks 1–12 complete
 [lint] Full backfill of 12 weeks complete. Verified: all pages reachable from index.md. All tool pages have at least one inbound link from a week or build page. All build pages linked from their corresponding week pages. Concepts (agent-protocols, model-context-protocol, language-modeling-fundamentals, jarvis-system) each have 2+ inbound links. No orphan pages detected. README.md updated with full progress table.
+
+## [2026-04-13] ingest | week-12 — llm-wiki + llm-music-producer
+Updated: builds/llm-music-producer.md (full rewrite — both Base95 and MIDI-as-text approaches, removed in-progress status), weeks/week-12-2026-03-23.md (build section updated to describe both pipelines), index.md (week 12 summary and builds entry updated), README.md (removed in-progress from week 12 row), log.md
+[lint] No orphans. agentskills.io referenced in week-12 and builds/llm-music-producer.md — only one week, no concept gap yet. All cross-links valid: llm-music-producer.md → llm-wiki.md ✓, week-12 → both pages ✓. No stale content detected.
