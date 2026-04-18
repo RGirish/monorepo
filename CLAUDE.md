@@ -223,7 +223,7 @@ Maintain as the public-facing portfolio index for GitHub visitors.
 Contents:
 - Brief description of the 2026 challenge
 - Progress table: one row per completed week — week number, date, AI topic, build name, link to week page
-- Highlights section (best build, most interesting topic, running themes) — update every 4–5 ingests
+- Highlights section (best build, most interesting topic, running themes) — update on every ingest, reflecting the most recent completed weeks
 - Links into the wiki (tools, builds, synthesis)
 
 Rules:

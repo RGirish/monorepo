@@ -29,21 +29,24 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 
 ---
 
-### Highlights (12 weeks in)
+### Highlights (13 weeks in)
 
 **Best builds:**
+- [LLM Music Producer](wiki/builds/llm-music-producer.md) — two complete pipelines for LLM-driven audio composition: Base95 frame payloads and MIDI-as-text; the MIDI approach produces genuinely musical output
 - [Jarvis](wiki/builds/jarvis-chatbot.md) — a personal AI assistant grown incrementally across 3 weeks, ending up with MCP tool access and an A2A server; a complete end-to-end agent system
 - [CRDT Collaborative Editor](wiki/builds/crdt-collaborative-editor.md) — collision-free concurrent edits without coordination, elegant data structure design
 - [Bigram Neural Net](wiki/builds/bigram-neural-net.md) — the moment count-based statistics and neural networks converge to the same answer
 
 **Most interesting AI topics:**
+- [LLM Wiki (Karpathy)](wiki/tools/llm-wiki.md) — a dense practitioner-oriented map of the entire LLM stack: architecture, training, inference, and emergent capabilities
 - [Language Modeling fundamentals](wiki/concepts/language-modeling-fundamentals.md) — building a language model from scratch reveals how the entire LLM stack is constructed
 - [Agent Protocols](wiki/concepts/agent-protocols.md) — three layers (MCP, A2A, ACP/AG-UI) converging into a standard agent communication stack
 
 **Running themes:**
-- Agent infrastructure — 7 of 12 weeks touched agent frameworks, protocols, or tooling
+- Agent infrastructure — 7 of 13 weeks touched agent frameworks, protocols, or tooling
 - Build-what-you-learn — several AI topics were immediately applied as hands-on builds (embeddings → vector DB, language modeling → bigram model, MCP → TODO server)
 - Incremental systems — Jarvis and the makemore series both show how complex systems grow from simple foundations
+- Representation matters — week 12 showed that MIDI (semantic) beats Base95 (statistical) for LLM audio generation; the choice of representation is the most important design decision
 
 ---
 
