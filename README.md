@@ -24,12 +24,13 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 | 11 | Mar 16 | Language modeling — neural net framework (makemore) | Bigram model in PyTorch | [Week 11](wiki/weeks/week-11-2026-03-16.md) |
 | 12 | Mar 23 | LLM Wiki (Karpathy) | LLM Music Producer | [Week 12](wiki/weeks/week-12-2026-03-23.md) |
 | 13 | Mar 30 | Feature engineering + representation learning | *(no build)* | [Week 13](wiki/weeks/week-13-2026-03-30.md) |
-| 14 | Apr 06 | — | — | *(not started)* |
+| 14 | Apr 06 | Multi-turn reinforcement learning + RLHF | Asymmetric encryption *(in progress)* | [Week 14](wiki/weeks/week-14-2026-04-06.md) |
 | 15 | Apr 13 | — | — | *(not started)* |
+| 16 | Apr 20 | — | — | *(not started)* |
 
 ---
 
-### Highlights (13 weeks in)
+### Highlights (14 weeks in)
 
 **Best builds:**
 - [LLM Music Producer](wiki/builds/llm-music-producer.md) — two complete pipelines for LLM-driven audio composition: Base95 frame payloads and MIDI-as-text; the MIDI approach produces genuinely musical output
@@ -38,15 +39,17 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 - [Bigram Neural Net](wiki/builds/bigram-neural-net.md) — the moment count-based statistics and neural networks converge to the same answer
 
 **Most interesting AI topics:**
+- [Multi-turn Reinforcement Learning](wiki/tools/multi-turn-reinforcement-learning.md) — from RL fundamentals through RLHF to the full MTRL system architecture; reward design is where human intent meets mathematical optimization
 - [LLM Wiki (Karpathy)](wiki/tools/llm-wiki.md) — a dense practitioner-oriented map of the entire LLM stack: architecture, training, inference, and emergent capabilities
 - [Language Modeling fundamentals](wiki/concepts/language-modeling-fundamentals.md) — building a language model from scratch reveals how the entire LLM stack is constructed
 - [Agent Protocols](wiki/concepts/agent-protocols.md) — three layers (MCP, A2A, ACP/AG-UI) converging into a standard agent communication stack
 
 **Running themes:**
-- Agent infrastructure — 7 of 13 weeks touched agent frameworks, protocols, or tooling
+- Agent infrastructure — 7 of 14 weeks touched agent frameworks, protocols, or tooling
 - Build-what-you-learn — several AI topics were immediately applied as hands-on builds (embeddings → vector DB, language modeling → bigram model, MCP → TODO server)
 - Incremental systems — Jarvis and the makemore series both show how complex systems grow from simple foundations
 - Representation matters — week 12 showed that MIDI (semantic) beats Base95 (statistical) for LLM audio generation; the choice of representation is the most important design decision
+- ML foundations deepening — weeks 13–14 shift from AI tooling toward core ML concepts: feature engineering, the three learning paradigms, reward design
 
 ---
 

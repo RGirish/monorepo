@@ -96,6 +96,11 @@ Created: weeks/week-13-2026-03-30.md, tools/feature-engineering.md
 Updated: backlog.md (removed feature engineering), index.md, README.md, log.md
 [lint] No orphans. feature-engineering.md cross-links to language-modeling.md, llm-wiki.md, and concepts/language-modeling-fundamentals.md — all valid inbound/outbound links. No new concept gap yet (first week covering feature engineering). Prompt/context engineering remains in backlog; noted connection to feature-engineering.md's RAG/context engineering section for future cross-linking when ingested.
 
+## [2026-04-26] ingest | week-14 — multi-turn-reinforcement-learning + asymmetric-encryption (in progress)
+Created: weeks/week-14-2026-04-06.md, tools/multi-turn-reinforcement-learning.md, builds/asymmetric-encryption.md (stub)
+Updated: index.md, README.md, log.md
+[lint] No orphans. asymmetric-encryption.md cross-links to symmetric-encryption.md (week 06 counterpart) — valid inbound link added. multi-turn-reinforcement-learning.md cross-links to feature-engineering.md (supervised learning context), llm-wiki.md, and week-14 page. RL is a new topic appearing for the first time; watching for recurrence to create a concepts/reinforcement-learning.md page. No concept gaps yet with only one week of RL coverage.
+
 ## [2026-04-08] backfill lint | weeks 1–12 complete
 [lint] Full backfill of 12 weeks complete. Verified: all pages reachable from index.md. All tool pages have at least one inbound link from a week or build page. All build pages linked from their corresponding week pages. Concepts (agent-protocols, model-context-protocol, language-modeling-fundamentals, jarvis-system) each have 2+ inbound links. No orphan pages detected. README.md updated with full progress table.
 

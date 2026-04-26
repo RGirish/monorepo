@@ -15,4 +15,7 @@
 - [Feature Engineering] Leakage detector — flag features that suspiciously correlate with the target via temporal train/test split simulation
 - [Feature Engineering] Entity embedding explorer — train neural embeddings for high-cardinality categoricals and visualize with UMAP vs one-hot baseline
 - [Feature Engineering] Mini feature store — lightweight feature store with versioning, point-in-time correctness, and cross-experiment reuse
+- [ML Models] Build a supervised learning model
+- [ML Models] Build an unsupervised learning model
+- [ML Models] Build an RL model
 
