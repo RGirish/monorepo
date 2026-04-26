@@ -62,6 +62,30 @@ Competing objectives (speed, efficiency, safety) combined into a weighted scalar
 
 ---
 
+## Designing Rewards for Chess: Terminal vs. Shaped
+
+A natural question: how do you reward a chess position? Looking at a mid-game board, how do you know if it's good or bad?
+
+The answer: **you don't have to**. The most natural reward for chess is terminal-only:
+
+```
+r = +1  if you win
+r = -1  if you lose
+r =  0  if you draw
+```
+
+The reward function fires exactly once — at the end of the game. Every intermediate move gets `r = 0`. This is what AlphaZero does.
+
+The alternative — shaped rewards — tries to score intermediate positions:
+```
+r = material_advantage + center_control + king_safety + pawn_structure + ...
+```
+This is what classical engines like Stockfish do. The problem: it encodes human chess knowledge, which caps the ceiling. AlphaZero beat Stockfish *because* it wasn't constrained by human heuristics — it discovered its own evaluation from pure win/loss signal.
+
+**The principle:** keep the reward simple and let the value function get smart. The reward function defines what winning means; the value function figures out what positions lead there.
+
+---
+
 ## Value Function and Credit Assignment
 
 The **value function** V(s) estimates expected future return from state s under the current policy. It's not the reward function — it's a *learned* approximation of future reward built up over millions of episodes.
@@ -121,6 +145,25 @@ Multi-turn RL is the same problem as single-turn RL — the math is identical �
 | Value function | "How good is this conversation going?" |
 
 **The core problem:** reward is holistic (humans rate the full conversation) but training needs per-step signals. Credit assignment across 10 turns of conversation is harder than credit assignment across 40 chess moves.
+
+---
+
+## Is MTRL a Fundamentally Different Problem?
+
+Short answer: **no — it's a distinction of degree, not kind.**
+
+MTRL is just RL. The math is identical: state, action, reward, value function, credit assignment. Nothing about multi-turn conversation requires new theory. You could frame any multi-turn conversation as a standard MDP and apply standard RL algorithms.
+
+The reason researchers treat it as distinct is practical, not theoretical — every dimension that makes RL hard is amplified to the point where techniques that work for simpler settings break down:
+
+| What makes RL hard | In simple RL | In MTRL |
+|--------------------|-------------|---------|
+| Action space | Manageable (35 chess moves) | Astronomical (50k+ tokens per step) |
+| Non-stationarity | Fixed environment (rules don't change) | User adapts to model behavior |
+| Sparse rewards | Bad | No natural terminal signal for many tasks |
+| Reward model reliability | Ground-truth signal (win/loss) | Learned approximation — gameable |
+
+So the instinct "isn't this just reward + value function?" is correct. MTRL doesn't introduce new theoretical machinery. It introduces new *engineering problems* when you try to make the standard machinery work at this scale and ambiguity.
 
 ---
 
