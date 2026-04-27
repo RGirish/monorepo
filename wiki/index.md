@@ -19,7 +19,7 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 - [Week 11 — Mar 16](weeks/week-11-2026-03-16.md) — Language modeling neural net framework (makemore) + bigram neural net
 - [Week 12 — Mar 23](weeks/week-12-2026-03-23.md) — LLM Wiki by Karpathy + LLM Music Producer (Base95 + MIDI-as-text)
 - [Week 13 — Mar 30](weeks/week-13-2026-03-30.md) — Feature engineering (AI only; no build)
-- [Week 14 — Apr 06](weeks/week-14-2026-04-06.md) — Multi-turn reinforcement learning + asymmetric encryption (build in progress)
+- [Week 14 — Apr 06](weeks/week-14-2026-04-06.md) — Multi-turn reinforcement learning + asymmetric encryption
 
 ---
 
@@ -57,7 +57,7 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 - [Bigram Language Model](builds/bigram-language-model.md) — Count-based character bigram model trained on names dataset
 - [Bigram Neural Net](builds/bigram-neural-net.md) — Same bigram model reformulated as a single-layer neural network in PyTorch
 - [LLM Music Producer](builds/llm-music-producer.md) — Two LLM audio composition pipelines: Base95 frame payloads (noise output) and MIDI-as-text (musical output)
-- [Asymmetric Encryption](builds/asymmetric-encryption.md) — *(in progress)*
+- [Asymmetric Encryption](builds/asymmetric-encryption.md) — RSA with OAEP encryption, PSS signing, four tamper/attack scenarios demonstrating each primitive
 
 ---
 
@@ -67,6 +67,7 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 - [Model Context Protocol](concepts/model-context-protocol.md) — MCP server/client pattern for tool access by AI agents
 - [Language Modeling Fundamentals](concepts/language-modeling-fundamentals.md) — Tokenization, softmax, cross-entropy loss, the training loop
 - [Jarvis System](concepts/jarvis-system.md) — Incremental build of a personal agent across weeks 3–5
+- [Cryptography Fundamentals](concepts/cryptography.md) — Symmetric vs. asymmetric encryption, hybrid encryption, OAEP/PSS padding, how TLS composes both
 
 ---
 

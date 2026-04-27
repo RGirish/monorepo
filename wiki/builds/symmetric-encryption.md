@@ -34,4 +34,9 @@ Symmetric encryption is the backbone of most data-at-rest and data-in-transit se
 
 ## Related Builds
 
+- [Asymmetric Encryption](asymmetric-encryption.md) — Week 14 build; RSA with OAEP padding, signing with PSS, four tamper scenarios
 - [Two-Phase Commit](two-phase-commit.md) — another systems-level build from the same period
+
+## See Also
+
+- [Cryptography Fundamentals](../concepts/cryptography.md) — how symmetric and asymmetric encryption compose into real systems (hybrid encryption, TLS)

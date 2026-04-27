@@ -24,7 +24,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 | 11 | Mar 16 | Language modeling — neural net framework (makemore) | Bigram model in PyTorch | [Week 11](wiki/weeks/week-11-2026-03-16.md) |
 | 12 | Mar 23 | LLM Wiki (Karpathy) | LLM Music Producer | [Week 12](wiki/weeks/week-12-2026-03-23.md) |
 | 13 | Mar 30 | Feature engineering + representation learning | *(no build)* | [Week 13](wiki/weeks/week-13-2026-03-30.md) |
-| 14 | Apr 06 | Multi-turn reinforcement learning + RLHF | Asymmetric encryption *(in progress)* | [Week 14](wiki/weeks/week-14-2026-04-06.md) |
+| 14 | Apr 06 | Multi-turn reinforcement learning + RLHF | Asymmetric encryption | [Week 14](wiki/weeks/week-14-2026-04-06.md) |
 | 15 | Apr 13 | — | — | *(not started)* |
 | 16 | Apr 20 | — | — | *(not started)* |
 
@@ -34,6 +34,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 
 **Best builds:**
 - [LLM Music Producer](wiki/builds/llm-music-producer.md) — two complete pipelines for LLM-driven audio composition: Base95 frame payloads and MIDI-as-text; the MIDI approach produces genuinely musical output
+- [Asymmetric Encryption](wiki/builds/asymmetric-encryption.md) — RSA with OAEP + PSS; four attack scenarios showing exactly what breaks and why; learned OAEP internals (seed, MGF, structural checks) deeply through build-time conversation
 - [Jarvis](wiki/builds/jarvis-chatbot.md) — a personal AI assistant grown incrementally across 3 weeks, ending up with MCP tool access and an A2A server; a complete end-to-end agent system
 - [CRDT Collaborative Editor](wiki/builds/crdt-collaborative-editor.md) — collision-free concurrent edits without coordination, elegant data structure design
 - [Bigram Neural Net](wiki/builds/bigram-neural-net.md) — the moment count-based statistics and neural networks converge to the same answer
@@ -50,6 +51,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 - Incremental systems — Jarvis and the makemore series both show how complex systems grow from simple foundations
 - Representation matters — week 12 showed that MIDI (semantic) beats Base95 (statistical) for LLM audio generation; the choice of representation is the most important design decision
 - ML foundations deepening — weeks 13–14 shift from AI tooling toward core ML concepts: feature engineering, the three learning paradigms, reward design
+- Security primitives emerging — weeks 6 and 14 together cover the full cryptography stack: symmetric encryption, asymmetric encryption, signing, and how TLS composes them
 
 ---
 

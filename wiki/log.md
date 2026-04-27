@@ -4,6 +4,13 @@ Append-only history of all wiki operations.
 
 ---
 
+## [2026-04-26] ingest | week-14 — multi-turn-rl + asymmetric-encryption
+Created: builds/asymmetric-encryption.md (full), concepts/cryptography.md
+Updated: weeks/week-14-2026-04-06.md (build section completed), builds/symmetric-encryption.md (added links to asymmetric + cryptography concept), index.md, README.md, log.md
+[lint] Orphan fixed: asymmetric-encryption.md was stub — now fully populated. Concept gap filled: symmetric-encryption (week 6) and asymmetric-encryption (week 14) had no shared concept page — created concepts/cryptography.md covering hybrid encryption, padding schemes, and TLS composition. Cross-links added: symmetric-encryption.md → asymmetric-encryption.md and cryptography.md.
+
+---
+
 ## [2026-04-08] ingest | week-01 — beads + bloom-filter
 Created: weeks/week-01-2026-01-05.md, tools/beads.md, builds/bloom-filter.md
 Updated: index.md, log.md
