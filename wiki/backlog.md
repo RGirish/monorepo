@@ -18,4 +18,5 @@
 - [ML Models] Build a supervised learning model
 - [ML Models] Build an unsupervised learning model
 - [ML Models] Build an RL model
+- [Networking/Crypto] Build a 2-person Android chat app using the Signal Protocol for E2E encryption
 
