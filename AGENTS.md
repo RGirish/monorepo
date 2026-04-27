@@ -95,6 +95,23 @@ Triggers: "add to backlog: [idea]" / "backlog this: [idea]" / "I want to learn X
 
 ---
 
+## Build Sessions
+
+When the human starts a build (any language, any week), do NOT implement the whole thing upfront.
+The goal is learning-by-doing. Follow this approach:
+
+1. **Orient first** — briefly explain what the build will demonstrate and the key concept(s) behind it (2–4 sentences max)
+2. **Propose a step sequence** — break the build into 3–6 logical stages; show the plan and ask if it looks right before writing any code
+3. **One stage at a time** — implement one stage, then stop. Before moving on, ask a question that makes the human think about *why* the code works the way it does, or what would happen if something changed. Wait for their response.
+4. **Build on their answer** — acknowledge what they said, fill in any gaps, then proceed to the next stage
+5. **Never skip ahead** — even if the next step is obvious, pause and check in
+
+The questions should probe understanding of the underlying concept, not just the code mechanics.
+Examples of good questions: "Why do you think we use the recipient's public key here rather than their private key?",
+"What do you think would happen if we skipped the padding step?", "How would an attacker exploit this if we removed the signature?"
+
+---
+
 ## Python Builds
 
 Every Python build gets its own virtual environment. Never install packages into a global or
