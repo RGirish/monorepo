@@ -79,3 +79,5 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 - [Feature Store Data Format](synthesis/feature-store-data-format.md) — What data in a feature store actually looks like: typed scalar rows, not vectors or code
 - [Feature Store: Preventing Training/Serving Skew](synthesis/feature-store-training-serving-skew.md) — How precomputed results and registered transformation functions eliminate skew without storing code
 - [Feature Store: Request-Time vs. Entity Features](synthesis/feature-store-request-time-vs-entity.md) — What "request-time" really means, and how on-demand features apply at both training and serving time
+- [Deep Learning vs. Classical for Tabular Data](synthesis/deep-learning-vs-classical-for-tabular-data.md) — Decision guide: when classical methods (XGBoost + FE) beat deep learning on structured data, and when the gap closes
+- [Feature Engineering End-to-End Architecture](synthesis/feature-engineering-end-to-end-architecture.md) — Full fraud detection pipeline: classical FE + LLM feature extraction + offline/online stores + real-time serving

@@ -108,6 +108,11 @@ Created: weeks/week-14-2026-04-06.md, tools/multi-turn-reinforcement-learning.md
 Updated: index.md, README.md, log.md
 [lint] No orphans. asymmetric-encryption.md cross-links to symmetric-encryption.md (week 06 counterpart) — valid inbound link added. multi-turn-reinforcement-learning.md cross-links to feature-engineering.md (supervised learning context), llm-wiki.md, and week-14 page. RL is a new topic appearing for the first time; watching for recurrence to create a concepts/reinforcement-learning.md page. No concept gaps yet with only one week of RL coverage.
 
+## [2026-06-29] query | feature engineering teaching session — classical techniques, deep learning vs classical, end-to-end architecture
+Created: synthesis/deep-learning-vs-classical-for-tabular-data.md, synthesis/feature-engineering-end-to-end-architecture.md
+Updated: tools/feature-engineering.md (added Classical Techniques section: one-hot vs ordinal encoding, scaling, log transforms, binning, derived quantities, decomposition), index.md, log.md
+[lint] No orphans introduced. Both new synthesis pages cross-link to existing feature-engineering.md, feature-stores.md, and feature-store-at-inference-time.md. deep-learning-vs-classical.md and feature-engineering-end-to-end-architecture.md cross-link to each other. No new concept gaps.
+
 ## [2026-04-08] backfill lint | weeks 1–12 complete
 [lint] Full backfill of 12 weeks complete. Verified: all pages reachable from index.md. All tool pages have at least one inbound link from a week or build page. All build pages linked from their corresponding week pages. Concepts (agent-protocols, model-context-protocol, language-modeling-fundamentals, jarvis-system) each have 2+ inbound links. No orphan pages detected. README.md updated with full progress table.
 

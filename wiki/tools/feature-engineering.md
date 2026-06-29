@@ -17,6 +17,42 @@ Raw data rarely comes in a form models can directly exploit. Feature engineering
 
 Feature types vary by data modality — tabular, text, audio, images, and video each require different engineering approaches.
 
+## Classical Techniques
+
+A practical toolkit for structured/tabular data:
+
+### Encoding categoricals
+Raw category labels can't be used directly — models need numbers. Two main approaches:
+- **One-hot encoding** — create a binary column per category (`is_google`, `is_amazon`). No ordering implied. Each category gets its own weight in the model. Best default for nominal categories.
+- **Ordinal encoding** (numbers: Google=1, Amazon=2) — implies a magnitude and ordering that usually doesn't exist. Only appropriate when the category genuinely has a natural order (e.g., low/medium/high).
+- **Target encoding** — replace the category with the average target value for that category (e.g., average default rate per employer). Compact, but risks target leakage if done on the full training set without care.
+
+### Scaling
+Models sensitive to feature magnitude (linear models, SVMs, neural nets) are thrown off when one feature ranges 0–1 and another ranges 0–1,000,000. Two fixes:
+- **Min-max scaling** — squash to [0, 1]: `(x - min) / (max - min)`
+- **Z-score normalization** — center at mean=0, std=1: `(x - mean) / std`
+
+Tree-based models (XGBoost, random forest) are not sensitive to scale — scaling doesn't matter for them.
+
+### Log transforms
+Apply when data spans multiple orders of magnitude (income, city population, web traffic) or when proportional differences matter more than absolute ones. `log(salary)` compresses the high tail, making right-skewed distributions more symmetric and turning multiplicative/proportional relationships into additive ones that linear models can fit. A doubling of salary looks the same everywhere on a log scale; on a raw scale, doubling $30k (+$30k) and doubling $500k (+$500k) look completely different.
+
+### Binning / bucketing
+Group continuous values into discrete ranges (age → decades: 20s, 30s, 40s). Trades precision for generalization — prevents the model from learning spurious patterns from noisy fine-grained differences. Useful when you expect the relationship to be step-wise rather than continuous.
+
+### Derived quantities and interaction features
+Compute new columns that don't exist in the raw data but carry more signal:
+- `loan_amount / salary` → debt-to-income ratio (more meaningful than either column alone)
+- `days_since_last_purchase` → derived from a raw timestamp
+- `age_at_application` → derived from birthdate and loan date
+
+These require domain expertise — the model cannot discover a debt-to-income ratio on its own without seeing many examples where the ratio matters.
+
+### Decomposition
+Break compound values into parts. A raw `birthdate` field can become `age`, `years_to_retirement`, or `decade_born`. A `timestamp` can become `hour_of_day`, `day_of_week`, `is_weekend`. Decomposition lets the model find patterns in the components independently.
+
+---
+
 ## Feature Engineering vs. Representation Learning
 
 Modern deep learning automates much of feature engineering through **representation learning** (also called feature learning): instead of human experts manually designing extraction rules, deep neural networks learn to discover the most relevant patterns directly from raw data during training. This is a core reason deep learning displaced hand-engineered pipelines in image and audio tasks.
