@@ -2,9 +2,6 @@
 
 ## AI Learning Ideas
 
-- Prompt/context engineering
-  - https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents 
-
 ## Build Ideas
 
 - [Feature Engineering] Feature engineering pipeline for a Kaggle dataset — engineer features manually and measure model lift at each step

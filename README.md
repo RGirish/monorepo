@@ -25,12 +25,23 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 | 12 | Mar 23 | LLM Wiki (Karpathy) | LLM Music Producer | [Week 12](wiki/weeks/week-12-2026-03-23.md) |
 | 13 | Mar 30 | Feature engineering + representation learning | *(no build)* | [Week 13](wiki/weeks/week-13-2026-03-30.md) |
 | 14 | Apr 06 | Multi-turn reinforcement learning + RLHF | Asymmetric encryption | [Week 14](wiki/weeks/week-14-2026-04-06.md) |
-| 15 | Apr 13 | — | — | *(not started)* |
+| 15 | Apr 13 | Context engineering | *(build TBD)* | [Week 15](wiki/weeks/week-15-2026-04-13.md) |
 | 16 | Apr 20 | — | — | *(not started)* |
+| 17 | Apr 27 | — | — | *(not started)* |
+| 18 | May 04 | — | — | *(not started)* |
+| 19 | May 04 | — | — | *(not started)* |
+| 20 | May 11 | — | — | *(not started)* |
+| 21 | May 18 | — | — | *(not started)* |
+| 22 | May 25 | — | — | *(not started)* |
+| 23 | Jun 01 | — | — | *(not started)* |
+| 24 | Jun 08 | — | — | *(not started)* |
+| 25 | Jun 15 | — | — | *(not started)* |
+| 26 | Jun 22 | — | — | *(not started)* |
+| 27 | Jun 29 | — | — | *(not started)* |
 
 ---
 
-### Highlights (14 weeks in)
+### Highlights (15 weeks in)
 
 **Best builds:**
 - [LLM Music Producer](wiki/builds/llm-music-producer.md) — two complete pipelines for LLM-driven audio composition: Base95 frame payloads and MIDI-as-text; the MIDI approach produces genuinely musical output
@@ -52,6 +63,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 - Representation matters — week 12 showed that MIDI (semantic) beats Base95 (statistical) for LLM audio generation; the choice of representation is the most important design decision
 - ML foundations deepening — weeks 13–14 shift from AI tooling toward core ML concepts: feature engineering, the three learning paradigms, reward design
 - Security primitives emerging — weeks 6 and 14 together cover the full cryptography stack: symmetric encryption, asymmetric encryption, signing, and how TLS composes them
+- Agent infrastructure maturing — week 15 context engineering completes the picture: not just how agents communicate (protocols) but how they manage their own cognitive resources
 
 ---
 

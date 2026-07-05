@@ -4,6 +4,13 @@ Append-only history of all wiki operations.
 
 ---
 
+## [2026-07-04] ingest | week-15 — context-engineering (AI learning only; build TBD)
+Created: weeks/week-15-2026-04-13.md, tools/context-engineering.md
+Updated: index.md, backlog.md (removed prompt/context engineering item), README.md, log.md
+[lint] No orphans. context-engineering.md cross-links to claude-code.md, agent-protocols.md, and ralph.md — all inbound links valid. No concept gap: context engineering is self-contained in the tools/ page; no multi-week pattern yet to warrant a concepts/ page.
+
+---
+
 ## [2026-04-26] ingest | week-14 — multi-turn-rl + asymmetric-encryption
 Created: builds/asymmetric-encryption.md (full), concepts/cryptography.md
 Updated: weeks/week-14-2026-04-06.md (build section completed), builds/symmetric-encryption.md (added links to asymmetric + cryptography concept), index.md, README.md, log.md
