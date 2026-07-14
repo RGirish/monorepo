@@ -23,7 +23,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 | 10 | Mar 09 | Language modeling — bigram model (makemore) | Bigram language model | [Week 10](wiki/weeks/week-10-2026-03-09.md) |
 | 11 | Mar 16 | Language modeling — neural net framework (makemore) | Bigram model in PyTorch | [Week 11](wiki/weeks/week-11-2026-03-16.md) |
 | 12 | Mar 23 | LLM Wiki (Karpathy) | LLM Music Producer | [Week 12](wiki/weeks/week-12-2026-03-23.md) |
-| 13 | Mar 30 | Feature engineering + representation learning | Bike Sharing Feature Pipeline *(in progress)* | [Week 13](wiki/weeks/week-13-2026-03-30.md) |
+| 13 | Mar 30 | Feature engineering + representation learning | Bike Sharing Feature Pipeline | [Week 13](wiki/weeks/week-13-2026-03-30.md) |
 | 14 | Apr 06 | Multi-turn reinforcement learning + RLHF | Asymmetric encryption | [Week 14](wiki/weeks/week-14-2026-04-06.md) |
 | 15 | Apr 13 | Context engineering | *(build TBD)* | [Week 15](wiki/weeks/week-15-2026-04-13.md) |
 | 16 | Apr 20 | — | — | *(not started)* |
