@@ -77,3 +77,4 @@ The asymmetric phase is the handshake; the symmetric phase is everything after. 
 - [Week 14](../weeks/week-14-2026-04-06.md)
 - [Symmetric Encryption](symmetric-encryption.md) — Week 6 build; the counterpart; AES block cipher with ECB/CBC/CTR modes
 - [Cryptography Fundamentals](../concepts/cryptography.md) — how symmetric and asymmetric encryption compose into real systems
+- [Signal Protocol Chat](signal-protocol-chat.md) — Week 15 build; extends these same primitives (key pairs, signatures) into a continuously-rekeying scheme for ongoing conversations

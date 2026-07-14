@@ -25,7 +25,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 | 12 | Mar 23 | LLM Wiki (Karpathy) | LLM Music Producer | [Week 12](wiki/weeks/week-12-2026-03-23.md) |
 | 13 | Mar 30 | Feature engineering + representation learning | Bike Sharing Feature Pipeline | [Week 13](wiki/weeks/week-13-2026-03-30.md) |
 | 14 | Apr 06 | Multi-turn reinforcement learning + RLHF | Asymmetric encryption | [Week 14](wiki/weeks/week-14-2026-04-06.md) |
-| 15 | Apr 13 | Context engineering | *(build TBD)* | [Week 15](wiki/weeks/week-15-2026-04-13.md) |
+| 15 | Apr 13 | Context engineering | Signal Protocol Chat | [Week 15](wiki/weeks/week-15-2026-04-13.md) |
 | 16 | Apr 20 | — | — | *(not started)* |
 | 17 | Apr 27 | — | — | *(not started)* |
 | 18 | May 04 | — | — | *(not started)* |
@@ -46,6 +46,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 ### Highlights (15 weeks in)
 
 **Best builds:**
+- [Signal Protocol Chat](wiki/builds/signal-protocol-chat.md) — E2E encrypted Android chat built on Signal's real `libsignal` library, not a reimplementation; PQXDH key agreement (with post-quantum Kyber pre-keys) and the Double Ratchet, with the UI enforcing the actual initiator/responder session asymmetry
 - [LLM Music Producer](wiki/builds/llm-music-producer.md) — two complete pipelines for LLM-driven audio composition: Base95 frame payloads and MIDI-as-text; the MIDI approach produces genuinely musical output
 - [Asymmetric Encryption](wiki/builds/asymmetric-encryption.md) — RSA with OAEP + PSS; four attack scenarios showing exactly what breaks and why; learned OAEP internals (seed, MGF, structural checks) deeply through build-time conversation
 - [Jarvis](wiki/builds/jarvis-chatbot.md) — a personal AI assistant grown incrementally across 3 weeks, ending up with MCP tool access and an A2A server; a complete end-to-end agent system
@@ -64,7 +65,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 - Incremental systems — Jarvis and the makemore series both show how complex systems grow from simple foundations
 - Representation matters — week 12 showed that MIDI (semantic) beats Base95 (statistical) for LLM audio generation; the choice of representation is the most important design decision
 - ML foundations deepening — weeks 13–14 shift from AI tooling toward core ML concepts: feature engineering, the three learning paradigms, reward design; week 13's [Bike Sharing Feature Pipeline](wiki/builds/bike-sharing-feature-pipeline.md) turned that theory hands-on, staging a model through baseline → time features → categorical encoding and finding a genuine counter-example to "one-hot is always correct" for tree-based models
-- Security primitives emerging — weeks 6 and 14 together cover the full cryptography stack: symmetric encryption, asymmetric encryption, signing, and how TLS composes them
+- Security primitives deepening — weeks 6, 14, and 15 now cover the full stack: symmetric encryption, asymmetric encryption + signing, and continuous rekeying (PQXDH + Double Ratchet) for ongoing conversations, including forward secrecy and post-compromise security
 - Agent infrastructure maturing — week 15 context engineering completes the picture: not just how agents communicate (protocols) but how they manage their own cognitive resources
 
 ---

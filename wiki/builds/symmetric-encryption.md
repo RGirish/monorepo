@@ -40,3 +40,4 @@ Symmetric encryption is the backbone of most data-at-rest and data-in-transit se
 ## See Also
 
 - [Cryptography Fundamentals](../concepts/cryptography.md) — how symmetric and asymmetric encryption compose into real systems (hybrid encryption, TLS)
+- [Signal Protocol Chat](signal-protocol-chat.md) — Week 15 build; the Double Ratchet's symmetric-key chain reuses this same block-cipher-adjacent key-derivation logic (HMAC-based, not AES) for per-message keys

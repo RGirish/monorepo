@@ -1,6 +1,6 @@
 # Cryptography Fundamentals
 
-Cross-cutting concepts that emerged across Weeks 6 and 14.
+Cross-cutting concepts that emerged across Weeks 6, 14, and 15.
 
 ---
 
@@ -55,7 +55,20 @@ Raw RSA is deterministic and malleable — the same input always produces the sa
 
 ---
 
+## Beyond a Single Exchange: Continuous Rekeying
+
+Weeks 6 and 14 both cover a *single* key exchange or encrypted payload. Week 15's Signal Protocol build extends the same asymmetric-encryption foundations (key pairs, signatures, KEMs) into a scheme for an *ongoing conversation*, where the key itself keeps changing:
+
+- **Forward secrecy** — a future key compromise doesn't expose past messages, because old keys are deleted immediately after use and derived via a one-way function (HMAC) that can't be inverted back to its input
+- **Post-compromise security** — a past key compromise doesn't expose future messages either, because fresh Diffie-Hellman randomness gets mixed into the shared secret on every round-trip, healing the session even if the attacker never gets caught
+- **KEMs (Key Encapsulation Mechanisms)** — Kyber, used for PQXDH, is asymmetric encryption's post-quantum-safe cousin: instead of both sides computing the same DH result, the sender encapsulates a random secret using the recipient's public key, and only the recipient's private key can decapsulate it back out
+
+See [Signal Protocol Chat](../builds/signal-protocol-chat.md) for the full mechanics (X3DH/PQXDH pre-key bundles, the Double Ratchet's two ratchets, why some pre-keys need a signature and others don't).
+
+---
+
 ## See Also
 
 - [Symmetric Encryption](../builds/symmetric-encryption.md) — AES block cipher, ECB/CBC/CTR modes (Week 6)
 - [Asymmetric Encryption](../builds/asymmetric-encryption.md) — RSA with OAEP + PSS, four attack scenarios (Week 14)
+- [Signal Protocol Chat](../builds/signal-protocol-chat.md) — PQXDH + Double Ratchet, forward secrecy and post-compromise security in a real E2E messaging protocol (Week 15)

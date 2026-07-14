@@ -20,5 +20,5 @@
 - [ML Models] Build a supervised learning model
 - [ML Models] Build an unsupervised learning model
 - [ML Models] Build an RL model
-- [Networking/Crypto] Build a 2-person Android chat app using the Signal Protocol for E2E encryption
+- [Networking/Crypto] Add a real network layer to the Signal Protocol chat app (Week 15) so two separate devices can actually message each other — needs a ciphertext/pre-key-bundle relay (Firebase or a small custom backend), persistent on-disk session storage (replacing InMemorySignalProtocolStore), pre-key replenishment, and push notifications; then a Play Store Internal Testing release (or direct APK sideload) to test with a friend
 

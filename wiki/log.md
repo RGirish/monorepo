@@ -4,6 +4,11 @@ Append-only history of all wiki operations.
 
 ---
 
+## [2026-07-13] ingest | week-15 build — signal-protocol-chat
+Created: builds/signal-protocol-chat.md
+Updated: weeks/week-15-2026-04-13.md (frontmatter `build` field + Build section, previously "tbd"), concepts/cryptography.md (new "Beyond a Single Exchange" section on forward secrecy, post-compromise security, and KEMs), builds/asymmetric-encryption.md and builds/symmetric-encryption.md (reciprocal See Also links), backlog.md (removed the completed Signal Protocol chat app idea; added a new item for the deferred network layer, persistence, and Play Store deployment work), index.md, README.md (progress table row + Highlights + running themes), log.md
+[lint] No orphans: signal-protocol-chat.md has inbound links from week-15, cryptography.md, asymmetric-encryption.md, symmetric-encryption.md, and index.md, with outbound links back to all of them. No missing links found — every page that mentions Signal Protocol, forward secrecy, or PQXDH now links to signal-protocol-chat.md. Concept gap: forward secrecy / post-compromise security / KEMs now appear across cryptography.md and signal-protocol-chat.md (2 pages) — folded into the existing cryptography.md concept page rather than spinning up a new one, since it's a direct extension of the symmetric/asymmetric fundamentals already covered there. No stale content found elsewhere.
+
 ## [2026-07-13] ingest | week-13 build — bike-sharing-feature-pipeline (stages 1–3 of 6, in progress)
 Created: builds/bike-sharing-feature-pipeline.md, concepts/tree-ensemble-mechanics.md
 Updated: weeks/week-13-2026-03-30.md (frontmatter `build` field + Build section, previously "no build"), tools/feature-engineering.md (added model-family nuance to categorical encoding section, cross-linked new build/concept pages), index.md, README.md (progress table row + running themes; also added missing placeholder rows for weeks 28–29 to keep the table current through today), log.md

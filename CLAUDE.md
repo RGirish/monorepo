@@ -156,6 +156,7 @@ Triggers: "ingest week N" / "ingest weeks N and M" (for catch-up)
 9. Append to `wiki/log.md` (see Log Format below)
 10. Update `README.md` (see README below)
 11. Run lint pass automatically (see Lint below)
+12. Commit all changes from this ingest (wiki pages, README.md, and any new/changed files under `code/`) and push to the remote — an ingest is not complete until it's pushed
 
 For catch-up ingests, process each week fully and sequentially before moving to the next.
 
