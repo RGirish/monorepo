@@ -76,13 +76,25 @@ Run both the AI learning and build workflows above in sequence. Create both scra
 ### Current week status
 Triggers: "what week am I on" / "which week am I on" / "what week is this" / "where am I in the project"
 
-Do NOT answer with the current calendar week number. Instead, determine the project week from the repo state:
+Do NOT answer with the current calendar week number. Instead, determine the project week from the repo state.
 
-1. Check `wiki/weeks/` for the highest-numbered ingested week page — that week is **complete**
-2. Check `wiki/scratch/` for any week files beyond the last ingested week — that week is **in progress**
-3. Report accordingly:
-   - If a scratch file exists beyond the last ingested week: "You're currently on Week N (in progress)"
-   - If no scratch file exists beyond the last ingested week: "Week N is complete — Week N+1 is next"
+A week is **truly complete** only when BOTH its `ai-topic:` and `build:` frontmatter fields in its
+`wiki/weeks/` page are filled in with a real value — not empty, `tbd`, `none`, or similar placeholder.
+An ingested page (a page existing in `wiki/weeks/`) is necessary but not sufficient for completeness —
+always check its frontmatter, don't infer completeness from the page's existence alone.
+
+1. Check `wiki/weeks/` for the highest-numbered ingested week page
+2. Read that page's frontmatter — if both `ai-topic:` and `build:` are filled in, that week is **complete**;
+   if either is a placeholder (`tbd`, `none`, empty), that week is **incomplete** even though it was ingested
+3. Also scan all other ingested `wiki/weeks/` pages for placeholder `ai-topic:` or `build:` values — these
+   are **outstanding** weeks (owed, not waived — see prior guidance on this)
+4. Check `wiki/scratch/` for any week files beyond the last ingested week — that week is **in progress**
+5. Report accordingly, combining all of the above into one nuanced answer rather than a single label:
+   - State the current/next week using the same logic as before (scratch file beyond last ingested week →
+     "in progress"; otherwise last ingested week + 1 is "next")
+   - If the highest-numbered ingested week has a placeholder `ai-topic:` or `build:`, say so explicitly
+     rather than calling it complete (e.g., "Week N was ingested but its build is still TBD")
+   - If any other ingested weeks have outstanding placeholders, mention them too
    - If no weeks/ pages exist yet: "No weeks completed yet — Week 1 is next"
 
 ### Add to backlog
