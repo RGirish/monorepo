@@ -4,6 +4,13 @@ Append-only history of all wiki operations.
 
 ---
 
+## [2026-07-13] ingest | week-13 build — bike-sharing-feature-pipeline (stages 1–3 of 6, in progress)
+Created: builds/bike-sharing-feature-pipeline.md, concepts/tree-ensemble-mechanics.md
+Updated: weeks/week-13-2026-03-30.md (frontmatter `build` field + Build section, previously "no build"), tools/feature-engineering.md (added model-family nuance to categorical encoding section, cross-linked new build/concept pages), index.md, README.md (progress table row + running themes; also added missing placeholder rows for weeks 28–29 to keep the table current through today), log.md
+[lint] No orphans: both new pages have inbound links (week-13 → build page; build page + feature-engineering.md → concept page) and outbound links back. Stale content fixed: tools/feature-engineering.md previously stated one-hot encoding is the "best default" for nominal categoricals with no model-family caveat — corrected with a nuance paragraph, since this build's stage 3 result (one-hot underperforming naive codes on a tree model) directly contradicts the blanket claim. Concept gap watch: tree-ensemble-mechanics.md currently appears on only 1 week — created proactively since it's near-certain to recur on the backlogged supervised-learning build; will fold in cross-links if/when that happens. Backlog item "Feature engineering pipeline for a Kaggle dataset" intentionally left in place (not removed) — build is only 3 of 6 stages complete, continues in week 15.
+
+---
+
 ## [2026-07-04] ingest | week-15 — context-engineering (AI learning only; build TBD)
 Created: weeks/week-15-2026-04-13.md, tools/context-engineering.md
 Updated: index.md, backlog.md (removed prompt/context engineering item), README.md, log.md

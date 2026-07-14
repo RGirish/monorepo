@@ -2,6 +2,9 @@
 
 ## AI Learning Ideas
 
+- Prompt engineering best practices
+  - https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview
+
 ## Build Ideas
 
 - [Feature Engineering] Feature engineering pipeline for a Kaggle dataset — engineer features manually and measure model lift at each step

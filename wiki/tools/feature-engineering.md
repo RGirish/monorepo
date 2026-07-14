@@ -23,9 +23,11 @@ A practical toolkit for structured/tabular data:
 
 ### Encoding categoricals
 Raw category labels can't be used directly — models need numbers. Two main approaches:
-- **One-hot encoding** — create a binary column per category (`is_google`, `is_amazon`). No ordering implied. Each category gets its own weight in the model. Best default for nominal categories.
+- **One-hot encoding** — create a binary column per category (`is_google`, `is_amazon`). No ordering implied. Each category gets its own weight in the model. Good default for nominal categories on models sensitive to magnitude (linear, KNN, neural nets).
 - **Ordinal encoding** (numbers: Google=1, Amazon=2) — implies a magnitude and ordering that usually doesn't exist. Only appropriate when the category genuinely has a natural order (e.g., low/medium/high).
 - **Target encoding** — replace the category with the average target value for that category (e.g., average default rate per employer). Compact, but risks target leakage if done on the full training set without care.
+
+**Nuance for tree-based models:** the "one-hot is the safe default" advice doesn't hold uniformly. Trees split on thresholds, not magnitudes, so naive integer codes often work as well as one-hot — and one-hot can introduce a *fragmentation* cost (an N-way decision spread across N columns competing for a shallow tree's limited split budget). Confirmed hands-on in the [Bike Sharing Feature Pipeline](../builds/bike-sharing-feature-pipeline.md) build (week 13), where one-hot encoding measurably underperformed naive codes on a gradient-boosted model. See [Tree Ensemble Mechanics](../concepts/tree-ensemble-mechanics.md) for the full mechanism.
 
 ### Scaling
 Models sensitive to feature magnitude (linear models, SVMs, neural nets) are thrown off when one feature ranges 0–1 and another ranges 0–1,000,000. Two fixes:
@@ -90,3 +92,8 @@ Feature engineering hasn't disappeared — it has shifted form:
 ## Related Concepts
 
 - [Language Modeling Fundamentals](../concepts/language-modeling-fundamentals.md) — one-hot encoding applied in the bigram model is a concrete example of feature engineering in practice
+- [Tree Ensemble Mechanics](../concepts/tree-ensemble-mechanics.md) — gradient boosting internals, cross-validation, RMSLE, and why categorical encoding strategy depends on model family
+
+## Related Builds
+
+- [Bike Sharing Feature Pipeline](../builds/bike-sharing-feature-pipeline.md) — hands-on application: leakage, cyclical/wraparound encoding, and encoding-strategy tradeoffs for tree models

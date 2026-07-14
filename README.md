@@ -23,7 +23,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 | 10 | Mar 09 | Language modeling — bigram model (makemore) | Bigram language model | [Week 10](wiki/weeks/week-10-2026-03-09.md) |
 | 11 | Mar 16 | Language modeling — neural net framework (makemore) | Bigram model in PyTorch | [Week 11](wiki/weeks/week-11-2026-03-16.md) |
 | 12 | Mar 23 | LLM Wiki (Karpathy) | LLM Music Producer | [Week 12](wiki/weeks/week-12-2026-03-23.md) |
-| 13 | Mar 30 | Feature engineering + representation learning | *(no build)* | [Week 13](wiki/weeks/week-13-2026-03-30.md) |
+| 13 | Mar 30 | Feature engineering + representation learning | Bike Sharing Feature Pipeline *(in progress)* | [Week 13](wiki/weeks/week-13-2026-03-30.md) |
 | 14 | Apr 06 | Multi-turn reinforcement learning + RLHF | Asymmetric encryption | [Week 14](wiki/weeks/week-14-2026-04-06.md) |
 | 15 | Apr 13 | Context engineering | *(build TBD)* | [Week 15](wiki/weeks/week-15-2026-04-13.md) |
 | 16 | Apr 20 | — | — | *(not started)* |
@@ -38,6 +38,8 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 | 25 | Jun 15 | — | — | *(not started)* |
 | 26 | Jun 22 | — | — | *(not started)* |
 | 27 | Jun 29 | — | — | *(not started)* |
+| 28 | Jul 06 | — | — | *(not started)* |
+| 29 | Jul 13 | — | — | *(not started)* |
 
 ---
 
@@ -61,7 +63,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 - Build-what-you-learn — several AI topics were immediately applied as hands-on builds (embeddings → vector DB, language modeling → bigram model, MCP → TODO server)
 - Incremental systems — Jarvis and the makemore series both show how complex systems grow from simple foundations
 - Representation matters — week 12 showed that MIDI (semantic) beats Base95 (statistical) for LLM audio generation; the choice of representation is the most important design decision
-- ML foundations deepening — weeks 13–14 shift from AI tooling toward core ML concepts: feature engineering, the three learning paradigms, reward design
+- ML foundations deepening — weeks 13–14 shift from AI tooling toward core ML concepts: feature engineering, the three learning paradigms, reward design; week 13's [Bike Sharing Feature Pipeline](wiki/builds/bike-sharing-feature-pipeline.md) turned that theory hands-on, staging a model through baseline → time features → categorical encoding and finding a genuine counter-example to "one-hot is always correct" for tree-based models
 - Security primitives emerging — weeks 6 and 14 together cover the full cryptography stack: symmetric encryption, asymmetric encryption, signing, and how TLS composes them
 - Agent infrastructure maturing — week 15 context engineering completes the picture: not just how agents communicate (protocols) but how they manage their own cognitive resources
 
