@@ -21,6 +21,7 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 - [Week 13 — Mar 30](weeks/week-13-2026-03-30.md) — Feature engineering + Bike Sharing Feature Pipeline (baseline, time-derived features, categorical encoding)
 - [Week 14 — Apr 06](weeks/week-14-2026-04-06.md) — Multi-turn reinforcement learning + asymmetric encryption
 - [Week 15 — Apr 13](weeks/week-15-2026-04-13.md) — Context engineering + Signal Protocol Chat (PQXDH, Double Ratchet)
+- [Week 16 — Apr 20](weeks/week-16-2026-04-20.md) — Bike Sharing Feature Pipeline Part 2 (numeric transforms/interactions, feature selection)
 
 ---
 
@@ -62,6 +63,7 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 - [Asymmetric Encryption](builds/asymmetric-encryption.md) — RSA with OAEP encryption, PSS signing, four tamper/attack scenarios demonstrating each primitive
 - [Bike Sharing Feature Pipeline](builds/bike-sharing-feature-pipeline.md) — Staged feature engineering on the Bike Sharing Demand dataset; baseline → time-derived/cyclical features → categorical encoding, RMSLE-measured at each stage
 - [Signal Protocol Chat](builds/signal-protocol-chat.md) — Android E2E chat using the real libsignal library; PQXDH key agreement and Double Ratchet, demonstrating forward secrecy and post-compromise security
+- [Bike Sharing Feature Pipeline (Part 2)](builds/bike-sharing-feature-pipeline-part-2.md) — Numeric transforms/interactions and feature-importance-based selection; isolates that one interaction term drove the pipeline's largest accuracy gain
 
 ---
 
@@ -72,7 +74,7 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 - [Language Modeling Fundamentals](concepts/language-modeling-fundamentals.md) — Tokenization, softmax, cross-entropy loss, the training loop
 - [Jarvis System](concepts/jarvis-system.md) — Incremental build of a personal agent across weeks 3–5
 - [Cryptography Fundamentals](concepts/cryptography.md) — Symmetric vs. asymmetric encryption, hybrid encryption, OAEP/PSS padding, how TLS composes both, forward secrecy/post-compromise security and KEMs
-- [Tree Ensemble Mechanics](concepts/tree-ensemble-mechanics.md) — Gradient boosting internals, cross-validation, RMSLE, cyclical encoding, and why categorical encoding strategy is model-family-dependent
+- [Tree Ensemble Mechanics](concepts/tree-ensemble-mechanics.md) — Gradient boosting internals, cross-validation, RMSLE, cyclical encoding, feature importance, interaction terms vs. axis-aligned splits, and why categorical encoding strategy is model-family-dependent
 
 ---
 

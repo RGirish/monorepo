@@ -9,7 +9,6 @@
 
 ## Build Ideas
 
-- [Feature Engineering] Feature engineering pipeline for a Kaggle dataset — engineer features manually and measure model lift at each step
 - [Feature Engineering] Categorical encoding comparator — implement and benchmark one-hot, ordinal, target, frequency, and binary encoding across datasets
 - [Feature Engineering] Time series feature extractor — auto-generate lag features, rolling statistics, Fourier transforms, and calendar features from raw data
 - [Feature Engineering] Automated feature generator — given a DataFrame, generate candidate features and rank by mutual information or correlation with target

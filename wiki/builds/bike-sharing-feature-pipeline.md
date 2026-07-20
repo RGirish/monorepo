@@ -1,6 +1,6 @@
 # Bike Sharing Feature Pipeline
 
-**Built in:** [Week 13](../weeks/week-13-2026-03-30.md)
+**Built in:** [Week 13](../weeks/week-13-2026-03-30.md) — continued in [Part 2](bike-sharing-feature-pipeline-part-2.md) ([Week 16](../weeks/week-16-2026-04-20.md))
 **Code:** [machine-learning/feature-engineering](https://github.com/RGirish/monorepo/tree/main/code/machine-learning/feature-engineering)
 
 ---
@@ -48,6 +48,10 @@ This is a real, useful result, not a bug: one-hot encoding's benefit is aimed at
 | 3 | + one-hot categorical encoding | 0.7415 |
 
 Best result of this build is stage 2 — one-hot encoding (stage 3) is the notable negative result, not a bug.
+
+## Related Builds
+
+- [Bike Sharing Feature Pipeline (Part 2)](bike-sharing-feature-pipeline-part-2.md) — numeric transforms/interactions and feature selection, built forward from this build's stage 2
 
 ## Related Tools
 

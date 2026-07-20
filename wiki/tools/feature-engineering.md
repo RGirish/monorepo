@@ -42,6 +42,8 @@ Apply when data spans multiple orders of magnitude (income, city population, web
 ### Binning / bucketing
 Group continuous values into discrete ranges (age → decades: 20s, 30s, 40s). Trades precision for generalization — prevents the model from learning spurious patterns from noisy fine-grained differences. Useful when you expect the relationship to be step-wise rather than continuous.
 
+**Nuance for tree-based models:** binning a continuous feature can add nothing at all. A tree can already threshold a continuous column at any value it likes, so a fixed-width bucketed version is often strictly *less* informative than what the model already had access to. Confirmed via an ablation in the [Bike Sharing Feature Pipeline (Part 2)](../builds/bike-sharing-feature-pipeline-part-2.md) build (week 16): binning `temp`/`humidity` produced zero measurable lift on a gradient-boosted model, isolated from a set of features where the *other* additions (interaction terms) drove a large improvement.
+
 ### Derived quantities and interaction features
 Compute new columns that don't exist in the raw data but carry more signal:
 - `loan_amount / salary` → debt-to-income ratio (more meaningful than either column alone)
@@ -49,6 +51,8 @@ Compute new columns that don't exist in the raw data but carry more signal:
 - `age_at_application` → derived from birthdate and loan date
 
 These require domain expertise — the model cannot discover a debt-to-income ratio on its own without seeing many examples where the ratio matters.
+
+**Nuance — domain-plausible isn't the same as data-verified:** a well-reasoned interaction can still fail empirically. In the same week-16 build, `temp × humidity` was a defensible "discomfort index" hypothesis, but its correlation with the actual target was only 0.07 (vs. 0.40 for `temp` alone) — the two inputs pull in opposite directions relative to the target, so multiplying them muddled the signal instead of amplifying it. A different interaction in the same build (`workingday × is_rush_hour`) captured a real conditional relationship and became the single most important feature in the model. Domain reasoning identifies candidates; only checking the data tells you which interactions actually work. See [Tree Ensemble Mechanics](../concepts/tree-ensemble-mechanics.md) for why interaction terms matter especially for tree-based models specifically (they can't reconstruct a multiplicative relationship from axis-aligned splits alone).
 
 ### Decomposition
 Break compound values into parts. A raw `birthdate` field can become `age`, `years_to_retirement`, or `decade_born`. A `timestamp` can become `hour_of_day`, `day_of_week`, `is_weekend`. Decomposition lets the model find patterns in the components independently.
@@ -97,3 +101,4 @@ Feature engineering hasn't disappeared — it has shifted form:
 ## Related Builds
 
 - [Bike Sharing Feature Pipeline](../builds/bike-sharing-feature-pipeline.md) — hands-on application: leakage, cyclical/wraparound encoding, and encoding-strategy tradeoffs for tree models
+- [Bike Sharing Feature Pipeline (Part 2)](../builds/bike-sharing-feature-pipeline-part-2.md) — binning vs. interaction terms, and why a domain-plausible interaction still needs empirical verification

@@ -26,7 +26,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 | 13 | Mar 30 | Feature engineering + representation learning | Bike Sharing Feature Pipeline | [Week 13](wiki/weeks/week-13-2026-03-30.md) |
 | 14 | Apr 06 | Multi-turn reinforcement learning + RLHF | Asymmetric encryption | [Week 14](wiki/weeks/week-14-2026-04-06.md) |
 | 15 | Apr 13 | Context engineering | Signal Protocol Chat | [Week 15](wiki/weeks/week-15-2026-04-13.md) |
-| 16 | Apr 20 | — | — | *(not started)* |
+| 16 | Apr 20 | *(AI topic TBD)* | Bike Sharing Feature Pipeline (Part 2) | [Week 16](wiki/weeks/week-16-2026-04-20.md) |
 | 17 | Apr 27 | — | — | *(not started)* |
 | 18 | May 04 | — | — | *(not started)* |
 | 19 | May 04 | — | — | *(not started)* |
@@ -43,7 +43,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 
 ---
 
-### Highlights (15 weeks in)
+### Highlights (16 weeks in)
 
 **Best builds:**
 - [Signal Protocol Chat](wiki/builds/signal-protocol-chat.md) — E2E encrypted Android chat built on Signal's real `libsignal` library, not a reimplementation; PQXDH key agreement (with post-quantum Kyber pre-keys) and the Double Ratchet, with the UI enforcing the actual initiator/responder session asymmetry
@@ -64,7 +64,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 - Build-what-you-learn — several AI topics were immediately applied as hands-on builds (embeddings → vector DB, language modeling → bigram model, MCP → TODO server)
 - Incremental systems — Jarvis and the makemore series both show how complex systems grow from simple foundations
 - Representation matters — week 12 showed that MIDI (semantic) beats Base95 (statistical) for LLM audio generation; the choice of representation is the most important design decision
-- ML foundations deepening — weeks 13–14 shift from AI tooling toward core ML concepts: feature engineering, the three learning paradigms, reward design; week 13's [Bike Sharing Feature Pipeline](wiki/builds/bike-sharing-feature-pipeline.md) turned that theory hands-on, staging a model through baseline → time features → categorical encoding and finding a genuine counter-example to "one-hot is always correct" for tree-based models
+- ML foundations deepening — weeks 13–14 shift from AI tooling toward core ML concepts: feature engineering, the three learning paradigms, reward design; the [Bike Sharing Feature Pipeline](wiki/builds/bike-sharing-feature-pipeline.md) (week 13) and its [Part 2](wiki/builds/bike-sharing-feature-pipeline-part-2.md) (week 16) turned that theory hands-on across 5 measured stages — a counter-example to "one-hot is always correct" for tree models, and a finding that one interaction term (`workingday × is_rush_hour`) drove more accuracy than every other engineering decision in the pipeline combined, while a second, equally-plausible interaction (`temp × humidity`) turned out to be nearly worthless once checked against the data
 - Security primitives deepening — weeks 6, 14, and 15 now cover the full stack: symmetric encryption, asymmetric encryption + signing, and continuous rekeying (PQXDH + Double Ratchet) for ongoing conversations, including forward secrecy and post-compromise security
 - Agent infrastructure maturing — week 15 context engineering completes the picture: not just how agents communicate (protocols) but how they manage their own cognitive resources
 
