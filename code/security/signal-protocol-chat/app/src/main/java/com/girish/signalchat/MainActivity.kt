@@ -10,7 +10,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.weight
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -52,7 +52,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MaterialTheme {
-                Surface(modifier = Modifier.fillMaxSize()) {
+                Surface(modifier = Modifier.fillMaxSize().safeDrawingPadding()) {
                     TwoUserChatShell()
                 }
             }
@@ -109,6 +109,14 @@ fun UserPane(
     val displayed = remember { mutableStateListOf<ChatMessage>() }
     var processedCount by remember { mutableStateOf(0) }
 
+    // Bob can't send until he's decrypted a first message from Alice -- only
+    // the initiator runs X3DH up front; the responder's session is built as a
+    // side effect of decrypting that first PreKeySignalMessage. This has to be
+    // real Compose state (not a plain re-evaluated call into the libsignal
+    // store) -- otherwise nothing tells this composable to recompose at the
+    // exact moment decryption below actually creates the session.
+    var canSend by remember { mutableStateOf(user.hasSessionWith(other)) }
+
     // Decrypt each new packet addressed to this user exactly once -- the Double
     // Ratchet deletes a message key immediately after use, so decrypting the
     // same envelope twice would throw DuplicateMessageException.
@@ -120,12 +128,8 @@ fun UserPane(
             }
         }
         processedCount = network.size
+        canSend = user.hasSessionWith(other)
     }
-
-    // Bob can't send until he's decrypted a first message from Alice -- only
-    // the initiator runs X3DH up front; the responder's session is built as a
-    // side effect of decrypting that first PreKeySignalMessage.
-    val canSend = user.hasSessionWith(other)
 
     Column(modifier = modifier.padding(8.dp)) {
         Text(text = user.name, style = MaterialTheme.typography.titleMedium)

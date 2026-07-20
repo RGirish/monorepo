@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 android {
@@ -24,6 +25,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+        isCoreLibraryDesugaringEnabled = true
     }
 
     kotlinOptions {
@@ -32,10 +34,6 @@ android {
 
     buildFeatures {
         compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.14"
     }
 }
 
@@ -48,6 +46,15 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     debugImplementation("androidx.compose.ui:ui-tooling")
 
+    // Provides the XML Theme.Material3.* styles the manifest references -- the
+    // androidx.compose.material3 dependency above is Compose-only Kotlin and
+    // ships no XML style resources, so AAPT can't resolve the manifest theme
+    // without this one too.
+    implementation("com.google.android.material:material:1.14.0")
+
     // Signal's own implementation of X3DH + the Double Ratchet.
     implementation("org.signal:libsignal-android:0.76.1")
+
+    // libsignal-android needs Java 8+ APIs desugared for older minSdk levels.
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.3")
 }
