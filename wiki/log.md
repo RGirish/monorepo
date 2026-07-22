@@ -4,6 +4,10 @@ Append-only history of all wiki operations.
 
 ---
 
+## [2026-07-19] re-ingest | week-15 build — signal-protocol-chat gets a real network layer
+Updated: builds/signal-protocol-chat.md (full rewrite: local two-pane demo retired, documents Firebase relay, persistent on-device session storage, Firebase Anonymous Auth identity, Firestore Security Rules access control, and the allowBackup hardening), weeks/week-15-2026-04-13.md (Build section rewritten to describe the real networked chat), backlog.md (removed the completed network-layer item; added two narrower items -- pre-key replenishment + push notifications, and safety-number-style identity verification), index.md, README.md, log.md
+[lint] No orphans. signal-protocol-chat.md's new "Access Control" section doesn't introduce a new concept page -- it's scoped tightly to this build's specific Firebase/Firestore setup rather than a cross-cutting idea, so it stays local to the build page rather than forking concepts/cryptography.md. No stale content elsewhere: this build was the only page describing the old local-only architecture. Backlog now carries two smaller, honestly-scoped follow-ups instead of one large deferred item, consistent with how much of the original backlog item actually shipped.
+
 ## [2026-07-19] ingest | week-16 build — bike-sharing-feature-pipeline-part-2
 Created: weeks/week-16-2026-04-20.md (ai-topic: tbd, build: bike-sharing-feature-pipeline-part-2), builds/bike-sharing-feature-pipeline-part-2.md
 Updated: builds/bike-sharing-feature-pipeline.md (Built-in line + Related Builds link forward to Part 2 — factual now that Part 2 exists, not speculative), concepts/tree-ensemble-mechanics.md (new "Interaction Terms vs. Axis-Aligned Splits" and "Feature Importance" sections, Appears-in/Related-Builds updated for week 16), tools/feature-engineering.md (empirical nuance added to Binning and Derived-quantities/interaction-features sections, Related Builds updated), index.md, backlog.md (removed "Feature engineering pipeline for a Kaggle dataset" — fully realized across Part 1 + Part 2), README.md (progress table row, Highlights weeks-in counter, running themes), log.md

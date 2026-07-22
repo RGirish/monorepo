@@ -9,3 +9,9 @@
 .externalNativeBuild
 .cxx
 gradle/wrapper/gradle-wrapper.jar
+
+# Firebase project config -- identifies your project, not a secret by itself,
+# but keeping it out of the public repo means nobody else can build/point an
+# app at your backend without you handing it to them directly.
+app/google-services.json
+firestore.rules

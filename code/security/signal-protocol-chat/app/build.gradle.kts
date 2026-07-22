@@ -1,7 +1,18 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("org.jetbrains.kotlin.plugin.compose")
+    id("com.google.gms.google-services")
+}
+
+// Loaded from the gitignored local.properties (Android already keeps this
+// file out of version control for the SDK path) so the two allowlisted
+// UIDs never end up in the public repo -- see Peers.kt.
+val localProperties = Properties().apply {
+    val file = rootProject.file("local.properties")
+    if (file.exists()) file.inputStream().use { load(it) }
 }
 
 android {
@@ -14,6 +25,9 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
+
+        buildConfigField("String", "PEER_UID_A", "\"${localProperties.getProperty("peerUidA", "")}\"")
+        buildConfigField("String", "PEER_UID_B", "\"${localProperties.getProperty("peerUidB", "")}\"")
     }
 
     buildTypes {
@@ -34,6 +48,7 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
@@ -57,4 +72,15 @@ dependencies {
 
     // libsignal-android needs Java 8+ APIs desugared for older minSdk levels.
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.3")
+
+    // Relay for ciphertext + pre-key bundles between the two of you, and
+    // anonymous auth so Firestore Security Rules can tell the two of you
+    // apart from anyone else who finds this repo.
+    implementation(platform("com.google.firebase:firebase-bom:34.16.0"))
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-firestore")
+
+    // Lets us `.await()` a Firebase Task from a coroutine instead of dealing
+    // with listener callbacks.
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.10.2")
 }

@@ -46,7 +46,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 ### Highlights (16 weeks in)
 
 **Best builds:**
-- [Signal Protocol Chat](wiki/builds/signal-protocol-chat.md) — E2E encrypted Android chat built on Signal's real `libsignal` library, not a reimplementation; PQXDH key agreement (with post-quantum Kyber pre-keys) and the Double Ratchet, with the UI enforcing the actual initiator/responder session asymmetry
+- [Signal Protocol Chat](wiki/builds/signal-protocol-chat.md) — Real 2-person E2E encrypted Android chat, working over the actual internet, built on Signal's real `libsignal` library with a Firebase-backed relay; PQXDH (with post-quantum Kyber pre-keys), the Double Ratchet, persistent on-device sessions, and Firestore Security Rules as the real access-control boundary
 - [LLM Music Producer](wiki/builds/llm-music-producer.md) — two complete pipelines for LLM-driven audio composition: Base95 frame payloads and MIDI-as-text; the MIDI approach produces genuinely musical output
 - [Asymmetric Encryption](wiki/builds/asymmetric-encryption.md) — RSA with OAEP + PSS; four attack scenarios showing exactly what breaks and why; learned OAEP internals (seed, MGF, structural checks) deeply through build-time conversation
 - [Jarvis](wiki/builds/jarvis-chatbot.md) — a personal AI assistant grown incrementally across 3 weeks, ending up with MCP tool access and an A2A server; a complete end-to-end agent system

@@ -19,5 +19,6 @@
 - [ML Models] Build a supervised learning model
 - [ML Models] Build an unsupervised learning model
 - [ML Models] Build an RL model
-- [Networking/Crypto] Add a real network layer to the Signal Protocol chat app (Week 15) so two separate devices can actually message each other — needs a ciphertext/pre-key-bundle relay (Firebase or a small custom backend), persistent on-disk session storage (replacing InMemorySignalProtocolStore), pre-key replenishment, and push notifications; then a Play Store Internal Testing release (or direct APK sideload) to test with a friend
+- [Networking/Crypto] Signal Protocol chat app (Week 15): add pre-key replenishment (the one-time pre-key is currently never rotated once consumed) and push notifications (messages currently only arrive while the app is open, via a live Firestore listener)
+- [Networking/Crypto] Signal Protocol chat app (Week 15): add a real safety-number-style identity verification screen — compare a fingerprint of both sides' identity keys once, and surface a warning if either side's identity key ever changes after that (libsignal's `saveIdentity()` already detects this via `IdentityChange.REPLACED_EXISTING`, but nothing in the UI surfaces it yet)
 

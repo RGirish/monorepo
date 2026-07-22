@@ -1,7 +1,5 @@
 package com.girish.signalchat.crypto
 
-import org.signal.libsignal.protocol.IdentityKeyPair
-import org.signal.libsignal.protocol.SignalProtocolAddress
 import org.signal.libsignal.protocol.ecc.ECKeyPair
 import org.signal.libsignal.protocol.kem.KEMKeyPair
 import org.signal.libsignal.protocol.kem.KEMKeyType
@@ -9,69 +7,90 @@ import org.signal.libsignal.protocol.state.KyberPreKeyRecord
 import org.signal.libsignal.protocol.state.PreKeyBundle
 import org.signal.libsignal.protocol.state.PreKeyRecord
 import org.signal.libsignal.protocol.state.SignedPreKeyRecord
-import org.signal.libsignal.protocol.state.impl.InMemorySignalProtocolStore
-import org.signal.libsignal.protocol.util.KeyHelper
 
 /**
- * One side of the conversation. Everything a real Signal client would keep on-device:
- * a long-term identity, a registration id, and the private halves of the pre-keys it
- * has published. [preKeyBundle] is the public counterpart -- the equivalent of what
- * the *server* would hand out to anyone who wants to start a session with this user.
+ * One side of the conversation. [store] is this user's on-device trust store
+ * -- identity, sessions, and pre-key material -- backed by files that survive
+ * app restarts (see PersistentSignalProtocolStore). [preKeyBundle] is the
+ * public counterpart: the equivalent of what a server would hand out to
+ * anyone who wants to start a session with this user.
+ *
+ * Key material (pre-key/signed pre-key/Kyber pre-key, all id 1) is generated
+ * once, the first time this runs against a fresh store, and reused on every
+ * later launch -- regenerating it every launch would silently orphan
+ * whatever bundle was already published to Firebase.
  */
-class SignalUser(val name: String) {
+class SignalUser(val name: String, val store: PersistentSignalProtocolStore) {
 
     private val deviceId = 1
-    val address = SignalProtocolAddress(name, deviceId)
 
-    private val registrationId = KeyHelper.generateRegistrationId(false)
-    private val identityKeyPair = IdentityKeyPair.generate()
+    val preKeyBundle: PreKeyBundle =
+        if (store.containsPreKey(PRE_KEY_ID)) loadExistingBundle() else generateAndStoreBundle()
 
-    // Holds identity, session, one-time pre-key, signed pre-key, and Kyber
-    // pre-key state -- this is the on-device "trust store" for this user.
-    val store = InMemorySignalProtocolStore(identityKeyPair, registrationId)
+    private fun loadExistingBundle(): PreKeyBundle {
+        val preKey = store.loadPreKey(PRE_KEY_ID)
+        val signedPreKey = store.loadSignedPreKey(SIGNED_PRE_KEY_ID)
+        val kyberPreKey = store.loadKyberPreKey(KYBER_PRE_KEY_ID)
+        return PreKeyBundle(
+            store.localRegistrationId,
+            deviceId,
+            PRE_KEY_ID,
+            preKey.keyPair.publicKey,
+            SIGNED_PRE_KEY_ID,
+            signedPreKey.keyPair.publicKey,
+            signedPreKey.signature,
+            store.identityKeyPair.publicKey,
+            KYBER_PRE_KEY_ID,
+            kyberPreKey.keyPair.publicKey,
+            kyberPreKey.signature,
+        )
+    }
 
-    val preKeyBundle: PreKeyBundle
+    private fun generateAndStoreBundle(): PreKeyBundle {
+        val identityKeyPair = store.identityKeyPair
 
-    init {
-        val preKeyId = 1
         val preKeyPair = ECKeyPair.generate()
-        store.storePreKey(preKeyId, PreKeyRecord(preKeyId, preKeyPair))
+        store.storePreKey(PRE_KEY_ID, PreKeyRecord(PRE_KEY_ID, preKeyPair))
 
-        // The signed pre-key is signed by the long-term identity key, so a
-        // recipient can verify it really came from this identity (not a
-        // man-in-the-middle substituting their own key on the server).
-        val signedPreKeyId = 1
+        // Signed by the long-term identity key so a recipient can verify it
+        // really came from this identity (not a man-in-the-middle
+        // substituting their own key on the server).
         val signedPreKeyPair = ECKeyPair.generate()
         val signedPreKeySignature =
             identityKeyPair.privateKey.calculateSignature(signedPreKeyPair.publicKey.serialize())
         store.storeSignedPreKey(
-            signedPreKeyId,
-            SignedPreKeyRecord(signedPreKeyId, System.currentTimeMillis(), signedPreKeyPair, signedPreKeySignature)
+            SIGNED_PRE_KEY_ID,
+            SignedPreKeyRecord(SIGNED_PRE_KEY_ID, System.currentTimeMillis(), signedPreKeyPair, signedPreKeySignature)
         )
 
         // The Kyber (post-quantum) pre-key, signed the same way. PQXDH mixes
         // this in alongside the classic EC agreement.
-        val kyberPreKeyId = 1
         val kyberKeyPair = KEMKeyPair.generate(KEMKeyType.KYBER_1024)
         val kyberPreKeySignature =
             identityKeyPair.privateKey.calculateSignature(kyberKeyPair.publicKey.serialize())
         store.storeKyberPreKey(
-            kyberPreKeyId,
-            KyberPreKeyRecord(kyberPreKeyId, System.currentTimeMillis(), kyberKeyPair, kyberPreKeySignature)
+            KYBER_PRE_KEY_ID,
+            KyberPreKeyRecord(KYBER_PRE_KEY_ID, System.currentTimeMillis(), kyberKeyPair, kyberPreKeySignature)
         )
 
-        preKeyBundle = PreKeyBundle(
-            registrationId,
+        return PreKeyBundle(
+            store.localRegistrationId,
             deviceId,
-            preKeyId,
+            PRE_KEY_ID,
             preKeyPair.publicKey,
-            signedPreKeyId,
+            SIGNED_PRE_KEY_ID,
             signedPreKeyPair.publicKey,
             signedPreKeySignature,
             identityKeyPair.publicKey,
-            kyberPreKeyId,
+            KYBER_PRE_KEY_ID,
             kyberKeyPair.publicKey,
             kyberPreKeySignature,
         )
+    }
+
+    private companion object {
+        const val PRE_KEY_ID = 1
+        const val SIGNED_PRE_KEY_ID = 1
+        const val KYBER_PRE_KEY_ID = 1
     }
 }
