@@ -27,7 +27,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 | 14 | Apr 06 | Multi-turn reinforcement learning + RLHF | Asymmetric encryption | [Week 14](wiki/weeks/week-14-2026-04-06.md) |
 | 15 | Apr 13 | Context engineering | Signal Protocol Chat | [Week 15](wiki/weeks/week-15-2026-04-13.md) |
 | 16 | Apr 20 | *(AI topic TBD)* | Bike Sharing Feature Pipeline (Part 2) | [Week 16](wiki/weeks/week-16-2026-04-20.md) |
-| 17 | Apr 27 | — | — | *(not started)* |
+| 17 | Apr 27 | *(AI topic TBD)* | Signal Protocol Chat (Part 2) | [Week 17](wiki/weeks/week-17-2026-04-27.md) |
 | 18 | May 04 | — | — | *(not started)* |
 | 19 | May 04 | — | — | *(not started)* |
 | 20 | May 11 | — | — | *(not started)* |
@@ -43,10 +43,11 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 
 ---
 
-### Highlights (16 weeks in)
+### Highlights (17 weeks in)
 
 **Best builds:**
-- [Signal Protocol Chat](wiki/builds/signal-protocol-chat.md) — Real 2-person E2E encrypted Android chat, working over the actual internet, built on Signal's real `libsignal` library with a Firebase-backed relay; PQXDH (with post-quantum Kyber pre-keys), the Double Ratchet, persistent on-device sessions, and Firestore Security Rules as the real access-control boundary
+- [Signal Protocol Chat (Part 2)](wiki/builds/signal-protocol-chat-part-2.md) — Took Week 15's local crypto simulation onto two real phones over the actual internet: a Firebase-backed relay, persistent on-device sessions, and Firestore Security Rules as the real access-control boundary — not the Firebase API key, which isn't a secret
+- [Signal Protocol Chat](wiki/builds/signal-protocol-chat.md) — E2E encrypted Android chat built on Signal's real `libsignal` library, not a reimplementation; PQXDH key agreement (with post-quantum Kyber pre-keys) and the Double Ratchet, with the UI enforcing the actual initiator/responder session asymmetry
 - [LLM Music Producer](wiki/builds/llm-music-producer.md) — two complete pipelines for LLM-driven audio composition: Base95 frame payloads and MIDI-as-text; the MIDI approach produces genuinely musical output
 - [Asymmetric Encryption](wiki/builds/asymmetric-encryption.md) — RSA with OAEP + PSS; four attack scenarios showing exactly what breaks and why; learned OAEP internals (seed, MGF, structural checks) deeply through build-time conversation
 - [Jarvis](wiki/builds/jarvis-chatbot.md) — a personal AI assistant grown incrementally across 3 weeks, ending up with MCP tool access and an A2A server; a complete end-to-end agent system

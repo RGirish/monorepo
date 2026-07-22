@@ -1,15 +1,15 @@
 # Signal Protocol Chat
 
-**Built in:** [Week 15](../weeks/week-15-2026-04-13.md)
+**Built in:** [Week 15](../weeks/week-15-2026-04-13.md) — continued in [Part 2](signal-protocol-chat-part-2.md) ([Week 17](../weeks/week-17-2026-04-27.md))
 **Code:** `code/security/signal-protocol-chat/` (Android/Kotlin, Jetpack Compose UI)
 
 ---
 
 ## What It Is
 
-A real, working end-to-end encrypted chat app between two specific people, over the actual internet, built directly on Signal's own `org.signal:libsignal-android` library — the real implementation Signal, WhatsApp, and Messenger's secret conversations run in production, not a reimplementation of the math. It started as a local, single-device simulation (two in-memory identities exchanging ciphertext through a shared list) and grew, stage by stage, into a genuinely networked app installed on two separate phones.
+A local, single-device simulation of a 2-person end-to-end encrypted chat using Signal's own `org.signal:libsignal-android` library — the real implementation Signal, WhatsApp, and Messenger's secret conversations run in production, not a reimplementation of the math. Alice and Bob each get their own isolated identity, key material, and session state; the only thing they share is a simulated "wire" carrying opaque ciphertext, which each side decrypts independently using its own keys.
 
-Deliberately out of scope: pre-key replenishment (the one-time pre-key is never rotated or replaced once consumed) and push notifications (messages only arrive while the app is open, via a live Firestore listener) — both tracked in `wiki/backlog.md`. A formal signed release build / Play Store listing was also skipped in favor of installing directly from Android Studio onto both phones, which is functionally equivalent to sideloading for a two-person app.
+Deliberately out of scope for this build: a real network relay between separate devices, persistent (on-disk) session storage, and Play Store deployment. Those are tracked as a follow-up backlog item — see `wiki/backlog.md`.
 
 ---
 
@@ -44,23 +44,7 @@ Two ratchets running together, both one-way (deletable state, no path backward):
 
 ### Session Asymmetry
 
-Only the initiator runs a live `SessionBuilder.process(bundle)` up front. The responder has no session at all until they decrypt the initiator's first message — a `PreKeySignalMessage`, which carries the sender's identity/base key and which of the recipient's pre-keys were used, embedded right in the ciphertext header. Decryption *is* what builds the responder's side of the session; every message after that is a plain `SignalMessage` with no such header. Once the app moved from a shared in-memory list to two independent phones over Firestore, which side ends up as initiator vs. responder became genuinely unpredictable — whichever phone's bundle got published and fetched first wins, and the code handles either outcome the same way.
-
----
-
-## Real Network Layer (Firebase)
-
-The local two-pane demo (in-memory "Alice"/"Bob" sharing one process) was fully retired and replaced with a real 1:1 chat between two actual devices:
-
-- **Firestore as the relay** — `users/{uid}` holds each person's published pre-key bundle (public keys and signatures only); `messages/{recipientUid}/inbox/{messageId}` holds ciphertext envelopes addressed to them. A live snapshot listener decrypts new envelopes as they arrive and deletes them once delivered, so nothing is ever left around to double-decrypt (which would fail anyway — a used message key is deleted the moment it's used).
-- **Persistent on-device storage** — `PersistentSignalProtocolStore` (a full `SignalProtocolStore` implementation backed by files in app-private storage) replaced `InMemorySignalProtocolStore`, so identity and session state survive app restarts instead of resetting every launch. Key material is generated once per fresh store and reloaded on every later launch — regenerating it would silently orphan whatever bundle was already published.
-- **Firebase Anonymous Auth for identity** — each install signs in anonymously, getting a stable UID for as long as it stays installed. The app hardcodes the two allowlisted UIDs (kept out of git — see Access Control below) and uses `otherUid()` to resolve "who am I talking to," since there's no dynamic user directory for a fixed two-person app.
-
-### Access Control (not the API key)
-
-A recurring theme of this build: **Firebase project config (`google-services.json`) is not a secret** — it just says which project to talk to, granting no access by itself. The actual gate is **Firestore Security Rules**, deployed server-side, which deny everyone by default and allow read/write only when the request's verified `request.auth.uid` (from a Google-signed JWT, not anything the client can fabricate) is one of the two hardcoded UIDs. Knowing a UID is not equivalent to holding it — the JWT can only be obtained by exchanging a refresh token that's generated once at sign-in and never leaves the device it was issued to; Firebase Anonymous Auth has no "log in as UID X" API. `firestore.rules` (containing both real UIDs) and `local.properties` (which now also injects the two UIDs into `BuildConfig` at build time, keeping them out of `Peers.kt` entirely) are both gitignored, so the public repo contains working code but no way to actually reach this specific deployment.
-
-One concrete hardening applied along the way: `AndroidManifest.xml` originally had `android:allowBackup="true"` (Android's default) — since Firebase Auth's refresh token lives in app-private storage, which Android's Auto Backup would include by default, this was flipped to `false` once the app started holding a real credential worth protecting, closing off cloud-backup as an extraction path.
+Only the initiator runs a live `SessionBuilder.process(bundle)` up front. The responder has no session at all until they decrypt the initiator's first message — a `PreKeySignalMessage`, which carries the sender's identity/base key and which of the recipient's pre-keys were used, embedded right in the ciphertext header. Decryption *is* what builds the responder's side of the session; every message after that is a plain `SignalMessage` with no such header. The build's UI makes this concrete: Bob's send button stays disabled until he's received and decrypted a first message from Alice.
 
 ---
 
@@ -76,3 +60,4 @@ Signal Protocol's lineage: **OTR** (2004) had ratcheting for forward secrecy but
 - [Cryptography Fundamentals](../concepts/cryptography.md) — how this build's ratcheting/KEM concepts extend the symmetric/asymmetric fundamentals from weeks 6 and 14
 - [Asymmetric Encryption](asymmetric-encryption.md) — RSA/OAEP/PSS; the single-exchange counterpart to this build's continuously-rekeying approach
 - [Symmetric Encryption](symmetric-encryption.md) — AES; the bulk-cipher half of the hybrid pattern Signal Protocol also relies on internally
+- [Signal Protocol Chat (Part 2)](signal-protocol-chat-part-2.md) — Week 17; takes this local simulation onto two real phones over the internet via a Firebase-backed relay

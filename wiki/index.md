@@ -20,8 +20,9 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 - [Week 12 — Mar 23](weeks/week-12-2026-03-23.md) — LLM Wiki by Karpathy + LLM Music Producer (Base95 + MIDI-as-text)
 - [Week 13 — Mar 30](weeks/week-13-2026-03-30.md) — Feature engineering + Bike Sharing Feature Pipeline (baseline, time-derived features, categorical encoding)
 - [Week 14 — Apr 06](weeks/week-14-2026-04-06.md) — Multi-turn reinforcement learning + asymmetric encryption
-- [Week 15 — Apr 13](weeks/week-15-2026-04-13.md) — Context engineering + Signal Protocol Chat (PQXDH, Double Ratchet, real Firebase-backed networked chat)
+- [Week 15 — Apr 13](weeks/week-15-2026-04-13.md) — Context engineering + Signal Protocol Chat (PQXDH, Double Ratchet)
 - [Week 16 — Apr 20](weeks/week-16-2026-04-20.md) — Bike Sharing Feature Pipeline Part 2 (numeric transforms/interactions, feature selection)
+- [Week 17 — Apr 27](weeks/week-17-2026-04-27.md) — Signal Protocol Chat Part 2 (real Firebase-backed networked chat)
 
 ---
 
@@ -62,8 +63,9 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 - [LLM Music Producer](builds/llm-music-producer.md) — Two LLM audio composition pipelines: Base95 frame payloads (noise output) and MIDI-as-text (musical output)
 - [Asymmetric Encryption](builds/asymmetric-encryption.md) — RSA with OAEP encryption, PSS signing, four tamper/attack scenarios demonstrating each primitive
 - [Bike Sharing Feature Pipeline](builds/bike-sharing-feature-pipeline.md) — Staged feature engineering on the Bike Sharing Demand dataset; baseline → time-derived/cyclical features → categorical encoding, RMSLE-measured at each stage
-- [Signal Protocol Chat](builds/signal-protocol-chat.md) — Real 2-person Android E2E chat over the internet using the real libsignal library and a Firebase-backed relay; PQXDH key agreement, Double Ratchet, persistent on-device session storage, and Firestore Security Rules as the actual access-control boundary
+- [Signal Protocol Chat](builds/signal-protocol-chat.md) — Android E2E chat using the real libsignal library; PQXDH key agreement and Double Ratchet, demonstrating forward secrecy and post-compromise security
 - [Bike Sharing Feature Pipeline (Part 2)](builds/bike-sharing-feature-pipeline-part-2.md) — Numeric transforms/interactions and feature-importance-based selection; isolates that one interaction term drove the pipeline's largest accuracy gain
+- [Signal Protocol Chat (Part 2)](builds/signal-protocol-chat-part-2.md) — Real 2-person Android E2E chat over the internet, adding a Firebase-backed relay, persistent on-device session storage, and Firestore Security Rules as the actual access-control boundary to the Week 15 build
 
 ---
 

@@ -19,6 +19,6 @@
 - [ML Models] Build a supervised learning model
 - [ML Models] Build an unsupervised learning model
 - [ML Models] Build an RL model
-- [Networking/Crypto] Signal Protocol chat app (Week 15): add pre-key replenishment (the one-time pre-key is currently never rotated once consumed) and push notifications (messages currently only arrive while the app is open, via a live Firestore listener)
-- [Networking/Crypto] Signal Protocol chat app (Week 15): add a real safety-number-style identity verification screen — compare a fingerprint of both sides' identity keys once, and surface a warning if either side's identity key ever changes after that (libsignal's `saveIdentity()` already detects this via `IdentityChange.REPLACED_EXISTING`, but nothing in the UI surfaces it yet)
+- [Networking/Crypto] Signal Protocol chat app (Part 2, Week 17): add pre-key replenishment (the one-time pre-key is currently never rotated once consumed) and push notifications (messages currently only arrive while the app is open, via a live Firestore listener)
+- [Networking/Crypto] Signal Protocol chat app (Part 2, Week 17): add a real safety-number-style identity verification screen — compare a fingerprint of both sides' identity keys once, and surface a warning if either side's identity key ever changes after that (libsignal's `saveIdentity()` already detects this via `IdentityChange.REPLACED_EXISTING`, but nothing in the UI surfaces it yet)
 
