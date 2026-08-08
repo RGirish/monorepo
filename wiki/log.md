@@ -4,6 +4,12 @@ Append-only history of all wiki operations.
 
 ---
 
+## [2026-08-08] ingest | week-16 AI learning — open-knowledge-format
+Created: tools/open-knowledge-format.md
+Updated: weeks/week-16-2026-04-20.md (frontmatter `ai-topic` field + AI Learning section, previously "tbd" — week's build was already ingested 2026-07-19), tools/llm-wiki.md and tools/context-engineering.md (reciprocal cross-links), index.md, backlog.md (removed the completed Open Knowledge Format item), README.md (progress table row, Highlights, running themes, plus placeholder rows for weeks 30–32 to keep the table current through today), log.md
+Note: content for this entry was generated directly from the three source links (Google Cloud blog, GitHub repo, SPEC.md) rather than from a human-authored scratch file — the human explicitly opted out of writing scratch notes this week and asked for the content to be generated and ingested directly.
+[lint] No orphans: open-knowledge-format.md has inbound links from week-16 and index.md, with outbound links to context-engineering.md and llm-wiki.md, both of which now link back. No missing links found elsewhere. No new concept gap — OKF is a single-week topic with no cross-cutting pattern yet; watching for recurrence (e.g., if a future week revisits agent-context formats). No stale content found: week-17's `ai-topic: tbd` is untouched and still accurately outstanding — this ingest only resolved week 16.
+
 ## [2026-07-19] correction | signal-protocol-chat network layer reassigned from week-15 to week-17 (Part 2)
 The prior entry below (re-ingest | week-15 build — signal-protocol-chat gets a real network layer) mis-attributed this session's Firebase/networking work to week 15 by extending its existing build page in place. Correcting per explicit instruction: the human wanted it filed as a separate build, "Signal Protocol Chat (Part 2)," under week 17, with week 15 left exactly as it was.
 Reverted: builds/signal-protocol-chat.md and weeks/week-15-2026-04-13.md back to their pre-network-layer content (the local single-device simulation only); index.md and README.md's week-15/Signal-Protocol-Chat lines reverted to their original wording.

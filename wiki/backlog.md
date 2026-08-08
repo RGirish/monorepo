@@ -4,8 +4,6 @@
 
 - Prompt engineering best practices
   - https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview
-- Open Knowledge Format for data sharing
-  - https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing
 
 ## Build Ideas
 

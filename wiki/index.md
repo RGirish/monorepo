@@ -21,7 +21,7 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 - [Week 13 — Mar 30](weeks/week-13-2026-03-30.md) — Feature engineering + Bike Sharing Feature Pipeline (baseline, time-derived features, categorical encoding)
 - [Week 14 — Apr 06](weeks/week-14-2026-04-06.md) — Multi-turn reinforcement learning + asymmetric encryption
 - [Week 15 — Apr 13](weeks/week-15-2026-04-13.md) — Context engineering + Signal Protocol Chat (PQXDH, Double Ratchet)
-- [Week 16 — Apr 20](weeks/week-16-2026-04-20.md) — Bike Sharing Feature Pipeline Part 2 (numeric transforms/interactions, feature selection)
+- [Week 16 — Apr 20](weeks/week-16-2026-04-20.md) — Open Knowledge Format + Bike Sharing Feature Pipeline Part 2 (numeric transforms/interactions, feature selection)
 - [Week 17 — Apr 27](weeks/week-17-2026-04-27.md) — Signal Protocol Chat Part 2 (real Firebase-backed networked chat)
 
 ---
@@ -43,6 +43,7 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 - [Feature Engineering](tools/feature-engineering.md) — Transforming raw data into model-ready representations; representation learning and feature engineering in the GenAI era
 - [Multi-turn Reinforcement Learning](tools/multi-turn-reinforcement-learning.md) — RL fundamentals, reward function design, RLHF pipeline, and multi-turn RL for LLMs
 - [Context Engineering](tools/context-engineering.md) — Managing context as a finite resource for agents: context rot, just-in-time retrieval, compaction, sub-agents
+- [Open Knowledge Format](tools/open-knowledge-format.md) — Google's vendor-neutral spec for AI-agent knowledge as markdown + YAML frontmatter bundles
 
 ---
 

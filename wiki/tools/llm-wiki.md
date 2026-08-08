@@ -44,6 +44,7 @@ This wiki ties together everything covered in the makemore series (weeks 10–11
 
 - [Language Modeling](language-modeling.md) — the hands-on counterpart to this reference
 - [Embedding Models](embedding-models.md) — embeddings are a core component of the transformer architecture
+- [Open Knowledge Format](open-knowledge-format.md) — Google's spec formalizes the same markdown-as-knowledge-base pattern Karpathy describes for this wiki's own design
 
 ## Related Concepts
 
