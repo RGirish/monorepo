@@ -92,6 +92,7 @@ Feature engineering hasn't disappeared — it has shifted form:
 
 - [Language Modeling](language-modeling.md) — representation learning is the deep learning approach to automating feature engineering; one-hot encoding of characters is a classic feature engineering technique used in the makemore bigram model
 - [LLM Wiki](llm-wiki.md) — LLMs both consume engineered features and act as feature engineering tools themselves
+- [TabFM](tabfm.md) — zero-shot tabular model whose in-context attention claims to replace manual feature engineering; the Ensemble variant's need for hand-added cross-features suggests it doesn't fully succeed
 
 ## Related Concepts
 

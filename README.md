@@ -27,7 +27,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 | 14 | Apr 06 | Multi-turn reinforcement learning + RLHF | Asymmetric encryption | [Week 14](wiki/weeks/week-14-2026-04-06.md) |
 | 15 | Apr 13 | Context engineering | Signal Protocol Chat | [Week 15](wiki/weeks/week-15-2026-04-13.md) |
 | 16 | Apr 20 | Open Knowledge Format | Bike Sharing Feature Pipeline (Part 2) | [Week 16](wiki/weeks/week-16-2026-04-20.md) |
-| 17 | Apr 27 | *(AI topic TBD)* | Signal Protocol Chat (Part 2) | [Week 17](wiki/weeks/week-17-2026-04-27.md) |
+| 17 | Apr 27 | TabFM — zero-shot tabular foundation model | Signal Protocol Chat (Part 2) | [Week 17](wiki/weeks/week-17-2026-04-27.md) |
 | 18 | May 04 | — | — | *(not started)* |
 | 19 | May 04 | — | — | *(not started)* |
 | 20 | May 11 | — | — | *(not started)* |
@@ -58,6 +58,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 - [Bigram Neural Net](wiki/builds/bigram-neural-net.md) — the moment count-based statistics and neural networks converge to the same answer
 
 **Most interesting AI topics:**
+- [TabFM](wiki/tools/tabfm.md) — Google's zero-shot tabular foundation model; in-context learning over the training table instead of per-dataset training, but a closer look shows the "no feature engineering" pitch mostly relocates the work to context curation rather than eliminating it
 - [Open Knowledge Format](wiki/tools/open-knowledge-format.md) — Google's spec for AI-agent knowledge as markdown + YAML bundles turns out to formalize almost exactly the pattern this repo's own wiki already uses
 - [Multi-turn Reinforcement Learning](wiki/tools/multi-turn-reinforcement-learning.md) — from RL fundamentals through RLHF to the full MTRL system architecture; reward design is where human intent meets mathematical optimization
 - [LLM Wiki (Karpathy)](wiki/tools/llm-wiki.md) — a dense practitioner-oriented map of the entire LLM stack: architecture, training, inference, and emergent capabilities
@@ -69,7 +70,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 - Build-what-you-learn — several AI topics were immediately applied as hands-on builds (embeddings → vector DB, language modeling → bigram model, MCP → TODO server)
 - Incremental systems — Jarvis and the makemore series both show how complex systems grow from simple foundations
 - Representation matters — week 12 showed that MIDI (semantic) beats Base95 (statistical) for LLM audio generation; the choice of representation is the most important design decision
-- ML foundations deepening — weeks 13–14 shift from AI tooling toward core ML concepts: feature engineering, the three learning paradigms, reward design; the [Bike Sharing Feature Pipeline](wiki/builds/bike-sharing-feature-pipeline.md) (week 13) and its [Part 2](wiki/builds/bike-sharing-feature-pipeline-part-2.md) (week 16) turned that theory hands-on across 5 measured stages — a counter-example to "one-hot is always correct" for tree models, and a finding that one interaction term (`workingday × is_rush_hour`) drove more accuracy than every other engineering decision in the pipeline combined, while a second, equally-plausible interaction (`temp × humidity`) turned out to be nearly worthless once checked against the data
+- ML foundations deepening — weeks 13–14 shift from AI tooling toward core ML concepts: feature engineering, the three learning paradigms, reward design; the [Bike Sharing Feature Pipeline](wiki/builds/bike-sharing-feature-pipeline.md) (week 13) and its [Part 2](wiki/builds/bike-sharing-feature-pipeline-part-2.md) (week 16) turned that theory hands-on across 5 measured stages — a counter-example to "one-hot is always correct" for tree models, and a finding that one interaction term (`workingday × is_rush_hour`) drove more accuracy than every other engineering decision in the pipeline combined, while a second, equally-plausible interaction (`temp × humidity`) turned out to be nearly worthless once checked against the data; week 17's [TabFM](wiki/tools/tabfm.md) revisits the same question from the opposite direction — does a zero-shot foundation model make hand-engineered features obsolete? — and finds the work relocates (to context-row curation) more than it disappears
 - Security primitives deepening — weeks 6, 14, and 15 now cover the full stack: symmetric encryption, asymmetric encryption + signing, and continuous rekeying (PQXDH + Double Ratchet) for ongoing conversations, including forward secrecy and post-compromise security
 - Agent infrastructure maturing — week 15 context engineering completes the picture: not just how agents communicate (protocols) but how they manage their own cognitive resources
 - Knowledge representation — week 16's Open Knowledge Format is a spec-level mirror of this very wiki: markdown + YAML frontmatter as the substrate for both human and agent-readable knowledge

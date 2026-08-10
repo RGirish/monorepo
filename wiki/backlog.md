@@ -4,8 +4,6 @@
 
 - Prompt engineering best practices
   - https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview
-- TabFM — zero-shot foundation model for tabular data
-  - https://research.google/blog/introducing-tabfm-a-zero-shot-foundation-model-for-tabular-data/
 
 ## Build Ideas
 

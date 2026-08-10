@@ -4,6 +4,12 @@ Append-only history of all wiki operations.
 
 ---
 
+## [2026-08-09] ingest | week-17 AI learning — tabfm
+Created: tools/tabfm.md
+Updated: weeks/week-17-2026-04-27.md (frontmatter `ai-topic` field + AI Learning section, previously "tbd" — week's build was already ingested 2026-07-19), index.md, backlog.md (removed the completed TabFM item), README.md (progress table row, Highlights, running themes), log.md
+Note: content for this entry was generated from the two source links (Google Research blog, GitHub README) plus a full in-chat discussion working through whether TabFM's zero-shot claim actually eliminates feature engineering — conclusion: it relocates the work to context-row curation (the `max_num_rows=100` cap forces retrieval, and naive nearest-neighbor retrieval reintroduces a lighter version of the same feature-engineering-like distance decisions, hence the MMR-style diversity fix). The human explicitly asked for this discussion thread to be pulled into the ingested page rather than writing scratch notes separately.
+[lint] No orphans: tabfm.md has inbound links from week-17, index.md, and README.md, with outbound links to tools/feature-engineering.md, tools/embedding-models.md, and builds/vector-db.md — added reciprocal inbound links on feature-engineering.md and embedding-models.md's "Related" sections. No missing links found elsewhere. No new concept gap yet — in-context learning / retrieval-for-ML is a single-week topic so far; watching for recurrence before filing a concepts/ page (candidate: how ICL context selection compares to RAG chunk selection from context-engineering.md). No stale content found.
+
 ## [2026-08-08] ingest | week-16 AI learning — open-knowledge-format
 Created: tools/open-knowledge-format.md
 Updated: weeks/week-16-2026-04-20.md (frontmatter `ai-topic` field + AI Learning section, previously "tbd" — week's build was already ingested 2026-07-19), tools/llm-wiki.md and tools/context-engineering.md (reciprocal cross-links), index.md, backlog.md (removed the completed Open Knowledge Format item), README.md (progress table row, Highlights, running themes, plus placeholder rows for weeks 30–32 to keep the table current through today), log.md

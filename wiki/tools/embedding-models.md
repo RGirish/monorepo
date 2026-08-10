@@ -46,3 +46,7 @@ Straight-line distance between two points in vector space.
 ## Related Concepts
 
 - [Language Modeling](language-modeling.md) — embeddings appear inside language models as token representations
+
+## Related Tools
+
+- [TabFM](tabfm.md) — selecting a zero-shot model's in-context rows via nearest-neighbor retrieval uses the same similarity metrics and distance-metric tradeoffs covered here
