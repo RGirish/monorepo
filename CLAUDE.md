@@ -146,10 +146,16 @@ When working in an existing Python build, check for a `.venv/` directory first a
 Triggers: "ingest week N" / "ingest weeks N and M" (for catch-up)
 
 1. Look up the nominal start date for week N from the Week Reference table below
-2. Read `wiki/scratch/week-NN-yyyy-mm-dd-ai-learning.md` and `wiki/scratch/week-NN-yyyy-mm-dd-build.md`
+2. Read `wiki/scratch/week-NN-yyyy-mm-dd-ai-learning.md` and `wiki/scratch/week-NN-yyyy-mm-dd-build.md` if they exist and have content
+   — scratch files are optional. Never block or ask for confirmation because one is missing, empty, or only has the
+   header filled in. If the AI learning happened directly in conversation rather than in the scratch file, ingest
+   from the conversation content instead.
 3. Create `wiki/weeks/week-NN-yyyy-mm-dd.md` — overview page with frontmatter, linking to tools/ and builds/ pages
 4. Create or update the appropriate page in `wiki/tools/` for the AI topic covered
-5. Create a new page in `wiki/builds/` for what was built — named descriptively and distinctly
+5. If a build happened this week, create a new page in `wiki/builds/` for it — named descriptively and distinctly.
+   If no build happened, set `build: none` in the week's frontmatter and move on without asking — a missing build
+   is pending by default, not a blocker to ingesting the AI learning. Do not flag it or ask about it during ingest;
+   it'll surface naturally next time someone runs the Current week status workflow.
 6. Create or update any `wiki/concepts/` pages for cross-cutting ideas that emerge
 7. Remove from `wiki/backlog.md` any items matching what was just learned or built
 8. Update `wiki/index.md` — add new pages, update summaries of modified pages
