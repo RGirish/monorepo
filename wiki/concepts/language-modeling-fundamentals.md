@@ -107,6 +107,7 @@ Week 12's LLM wiki covers the full stack at the top of this hierarchy.
 
 - [Language Modeling](../tools/language-modeling.md) — detailed notes on the makemore series
 - [LLM Wiki](../tools/llm-wiki.md) — Karpathy's broader LLM reference
+- [Prompt Engineering](../tools/prompt-engineering.md) — applies the autoregressive, next-token-conditioned-on-everything-before-it mechanism described above to explain why chain-of-thought and prefilling work
 
 ## Related Builds
 

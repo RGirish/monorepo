@@ -23,6 +23,7 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 - [Week 15 — Apr 13](weeks/week-15-2026-04-13.md) — Context engineering + Signal Protocol Chat (PQXDH, Double Ratchet)
 - [Week 16 — Apr 20](weeks/week-16-2026-04-20.md) — Open Knowledge Format + Bike Sharing Feature Pipeline Part 2 (numeric transforms/interactions, feature selection)
 - [Week 17 — Apr 27](weeks/week-17-2026-04-27.md) — TabFM (zero-shot tabular foundation model) + Signal Protocol Chat Part 2 (real Firebase-backed networked chat)
+- [Week 18 — May 04](weeks/week-18-2026-05-04.md) — Prompt engineering best practices (no build)
 
 ---
 
@@ -45,6 +46,7 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 - [Context Engineering](tools/context-engineering.md) — Managing context as a finite resource for agents: context rot, just-in-time retrieval, compaction, sub-agents
 - [Open Knowledge Format](tools/open-knowledge-format.md) — Google's vendor-neutral spec for AI-agent knowledge as markdown + YAML frontmatter bundles
 - [TabFM](tools/tabfm.md) — Google's zero-shot foundation model for tabular data; in-context learning over the training table instead of per-dataset training
+- [Prompt Engineering](tools/prompt-engineering.md) — explicit instructions, few-shot examples, chain-of-thought, prefilling, and chaining; plus which advanced reasoning techniques (ToT, ReAct, self-consistency, etc.) need orchestration vs. a single prompt
 
 ---
 

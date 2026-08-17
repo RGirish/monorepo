@@ -8,7 +8,7 @@
 
 ## What It Is
 
-Context engineering is the discipline of deciding *what information goes into an LLM's context window, when, and in what form*. It is the natural evolution of prompt engineering — where prompt engineering focuses on crafting effective instructions for a single discrete task, context engineering addresses the full question: "what configuration of context is most likely to generate the desired model behavior?"
+Context engineering is the discipline of deciding *what information goes into an LLM's context window, when, and in what form*. It is the natural evolution of [prompt engineering](prompt-engineering.md) — where prompt engineering focuses on crafting effective instructions for a single discrete task, context engineering addresses the full question: "what configuration of context is most likely to generate the desired model behavior?"
 
 The distinction matters most for agents operating across multiple inference turns. For single-shot tasks, a well-crafted prompt is sufficient. For agents doing long-horizon work, the question shifts from "how do I phrase this?" to "what should the model even be aware of right now?"
 
@@ -53,6 +53,8 @@ This single directive unifies all context engineering decisions — whether desi
 ---
 
 ## Relationship to Prompt Engineering
+
+See also [Prompt Engineering](prompt-engineering.md) for the fundamentals this section compares against.
 
 | | Prompt Engineering | Context Engineering |
 |---|---|---|

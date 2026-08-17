@@ -28,21 +28,21 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 | 15 | Apr 13 | Context engineering | Signal Protocol Chat | [Week 15](wiki/weeks/week-15-2026-04-13.md) |
 | 16 | Apr 20 | Open Knowledge Format | Bike Sharing Feature Pipeline (Part 2) | [Week 16](wiki/weeks/week-16-2026-04-20.md) |
 | 17 | Apr 27 | TabFM — zero-shot tabular foundation model | Signal Protocol Chat (Part 2) | [Week 17](wiki/weeks/week-17-2026-04-27.md) |
-| 18 | May 04 | — | — | *(not started)* |
-| 19 | May 04 | — | — | *(not started)* |
-| 20 | May 11 | — | — | *(not started)* |
-| 21 | May 18 | — | — | *(not started)* |
-| 22 | May 25 | — | — | *(not started)* |
-| 23 | Jun 01 | — | — | *(not started)* |
-| 24 | Jun 08 | — | — | *(not started)* |
-| 25 | Jun 15 | — | — | *(not started)* |
-| 26 | Jun 22 | — | — | *(not started)* |
-| 27 | Jun 29 | — | — | *(not started)* |
-| 28 | Jul 06 | — | — | *(not started)* |
-| 29 | Jul 13 | — | — | *(not started)* |
-| 30 | Jul 20 | — | — | *(not started)* |
-| 31 | Jul 27 | — | — | *(not started)* |
-| 32 | Aug 03 | — | — | *(not started)* |
+| 18 | May 04 | Prompt engineering best practices | *(no build)* | [Week 18](wiki/weeks/week-18-2026-05-04.md) |
+| 19 | May 11 | — | — | *(not started)* |
+| 20 | May 18 | — | — | *(not started)* |
+| 21 | May 25 | — | — | *(not started)* |
+| 22 | Jun 01 | — | — | *(not started)* |
+| 23 | Jun 08 | — | — | *(not started)* |
+| 24 | Jun 15 | — | — | *(not started)* |
+| 25 | Jun 22 | — | — | *(not started)* |
+| 26 | Jun 29 | — | — | *(not started)* |
+| 27 | Jul 06 | — | — | *(not started)* |
+| 28 | Jul 13 | — | — | *(not started)* |
+| 29 | Jul 20 | — | — | *(not started)* |
+| 30 | Jul 27 | — | — | *(not started)* |
+| 31 | Aug 03 | — | — | *(not started)* |
+| 32 | Aug 10 | — | — | *(not started)* |
 
 ---
 
