@@ -73,3 +73,4 @@ Context engineering subsumes prompt engineering — system prompt design is one 
 - [Agent Protocols](../concepts/agent-protocols.md) — infrastructure that shapes what context agents can access
 - [Ralph](ralph.md) — structured agent workflow system that manages context via explicit task decomposition
 - [Open Knowledge Format](open-knowledge-format.md) — addresses the same underlying problem (agents lacking accessible context) from the storage/format side rather than the runtime-management side
+- [Agent Evaluation](agent-evaluation.md) — the other half of running an agent reliably over long sessions: this page manages what's in context, that page evaluates whether the agent behaved well given it

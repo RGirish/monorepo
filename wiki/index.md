@@ -24,6 +24,7 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 - [Week 16 — Apr 20](weeks/week-16-2026-04-20.md) — Open Knowledge Format + Bike Sharing Feature Pipeline Part 2 (numeric transforms/interactions, feature selection)
 - [Week 17 — Apr 27](weeks/week-17-2026-04-27.md) — TabFM (zero-shot tabular foundation model) + Signal Protocol Chat Part 2 (real Firebase-backed networked chat)
 - [Week 18 — May 04](weeks/week-18-2026-05-04.md) — Prompt engineering best practices (no build)
+- [Week 19 — May 11](weeks/week-19-2026-05-11.md) — Agent evaluation theory + Strands Agents evals SDK case study (no build)
 
 ---
 
@@ -47,6 +48,7 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 - [Open Knowledge Format](tools/open-knowledge-format.md) — Google's vendor-neutral spec for AI-agent knowledge as markdown + YAML frontmatter bundles
 - [TabFM](tools/tabfm.md) — Google's zero-shot foundation model for tabular data; in-context learning over the training table instead of per-dataset training
 - [Prompt Engineering](tools/prompt-engineering.md) — explicit instructions, few-shot examples, chain-of-thought, prefilling, and chaining; plus which advanced reasoning techniques (ToT, ReAct, self-consistency, etc.) need orchestration vs. a single prompt
+- [Agent Evaluation](tools/agent-evaluation.md) — trajectory vs. outcome scoring, LLM-as-judge design, deterministic checks, eval-set construction, production drift, and the newer categories: red-teaming, chaos testing, and simulation; with Strands Agents' evals SDK as a concrete case study
 
 ---
 

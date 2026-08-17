@@ -4,7 +4,6 @@
 
 - Agent memory architectures
 - "Attention Is All You Need" (Vaswani et al., 2017) — origin of the transformer architecture (self-attention, multi-head attention, positional encoding); note it's encoder-decoder, while most modern LLMs are decoder-only
-- Agent evals
 
 ## Build Ideas
 

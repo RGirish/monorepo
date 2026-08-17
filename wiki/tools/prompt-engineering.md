@@ -50,7 +50,7 @@ Example — a three-step chain for a legal risk memo: (1) extract liability/inde
 
 ### 6. Iteration and Evaluation — Don't Over-Engineer
 
-Treat prompt design as a repeatable process: track correctness, run-to-run consistency, and cost via testing/evals. Anthropic's closing principle is a check on everything above: start simple, add one technique at a time, and only add a technique when it demonstrably fixes a problem being hit. Match the technique to the specific failure symptom:
+Treat prompt design as a repeatable process: track correctness, run-to-run consistency, and cost via testing/evals — see [Agent Evaluation](agent-evaluation.md) for how this generalizes once the system being evaluated is a multi-step agent rather than a single prompt. Anthropic's closing principle is a check on everything above: start simple, add one technique at a time, and only add a technique when it demonstrably fixes a problem being hit. Match the technique to the specific failure symptom:
 
 - **Inconsistent output across runs** (format/quality varies run to run) → the model lacks enough constraint to converge → add **examples** or **prefilling**
 - **Wrong answers on complex, multi-step problems specifically** (not just inconsistent — consistently under-reasoned) → the model needs scratch space → add **CoT**
@@ -96,3 +96,4 @@ The dividing line: a technique needs orchestration if it depends on (a) real-wor
 
 - [Context Engineering](context-engineering.md) — the multi-turn, whole-context-window generalization of prompt engineering
 - [Language Modeling Fundamentals](../concepts/language-modeling-fundamentals.md) — the autoregressive, next-token-conditioned-on-everything-before-it mechanism that explains why chain-of-thought and prefilling work the way they do
+- [Agent Evaluation](agent-evaluation.md) — evaluation theory and technique for multi-step agents, building on the "iteration and evaluation" principle above

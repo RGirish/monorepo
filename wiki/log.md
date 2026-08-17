@@ -172,4 +172,9 @@ Updated: tools/feature-engineering.md (added Classical Techniques section: one-h
 
 ## [2026-04-13] ingest | week-12 — llm-wiki + llm-music-producer
 Updated: builds/llm-music-producer.md (full rewrite — both Base95 and MIDI-as-text approaches, removed in-progress status), weeks/week-12-2026-03-23.md (build section updated to describe both pipelines), index.md (week 12 summary and builds entry updated), README.md (removed in-progress from week 12 row), log.md
+
+## [2026-08-17] ingest | week-19 — agent-evaluation (AI only; no build)
+Created: weeks/week-19-2026-05-11.md, tools/agent-evaluation.md
+Updated: tools/strands-agents.md (added Week 19 case-study section + cross-link), tools/prompt-engineering.md (cross-linked to agent-evaluation.md from the evaluation principle and See Also), index.md, backlog.md (removed "Agent evals"), README.md, log.md
+[lint] No orphans — agent-evaluation.md has inbound links from index.md, week-19, strands-agents.md, and prompt-engineering.md. No missing links found elsewhere. Agent evaluation is a new topic appearing for the first time; watching for recurrence before creating a concepts/ page. Ingested from live conversation content rather than the scratch file, which was left empty (scratch files are now optional per updated CLAUDE.md — see that file's Ingest section). Week 19 build remains pending, same status as week 18 — carried forward without flagging per updated CLAUDE.md policy.
 [lint] No orphans. agentskills.io referenced in week-12 and builds/llm-music-producer.md — only one week, no concept gap yet. All cross-links valid: llm-music-producer.md → llm-wiki.md ✓, week-12 → both pages ✓. No stale content detected.

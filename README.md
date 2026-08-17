@@ -29,7 +29,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 | 16 | Apr 20 | Open Knowledge Format | Bike Sharing Feature Pipeline (Part 2) | [Week 16](wiki/weeks/week-16-2026-04-20.md) |
 | 17 | Apr 27 | TabFM — zero-shot tabular foundation model | Signal Protocol Chat (Part 2) | [Week 17](wiki/weeks/week-17-2026-04-27.md) |
 | 18 | May 04 | Prompt engineering best practices | *(no build)* | [Week 18](wiki/weeks/week-18-2026-05-04.md) |
-| 19 | May 11 | — | — | *(not started)* |
+| 19 | May 11 | Agent evaluation (+ Strands evals SDK case study) | *(no build)* | [Week 19](wiki/weeks/week-19-2026-05-11.md) |
 | 20 | May 18 | — | — | *(not started)* |
 | 21 | May 25 | — | — | *(not started)* |
 | 22 | Jun 01 | — | — | *(not started)* |
@@ -43,10 +43,11 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 | 30 | Jul 27 | — | — | *(not started)* |
 | 31 | Aug 03 | — | — | *(not started)* |
 | 32 | Aug 10 | — | — | *(not started)* |
+| 33 | Aug 17 | — | — | *(not started)* |
 
 ---
 
-### Highlights (17 weeks in)
+### Highlights (19 weeks in)
 
 **Best builds:**
 - [Signal Protocol Chat (Part 2)](wiki/builds/signal-protocol-chat-part-2.md) — Took Week 15's local crypto simulation onto two real phones over the actual internet: a Firebase-backed relay, persistent on-device sessions, and Firestore Security Rules as the real access-control boundary — not the Firebase API key, which isn't a secret
@@ -58,6 +59,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 - [Bigram Neural Net](wiki/builds/bigram-neural-net.md) — the moment count-based statistics and neural networks converge to the same answer
 
 **Most interesting AI topics:**
+- [Agent Evaluation](wiki/tools/agent-evaluation.md) — why scoring an agent's final answer misses most of what can go wrong; trajectory scoring, LLM-as-judge design, and three categories that go beyond scoring entirely: adversarial red-teaming, chaos/fault-injection testing, and simulation for generating traces to evaluate in the first place
 - [TabFM](wiki/tools/tabfm.md) — Google's zero-shot tabular foundation model; in-context learning over the training table instead of per-dataset training, but a closer look shows the "no feature engineering" pitch mostly relocates the work to context curation rather than eliminating it
 - [Open Knowledge Format](wiki/tools/open-knowledge-format.md) — Google's spec for AI-agent knowledge as markdown + YAML bundles turns out to formalize almost exactly the pattern this repo's own wiki already uses
 - [Multi-turn Reinforcement Learning](wiki/tools/multi-turn-reinforcement-learning.md) — from RL fundamentals through RLHF to the full MTRL system architecture; reward design is where human intent meets mathematical optimization
@@ -66,7 +68,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 - [Agent Protocols](wiki/concepts/agent-protocols.md) — three layers (MCP, A2A, ACP/AG-UI) converging into a standard agent communication stack
 
 **Running themes:**
-- Agent infrastructure — 7 of 14 weeks touched agent frameworks, protocols, or tooling
+- Agent infrastructure — 10 of 19 weeks touched agent frameworks, protocols, tooling, or evaluation; week 19's agent evaluation closes the loop on weeks 1–9's frameworks/protocols — building agents and evaluating them turn out to share almost the same theory (trace/span instrumentation, LLM-as-judge, layered checks)
 - Build-what-you-learn — several AI topics were immediately applied as hands-on builds (embeddings → vector DB, language modeling → bigram model, MCP → TODO server)
 - Incremental systems — Jarvis and the makemore series both show how complex systems grow from simple foundations
 - Representation matters — week 12 showed that MIDI (semantic) beats Base95 (statistical) for LLM audio generation; the choice of representation is the most important design decision
