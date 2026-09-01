@@ -45,3 +45,7 @@ Building a vector DB from scratch makes the core data structure and query mechan
 ## Related Concepts
 
 - [Language Modeling Fundamentals](../concepts/language-modeling-fundamentals.md) — embeddings are the internal representation used in language models
+
+## Related Tools
+
+- [DuckDB](../tools/duckdb.md) — a different database-systems tradeoff: columnar/vectorized OLAP for analytical scans, vs. this build's in-memory flat index for similarity search

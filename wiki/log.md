@@ -4,6 +4,12 @@ Append-only history of all wiki operations.
 
 ---
 
+## [2026-09-01] ingest | week-20 AI learning — duckdb
+Created: weeks/week-20-2026-05-18.md, tools/duckdb.md
+Updated: builds/vector-db.md (new "Related Tools" cross-link to duckdb.md — contrasting database-systems tradeoffs), index.md, README.md (progress table row 20, Highlights weeks-in counter, new most-interesting-topic entry, new "Database systems as an AI substrate" running theme), log.md
+Note: content generated entirely from an interactive first-principles Q&A session (no scratch file was hand-written — `wiki/scratch/week-20-2026-05-18-ai-learning.md` exists but its `Topic:` field was left blank; human explicitly said "nothing to note down in the scratch file"). Prompted by AWS's August 2026 DuckLabs acquisition; two live web searches were run to ground the acquisition details and the agentic-AI-workload angle before teaching, since both post-date training knowledge. No build this week — `build: none` in frontmatter.
+[lint] No orphans: duckdb.md has inbound links from index.md, week-20, and README.md, with an outbound link to builds/vector-db.md, which now links back. Missing links: none found elsewhere referencing DuckDB/OLAP/columnar concepts. Concept gap: database-systems internals (storage layout, execution model, scaling limits) now appears on 2 pages (builds/vector-db.md's flat-index architecture, tools/duckdb.md's columnar/vectorized engine) but the two are different enough in shape (data structure for similarity search vs. query engine internals) that a shared concepts/ page would be thin — cross-linked instead of promoted; watching for a third database-systems week before reconsidering. Stale content: none found — backlog.md had no matching DuckDB/OLAP item to remove.
+
 ## [2026-08-16] ingest | week-18 AI learning — prompt-engineering
 Created: weeks/week-18-2026-05-04.md, tools/prompt-engineering.md
 Updated: tools/context-engineering.md (reciprocal cross-link to prompt-engineering.md), concepts/language-modeling-fundamentals.md (reciprocal cross-link — autoregressive next-token mechanism explains why CoT/prefilling work), index.md, backlog.md (removed the completed prompt engineering item), README.md (progress table row 18, plus fixed a pre-existing date bug in rows 19–32 — the `Week Reference` table in CLAUDE.md is off by one week for weeks 19+, so downstream rows had been carrying a duplicated/stale date; not yet fixed at the source), log.md
