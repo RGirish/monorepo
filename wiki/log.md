@@ -4,6 +4,11 @@ Append-only history of all wiki operations.
 
 ---
 
+## [2026-09-02] query | embedding compression techniques not yet implemented — deepened survey + backlog
+Expanded synthesis/embedding-compression-techniques.md from the original brief survey into a full-depth writeup of each technique family (scalar quantization variants, PQ/OPQ mechanics and compression numbers, LSH/ITQ/RaBitQ, PCA/autoencoder dimensionality reduction, MRL's training-time distinction, the truncate-quantize-rerank composite pattern, and a flagged gap around residual vector quantization/RQ-VAE), with full source citations for every concrete claim.
+Filed 4 backlog items under Build Ideas (tagged `[Embeddings]`, each a Week 18 follow-up): binary quantization/hashing (incl. RaBitQ), PQ/OPQ, dimensionality reduction + quantization composition, and Matryoshka truncation + quantization + rerank — each linked to the specific synthesis-page section it follows up on.
+Updated: index.md (synthesis page summary line).
+
 ## [2026-09-02] ingest | week-18 build — embedding-vector-quantization
 Created: builds/embedding-vector-quantization.md, synthesis/embedding-compression-techniques.md, code/databases/vector-quantization/ (asymmetric_quantization.py, symmetric_quantization.py, walkthrough.py)
 Updated: weeks/week-18-2026-05-04.md (frontmatter `build` field, previously "none"; Build section added), tools/embedding-models.md (Related Builds cross-link), builds/vector-db.md (new Related Builds cross-link — this compression technique as a future storage optimization for that build's flat index), index.md, README.md, log.md
