@@ -49,3 +49,7 @@ Building a vector DB from scratch makes the core data structure and query mechan
 ## Related Tools
 
 - [DuckDB](../tools/duckdb.md) — a different database-systems tradeoff: columnar/vectorized OLAP for analytical scans, vs. this build's in-memory flat index for similarity search
+
+## Related Builds
+
+- [Embedding Vector Quantization](embedding-vector-quantization.md) — compression technique this flat index's stored vectors could use to cut memory footprint at scale

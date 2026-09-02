@@ -28,7 +28,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 | 15 | Apr 13 | Context engineering | Signal Protocol Chat | [Week 15](wiki/weeks/week-15-2026-04-13.md) |
 | 16 | Apr 20 | Open Knowledge Format | Bike Sharing Feature Pipeline (Part 2) | [Week 16](wiki/weeks/week-16-2026-04-20.md) |
 | 17 | Apr 27 | TabFM — zero-shot tabular foundation model | Signal Protocol Chat (Part 2) | [Week 17](wiki/weeks/week-17-2026-04-27.md) |
-| 18 | May 04 | Prompt engineering best practices | *(no build)* | [Week 18](wiki/weeks/week-18-2026-05-04.md) |
+| 18 | May 04 | Prompt engineering best practices | Embedding Vector Quantization | [Week 18](wiki/weeks/week-18-2026-05-04.md) |
 | 19 | May 11 | Agent evaluation (+ Strands evals SDK case study) | *(no build)* | [Week 19](wiki/weeks/week-19-2026-05-11.md) |
 | 20 | May 18 | DuckDB & vectorized/embedded OLAP databases | *(no build)* | [Week 20](wiki/weeks/week-20-2026-05-18.md) |
 | 21 | May 25 | — | — | *(not started)* |
@@ -50,6 +50,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 ### Highlights (20 weeks in)
 
 **Best builds:**
+- [Embedding Vector Quantization](wiki/builds/embedding-vector-quantization.md) — int8 scalar quantization of embedding vectors, both asymmetric (min/max + zero-point shift) and symmetric (zero-centered) variants; the symmetric version lets similarity search run entirely on compressed integers via one scalar correction factor, with a worked numeric trace showing exactly where rounding loses information
 - [Signal Protocol Chat (Part 2)](wiki/builds/signal-protocol-chat-part-2.md) — Took Week 15's local crypto simulation onto two real phones over the actual internet: a Firebase-backed relay, persistent on-device sessions, and Firestore Security Rules as the real access-control boundary — not the Firebase API key, which isn't a secret
 - [Signal Protocol Chat](wiki/builds/signal-protocol-chat.md) — E2E encrypted Android chat built on Signal's real `libsignal` library, not a reimplementation; PQXDH key agreement (with post-quantum Kyber pre-keys) and the Double Ratchet, with the UI enforcing the actual initiator/responder session asymmetry
 - [LLM Music Producer](wiki/builds/llm-music-producer.md) — two complete pipelines for LLM-driven audio composition: Base95 frame payloads and MIDI-as-text; the MIDI approach produces genuinely musical output
@@ -70,7 +71,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 
 **Running themes:**
 - Agent infrastructure — 10 of 20 weeks touched agent frameworks, protocols, tooling, or evaluation; week 19's agent evaluation closes the loop on weeks 1–9's frameworks/protocols — building agents and evaluating them turn out to share almost the same theory (trace/span instrumentation, LLM-as-judge, layered checks)
-- Database systems as an AI substrate — week 7's vector database (similarity search for embeddings) and week 20's DuckDB (columnar OLAP) both learned from the bottom up: different storage/execution tradeoffs, but both ultimately in service of feeding fast, structured context to an LLM or agent
+- Database systems as an AI substrate — week 7's vector database (similarity search for embeddings), week 18's embedding vector quantization (compressing those same vectors 4x with a technique that lets search run directly on compressed integers), and week 20's DuckDB (columnar OLAP) all learned from the bottom up: different storage/execution tradeoffs, but all ultimately in service of feeding fast, structured context to an LLM or agent
 - Build-what-you-learn — several AI topics were immediately applied as hands-on builds (embeddings → vector DB, language modeling → bigram model, MCP → TODO server)
 - Incremental systems — Jarvis and the makemore series both show how complex systems grow from simple foundations
 - Representation matters — week 12 showed that MIDI (semantic) beats Base95 (statistical) for LLM audio generation; the choice of representation is the most important design decision

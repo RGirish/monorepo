@@ -42,6 +42,7 @@ Straight-line distance between two points in vector space.
 ## Related Builds
 
 - [Vector Database](../builds/vector-db.md) — custom vector DB implementation using these similarity algorithms
+- [Embedding Vector Quantization](../builds/embedding-vector-quantization.md) — compressing these vectors for storage via int8 scalar quantization
 
 ## Related Concepts
 
