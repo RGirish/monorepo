@@ -48,3 +48,8 @@ Coordinator          Participant A         Participant B
 ## Related Builds
 
 - [CRDT Collaborative Editor](crdt-collaborative-editor.md) — an alternative approach to distributed consistency using CRDTs instead of coordination protocols
+- [Redis Rate Limiter](redis-rate-limiter.md) — atomicity at the single-node scripting level (Lua) rather than across distributed nodes
+
+## See Also
+
+- [Concurrency and Atomicity](../concepts/concurrency-and-atomicity.md) — how this compares to the CRDT and Redis Lua approaches to the same underlying problem

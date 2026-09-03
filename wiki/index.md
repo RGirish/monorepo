@@ -24,7 +24,7 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 - [Week 16 — Apr 20](weeks/week-16-2026-04-20.md) — Open Knowledge Format + Bike Sharing Feature Pipeline Part 2 (numeric transforms/interactions, feature selection)
 - [Week 17 — Apr 27](weeks/week-17-2026-04-27.md) — TabFM (zero-shot tabular foundation model) + Signal Protocol Chat Part 2 (real Firebase-backed networked chat)
 - [Week 18 — May 04](weeks/week-18-2026-05-04.md) — Prompt engineering best practices + Embedding Vector Quantization
-- [Week 19 — May 11](weeks/week-19-2026-05-11.md) — Agent evaluation theory + Strands Agents evals SDK case study (no build)
+- [Week 19 — May 11](weeks/week-19-2026-05-11.md) — Agent evaluation theory + Strands Agents evals SDK case study + Redis Rate Limiter (Redis fundamentals, Lua scripting)
 - [Week 20 — May 18](weeks/week-20-2026-05-18.md) — DuckDB & vectorized/embedded OLAP databases (no build)
 
 ---
@@ -75,6 +75,7 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 - [Bike Sharing Feature Pipeline (Part 2)](builds/bike-sharing-feature-pipeline-part-2.md) — Numeric transforms/interactions and feature-importance-based selection; isolates that one interaction term drove the pipeline's largest accuracy gain
 - [Signal Protocol Chat (Part 2)](builds/signal-protocol-chat-part-2.md) — Real 2-person Android E2E chat over the internet, adding a Firebase-backed relay, persistent on-device session storage, and Firestore Security Rules as the actual access-control boundary to the Week 15 build
 - [Embedding Vector Quantization](builds/embedding-vector-quantization.md) — Asymmetric and symmetric int8 scalar quantization for embedding vectors; symmetric variant enables similarity search directly on compressed integers via a single scalar correction
+- [Redis Rate Limiter](builds/redis-rate-limiter.md) — Fixed-window, Lua-atomic fixed-window, and sliding-window (sorted set) rate limiters in Redis; demonstrates the orphaned-counter race condition and how Lua's single-threaded atomic execution fixes it
 
 ---
 
@@ -86,6 +87,7 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 - [Jarvis System](concepts/jarvis-system.md) — Incremental build of a personal agent across weeks 3–5
 - [Cryptography Fundamentals](concepts/cryptography.md) — Symmetric vs. asymmetric encryption, hybrid encryption, OAEP/PSS padding, how TLS composes both, forward secrecy/post-compromise security and KEMs
 - [Tree Ensemble Mechanics](concepts/tree-ensemble-mechanics.md) — Gradient boosting internals, cross-validation, RMSLE, cyclical encoding, feature importance, interaction terms vs. axis-aligned splits, and why categorical encoding strategy is model-family-dependent
+- [Concurrency and Atomicity](concepts/concurrency-and-atomicity.md) — Two-Phase Commit, CRDTs, and Redis Lua scripting as three scales/strategies for the same problem: making multi-step operations behave as one indivisible unit, or avoiding the need for that guarantee entirely
 
 ---
 

@@ -44,3 +44,8 @@ Because IDs are stable, inserts and deletes from different clients can be applie
 ## Related Builds
 
 - [Two-Phase Commit](two-phase-commit.md) — a contrasting approach to distributed consistency using coordination
+- [Redis Rate Limiter](redis-rate-limiter.md) — a much smaller-scale concurrency problem (single-node race conditions) solved with atomic server-side scripting instead of conflict-free merges
+
+## See Also
+
+- [Concurrency and Atomicity](../concepts/concurrency-and-atomicity.md) — how this compares to the 2PC and Redis Lua approaches to the same underlying problem

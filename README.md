@@ -29,7 +29,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 | 16 | Apr 20 | Open Knowledge Format | Bike Sharing Feature Pipeline (Part 2) | [Week 16](wiki/weeks/week-16-2026-04-20.md) |
 | 17 | Apr 27 | TabFM — zero-shot tabular foundation model | Signal Protocol Chat (Part 2) | [Week 17](wiki/weeks/week-17-2026-04-27.md) |
 | 18 | May 04 | Prompt engineering best practices | Embedding Vector Quantization | [Week 18](wiki/weeks/week-18-2026-05-04.md) |
-| 19 | May 11 | Agent evaluation (+ Strands evals SDK case study) | *(no build)* | [Week 19](wiki/weeks/week-19-2026-05-11.md) |
+| 19 | May 11 | Agent evaluation (+ Strands evals SDK case study) | [Redis Rate Limiter](wiki/builds/redis-rate-limiter.md) | [Week 19](wiki/weeks/week-19-2026-05-11.md) |
 | 20 | May 18 | DuckDB & vectorized/embedded OLAP databases | *(no build)* | [Week 20](wiki/weeks/week-20-2026-05-18.md) |
 | 21 | May 25 | — | — | *(not started)* |
 | 22 | Jun 01 | — | — | *(not started)* |
@@ -50,6 +50,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 ### Highlights (20 weeks in)
 
 **Best builds:**
+- [Redis Rate Limiter](wiki/builds/redis-rate-limiter.md) — three rate limiters built in sequence, each fixing a real flaw in the last: a naive `INCR`/`EXPIRE` version broken on purpose by simulating a mid-sequence crash (leaving an orphaned counter with `TTL -1` forever), fixed with an atomic Lua script via `EVAL`, then upgraded to a sliding-window log on a sorted set to eliminate fixed-window boundary bursts
 - [Embedding Vector Quantization](wiki/builds/embedding-vector-quantization.md) — int8 scalar quantization of embedding vectors, both asymmetric (min/max + zero-point shift) and symmetric (zero-centered) variants; the symmetric version lets similarity search run entirely on compressed integers via one scalar correction factor, with a worked numeric trace showing exactly where rounding loses information
 - [Signal Protocol Chat (Part 2)](wiki/builds/signal-protocol-chat-part-2.md) — Took Week 15's local crypto simulation onto two real phones over the actual internet: a Firebase-backed relay, persistent on-device sessions, and Firestore Security Rules as the real access-control boundary — not the Firebase API key, which isn't a secret
 - [Signal Protocol Chat](wiki/builds/signal-protocol-chat.md) — E2E encrypted Android chat built on Signal's real `libsignal` library, not a reimplementation; PQXDH key agreement (with post-quantum Kyber pre-keys) and the Double Ratchet, with the UI enforcing the actual initiator/responder session asymmetry
