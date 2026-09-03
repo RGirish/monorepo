@@ -44,6 +44,8 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 | 31 | Aug 03 | — | — | *(not started)* |
 | 32 | Aug 10 | — | — | *(not started)* |
 | 33 | Aug 17 | — | — | *(not started)* |
+| 34 | Aug 24 | — | — | *(not started)* |
+| 35 | Aug 31 | — | — | *(not started)* |
 
 ---
 
