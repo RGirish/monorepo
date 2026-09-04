@@ -21,57 +21,50 @@ not rigid commands.
 ### Start a week's AI learning
 Triggers: "start week N AI learning" / "new AI learning for week N" / "set up week N learning" / "start a new AI learning" / "new AI learning"
 
+No files are created for this — the human writes/talks through the AI learning directly in
+conversation, and it gets filed at ingest time.
+
 If a specific week number N is given, use it directly.
 
-If no week number is given, determine the target week from repo state first:
-1. Run the Current week status workflow to identify the in-progress week (if any) and the last completed week
-2. If a week is **in progress** (scratch files exist beyond the last ingested week): do not assume — ask the human "You have Week N in progress — should I add this AI learning to Week N, or start it as part of a new week?"
+If no week number is given, determine the target week:
+1. Run the Current week status workflow to identify the in-progress week (if any, from this
+   conversation) and the last completed week
+2. If a week is already **in progress** in this conversation (AI learning or build content for
+   it has been discussed but not yet ingested): do not assume — ask the human "You have Week N
+   in progress — should I add this AI learning to Week N, or start it as part of a new week?"
 3. If no week is in progress: target the next week after the last completed one
 
-Then:
-1. Look up the nominal start date for the target week from the Week Reference table below
-2. Create `wiki/scratch/week-NN-yyyy-mm-dd-ai-learning.md` with this header:
-   ```
-   # Week NN — AI Learning
-   Topic:
-   Started: <today's actual date>
-   Week date: <nominal Monday date>
-
-   ---
-
-   ```
-3. Tell the human the exact file path so they can open it and start writing freely
+Then look up the nominal start date for the target week from the Week Reference table below,
+confirm the week number and date with the human, and invite them to start writing/talking
+through the AI learning now.
 
 ### Start a week's build
 Triggers: "start week N build" / "new build for week N" / "set up week N build" / "start a new build" / "new build"
 
+No files are created for this — the human describes the build directly in conversation, which
+kicks off the Build Sessions workflow below.
+
 If a specific week number N is given, use it directly.
 
-If no week number is given, determine the target week from repo state first:
-1. Run the Current week status workflow to identify the in-progress week (if any) and the last completed week
-2. If a week is **in progress** (scratch files exist beyond the last ingested week): do not assume — ask the human "You have Week N in progress — should I add this build to Week N, or start it as part of a new week?"
+If no week number is given, determine the target week:
+1. Run the Current week status workflow to identify the in-progress week (if any, from this
+   conversation) and the last completed week
+2. If a week is already **in progress** in this conversation: do not assume — ask the human "You
+   have Week N in progress — should I add this build to Week N, or start it as part of a new week?"
 3. If no week is in progress: target the next week after the last completed one
 
-Then:
-1. Look up the nominal start date for the target week from the Week Reference table below
-2. Create `wiki/scratch/week-NN-yyyy-mm-dd-build.md` with this header:
-   ```
-   # Week NN — Build
-   What I'm building:
-   Started: <today's actual date>
-   Week date: <nominal Monday date>
-
-   ---
-
-   ```
-3. Tell the human the exact file path so they can open it and start writing freely
+Then look up the nominal start date for the target week from the Week Reference table below,
+confirm the week number and date with the human, and invite them to describe what they're building.
 
 ### Start both for a week
 Triggers: "start week N" / "set up week N" / "begin week N" / "start a new week" / "new week"
 
-If a specific week number N is given, use it directly. If no week number is given, apply the same repo-state logic as above (check in-progress, confirm with human if ambiguous, otherwise use next week after last completed).
+If a specific week number N is given, use it directly. If no week number is given, apply the same
+logic as above (check in-progress in this conversation, confirm with human if ambiguous, otherwise
+use next week after last completed).
 
-Run both the AI learning and build workflows above in sequence. Create both scratch files and confirm both paths.
+Confirm the week number and date, then invite the human to write/talk through both the AI learning
+and the build — no files are created.
 
 ### Current week status
 Triggers: "what week am I on" / "which week am I on" / "what week is this" / "where am I in the project"
@@ -88,9 +81,11 @@ always check its frontmatter, don't infer completeness from the page's existence
    if either is a placeholder (`tbd`, `none`, empty), that week is **incomplete** even though it was ingested
 3. Also scan all other ingested `wiki/weeks/` pages for placeholder `ai-topic:` or `build:` values — these
    are **outstanding** weeks (owed, not waived — see prior guidance on this)
-4. Check `wiki/scratch/` for any week files beyond the last ingested week — that week is **in progress**
+4. Check this conversation for any week's AI learning or build content that's been discussed but not
+   yet ingested, for a week beyond the last ingested one — that week is **in progress**. There's no
+   file-based record of this; it only exists within the current conversation.
 5. Report accordingly, combining all of the above into one nuanced answer rather than a single label:
-   - State the current/next week using the same logic as before (scratch file beyond last ingested week →
+   - State the current/next week using the same logic as before (in-progress-in-conversation →
      "in progress"; otherwise last ingested week + 1 is "next")
    - If the highest-numbered ingested week has a placeholder `ai-topic:` or `build:`, say so explicitly
      rather than calling it complete (e.g., "Week N was ingested but its build is still TBD")
@@ -146,10 +141,8 @@ When working in an existing Python build, check for a `.venv/` directory first a
 Triggers: "ingest week N" / "ingest weeks N and M" (for catch-up)
 
 1. Look up the nominal start date for week N from the Week Reference table below
-2. Read `wiki/scratch/week-NN-yyyy-mm-dd-ai-learning.md` and `wiki/scratch/week-NN-yyyy-mm-dd-build.md` if they exist and have content
-   — scratch files are optional. Never block or ask for confirmation because one is missing, empty, or only has the
-   header filled in. If the AI learning happened directly in conversation rather than in the scratch file, ingest
-   from the conversation content instead.
+2. Ingest from the AI learning and/or build content discussed directly in conversation. Never block
+   or ask for confirmation because one is missing — a missing build is pending by default (see step 5).
 3. Create `wiki/weeks/week-NN-yyyy-mm-dd.md` — overview page with frontmatter, linking to tools/ and builds/ pages
 4. Create or update the appropriate page in `wiki/tools/` for the AI topic covered
 5. If a build happened this week, create a new page in `wiki/builds/` for it — named descriptively and distinctly.
@@ -191,8 +184,6 @@ wiki/
 ├── log.md                 ← append-only history; LLM maintains
 ├── backlog.md             ← human adds ideas; LLM removes completed items on ingest
 ├── __meta__/              ← wiki system design docs; ignore during normal operations
-├── scratch/               ← human writes freely; LLM reads on ingest; never modified by LLM
-│   └── week-NN-yyyy-mm-dd-{ai-learning|build}.md
 ├── weeks/                 ← one page per unit; unit-scoped
 ├── tools/                 ← one page per AI topic/tool; subject-scoped
 ├── builds/                ← one page per thing built; subject-scoped
@@ -245,7 +236,6 @@ for permission; use judgement and file it.
 ## Naming Conventions
 
 - All directories and filenames: kebab-case
-- Scratch files: `week-NN-yyyy-mm-dd-{ai-learning|build}.md`
 - Week pages: `week-NN-yyyy-mm-dd.md` (nominal Monday date, zero-padded week number)
 - Subject pages (tools/, builds/, concepts/, synthesis/): named by subject only — no week identifier
 - If a similar subject-scoped page already exists, create a new distinctly named page — never overwrite
