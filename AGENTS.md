@@ -112,6 +112,7 @@ The goal is learning-by-doing. Follow this approach:
 3. **One stage at a time** — implement one stage, then stop. Before moving on, ask a question that makes the human think about *why* the code works the way it does, or what would happen if something changed. Wait for their response.
 4. **Build on their answer** — acknowledge what they said, fill in any gaps, then proceed to the next stage
 5. **Never skip ahead** — even if the next step is obvious, pause and check in
+6. **Always show the code inline in chat** — every time code is written or changed for a build, paste the full file contents into the response (not just "created X" or a terminal run) alongside a succinct walkthrough of what it does. The point of a build is for the human to learn, including at the code level — writing to disk and running it without showing it defeats that.
 
 The questions should probe understanding of the underlying concept, not just the code mechanics.
 Examples of good questions: "Why do you think we use the recipient's public key here rather than their private key?",
