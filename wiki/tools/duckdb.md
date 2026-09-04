@@ -109,3 +109,4 @@ This is the concrete mechanism behind AWS's "connective tissue" framing for the 
 
 - [Vector Database](../builds/vector-db.md) — a different database-systems build in this repo (in-memory flat-index similarity search rather than columnar OLAP), for contrast in what "database" means depending on the workload it's built for
 - [Feature Engineering](feature-engineering.md) — the data-transformation side of the pipeline that a fast query layer like DuckDB often feeds into
+- [Ray](ray.md) — a different distributed/parallel compute paradigm: declarative vectorized query execution over structured data (DuckDB) vs. imperative task/actor scheduling over arbitrary Python (Ray)

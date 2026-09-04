@@ -30,7 +30,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 | 17 | Apr 27 | TabFM — zero-shot tabular foundation model | Signal Protocol Chat (Part 2) | [Week 17](wiki/weeks/week-17-2026-04-27.md) |
 | 18 | May 04 | Prompt engineering best practices | Embedding Vector Quantization | [Week 18](wiki/weeks/week-18-2026-05-04.md) |
 | 19 | May 11 | Agent evaluation (+ Strands evals SDK case study) | Redis Rate Limiter | [Week 19](wiki/weeks/week-19-2026-05-11.md) |
-| 20 | May 18 | DuckDB & vectorized/embedded OLAP databases | *(no build)* | [Week 20](wiki/weeks/week-20-2026-05-18.md) |
+| 20 | May 18 | DuckDB & vectorized/embedded OLAP databases | [Ray Word-Length Pipeline](wiki/builds/ray-word-length-pipeline.md) | [Week 20](wiki/weeks/week-20-2026-05-18.md) |
 | 21 | May 25 | — | — | *(not started)* |
 | 22 | Jun 01 | — | — | *(not started)* |
 | 23 | Jun 08 | — | — | *(not started)* |
@@ -52,6 +52,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 ### Highlights (20 weeks in)
 
 **Best builds:**
+- [Ray Word-Length Pipeline](wiki/builds/ray-word-length-pipeline.md) — a distributed JSONL pipeline built to learn Ray from zero: sequential baseline vs. parallel Ray tasks (5.7x speedup, not the naive 10x — traced to the Apple M4's performance/efficiency core split), a lock-free stats-aggregating actor, and fault-injection testing showing retries fix transient failures but not deterministic bad data
 - [Redis Rate Limiter](wiki/builds/redis-rate-limiter.md) — three rate limiters built in sequence, each fixing a real flaw in the last: a naive `INCR`/`EXPIRE` version broken on purpose by simulating a mid-sequence crash (leaving an orphaned counter with `TTL -1` forever), fixed with an atomic Lua script via `EVAL`, then upgraded to a sliding-window log on a sorted set to eliminate fixed-window boundary bursts
 - [Embedding Vector Quantization](wiki/builds/embedding-vector-quantization.md) — int8 scalar quantization of embedding vectors, both asymmetric (min/max + zero-point shift) and symmetric (zero-centered) variants; the symmetric version lets similarity search run entirely on compressed integers via one scalar correction factor, with a worked numeric trace showing exactly where rounding loses information
 - [Signal Protocol Chat (Part 2)](wiki/builds/signal-protocol-chat-part-2.md) — Took Week 15's local crypto simulation onto two real phones over the actual internet: a Firebase-backed relay, persistent on-device sessions, and Firestore Security Rules as the real access-control boundary — not the Firebase API key, which isn't a secret
@@ -82,6 +83,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 - Security primitives deepening — weeks 6, 14, and 15 now cover the full stack: symmetric encryption, asymmetric encryption + signing, and continuous rekeying (PQXDH + Double Ratchet) for ongoing conversations, including forward secrecy and post-compromise security
 - Agent infrastructure maturing — week 15 context engineering completes the picture: not just how agents communicate (protocols) but how they manage their own cognitive resources
 - Knowledge representation — week 16's Open Knowledge Format is a spec-level mirror of this very wiki: markdown + YAML frontmatter as the substrate for both human and agent-readable knowledge
+- Concurrency and atomicity, four ways — [Two-Phase Commit](wiki/builds/two-phase-commit.md) (week 4), [CRDT Collaborative Editor](wiki/builds/crdt-collaborative-editor.md) (week 9), [Redis Rate Limiter](wiki/builds/redis-rate-limiter.md) (week 19), and [Ray Word-Length Pipeline](wiki/builds/ray-word-length-pipeline.md) (week 20) each solve the same underlying problem — making a multi-step operation behave as one indivisible unit under concurrency — at a different scale, from distributed consensus down to a single actor's serialized call queue; see [Concurrency and Atomicity](wiki/concepts/concurrency-and-atomicity.md)
 
 ---
 

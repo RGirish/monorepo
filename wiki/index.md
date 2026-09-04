@@ -25,7 +25,7 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 - [Week 17 — Apr 27](weeks/week-17-2026-04-27.md) — TabFM (zero-shot tabular foundation model) + Signal Protocol Chat Part 2 (real Firebase-backed networked chat)
 - [Week 18 — May 04](weeks/week-18-2026-05-04.md) — Prompt engineering best practices + Embedding Vector Quantization
 - [Week 19 — May 11](weeks/week-19-2026-05-11.md) — Agent evaluation theory + Strands Agents evals SDK case study + Redis Rate Limiter (Redis fundamentals, Lua scripting)
-- [Week 20 — May 18](weeks/week-20-2026-05-18.md) — DuckDB & vectorized/embedded OLAP databases (no build)
+- [Week 20 — May 18](weeks/week-20-2026-05-18.md) — DuckDB & vectorized/embedded OLAP databases + Ray Word-Length Pipeline (tasks, actors, scheduling, fault tolerance)
 
 ---
 
@@ -51,6 +51,7 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 - [Prompt Engineering](tools/prompt-engineering.md) — explicit instructions, few-shot examples, chain-of-thought, prefilling, and chaining; plus which advanced reasoning techniques (ToT, ReAct, self-consistency, etc.) need orchestration vs. a single prompt
 - [Agent Evaluation](tools/agent-evaluation.md) — trajectory vs. outcome scoring, LLM-as-judge design, deterministic checks, eval-set construction, production drift, and the newer categories: red-teaming, chaos testing, and simulation; with Strands Agents' evals SDK as a concrete case study
 - [DuckDB & Vectorized/Embedded OLAP Databases](tools/duckdb.md) — columnar vs. row storage, vectorized batch execution vs. Volcano/JIT alternatives, embedded/zero-copy architecture, morsel-driven parallelism, scaling limits, and fit for agentic AI workloads; prompted by AWS's 2026 DuckLabs acquisition
+- [Ray](tools/ray.md) — distributed Python computing framework: stateless tasks vs. stateful actors, decentralized/greedy scheduling, fault tolerance (system-level retries vs. application-level errors), and when to reach for Ray over Spark/Dask
 
 ---
 
@@ -76,6 +77,7 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 - [Signal Protocol Chat (Part 2)](builds/signal-protocol-chat-part-2.md) — Real 2-person Android E2E chat over the internet, adding a Firebase-backed relay, persistent on-device session storage, and Firestore Security Rules as the actual access-control boundary to the Week 15 build
 - [Embedding Vector Quantization](builds/embedding-vector-quantization.md) — Asymmetric and symmetric int8 scalar quantization for embedding vectors; symmetric variant enables similarity search directly on compressed integers via a single scalar correction
 - [Redis Rate Limiter](builds/redis-rate-limiter.md) — Fixed-window, Lua-atomic fixed-window, and sliding-window (sorted set) rate limiters in Redis; demonstrates the orphaned-counter race condition and how Lua's single-threaded atomic execution fixes it
+- [Ray Word-Length Pipeline](builds/ray-word-length-pipeline.md) — Distributed JSONL processing pipeline: sequential baseline vs. parallel Ray tasks (5.7x speedup, traced to heterogeneous P/E cores) vs. a stats-aggregating actor vs. fault-injection testing retries against deterministic bad data
 
 ---
 
@@ -87,7 +89,7 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 - [Jarvis System](concepts/jarvis-system.md) — Incremental build of a personal agent across weeks 3–5
 - [Cryptography Fundamentals](concepts/cryptography.md) — Symmetric vs. asymmetric encryption, hybrid encryption, OAEP/PSS padding, how TLS composes both, forward secrecy/post-compromise security and KEMs
 - [Tree Ensemble Mechanics](concepts/tree-ensemble-mechanics.md) — Gradient boosting internals, cross-validation, RMSLE, cyclical encoding, feature importance, interaction terms vs. axis-aligned splits, and why categorical encoding strategy is model-family-dependent
-- [Concurrency and Atomicity](concepts/concurrency-and-atomicity.md) — Two-Phase Commit, CRDTs, and Redis Lua scripting as three scales/strategies for the same problem: making multi-step operations behave as one indivisible unit, or avoiding the need for that guarantee entirely
+- [Concurrency and Atomicity](concepts/concurrency-and-atomicity.md) — Two-Phase Commit, CRDTs, Redis Lua scripting, and Ray actor serialization as four scales/strategies for the same problem: making multi-step operations behave as one indivisible unit, or avoiding the need for that guarantee entirely
 
 ---
 
@@ -102,3 +104,4 @@ Internal navigation catalog. Every wiki page listed with a relative link and one
 - [Deep Learning vs. Classical for Tabular Data](synthesis/deep-learning-vs-classical-for-tabular-data.md) — Decision guide: when classical methods (XGBoost + FE) beat deep learning on structured data, and when the gap closes
 - [Feature Engineering End-to-End Architecture](synthesis/feature-engineering-end-to-end-architecture.md) — Full fraud detection pipeline: classical FE + LLM feature extraction + offline/online stores + real-time serving
 - [Embedding Compression Techniques](synthesis/embedding-compression-techniques.md) — Deep survey of scalar quantization, PQ/OPQ, binary quantization/hashing (LSH, ITQ, RaBitQ), dimensionality reduction (PCA/autoencoders), and Matryoshka embeddings; how they compose in the truncate-quantize-rerank pattern; concrete compression-ratio/recall numbers and sources for each
+- [Ray Tasks/Actors and Ray vs. Spark](synthesis/ray-tasks-actors-and-spark-comparison.md) — Ray's task/actor primitives (incl. why the GIL doesn't apply), decentralized/greedy scheduling with an empirical heterogeneous-core straggler example, fault tolerance (retries vs. real fixes), and a decision guide for Ray vs. Spark vs. Dask
