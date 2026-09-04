@@ -30,7 +30,7 @@ Goal: One new AI topic learned and one new piece of software built, every week i
 | 17 | Apr 27 | TabFM — zero-shot tabular foundation model | Signal Protocol Chat (Part 2) | [Week 17](wiki/weeks/week-17-2026-04-27.md) |
 | 18 | May 04 | Prompt engineering best practices | Embedding Vector Quantization | [Week 18](wiki/weeks/week-18-2026-05-04.md) |
 | 19 | May 11 | Agent evaluation (+ Strands evals SDK case study) | Redis Rate Limiter | [Week 19](wiki/weeks/week-19-2026-05-11.md) |
-| 20 | May 18 | DuckDB & vectorized/embedded OLAP databases | [Ray Word-Length Pipeline](wiki/builds/ray-word-length-pipeline.md) | [Week 20](wiki/weeks/week-20-2026-05-18.md) |
+| 20 | May 18 | DuckDB & vectorized/embedded OLAP databases | Ray Word-Length Pipeline | [Week 20](wiki/weeks/week-20-2026-05-18.md) |
 | 21 | May 25 | — | — | *(not started)* |
 | 22 | Jun 01 | — | — | *(not started)* |
 | 23 | Jun 08 | — | — | *(not started)* |
